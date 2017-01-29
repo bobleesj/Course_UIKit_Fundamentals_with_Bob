@@ -63,7 +63,5 @@ When the visibility of its views changes, a view controller automatically calls 
 <img src="images/Valid_State_Transitions.png" alt="Drawing Hello, I'm Bob. Nice meeting you" style="width: 300px;"/>
 
 
-
-
 Memory Management with
 `didReceiveMemoryWarning()`
