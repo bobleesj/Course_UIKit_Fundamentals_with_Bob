@@ -1,8 +1,8 @@
 {
     "root": "./",
-    "title": "Hello",
+    "title": "UIKit Fundamentals with Bob Lecture Notes",
     "author": "Bob Lee",
-    "description": "This is my first book",
+    "description": "Intermediate Swift3 and iOS10 Cousre Notes",
     "isbn": "",
 
     "plugins": [
@@ -21,11 +21,10 @@
           ]
     },
       "image-captions": {
-            "caption": "Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_"
+            "caption": " _CAPTION_"
         }
     },
     "styles": {
       "website": "website.css"
     }
-
 }
