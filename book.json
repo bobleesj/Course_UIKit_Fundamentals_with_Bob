@@ -1,0 +1,24 @@
+{
+    "root": "./",
+    "title": "Hello",
+    "author": "Bob Lee",
+    "description": "This is my first book",
+    "isbn": "",
+
+    "plugins": [
+      "exercises",
+      "youtube",
+      "prism",
+      "-highlight",
+      "katex",
+      "new-flowchart"
+    ],
+
+    "pluginsConfig": {
+        "prism": {
+          "css": ["prismjs/themes/prism-okaidia.css"
+    ]
+  }
+}
+
+}
