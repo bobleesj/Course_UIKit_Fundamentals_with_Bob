@@ -11,14 +11,21 @@
       "prism",
       "-highlight",
       "katex",
-      "new-flowchart"
+      "new-flowchart",
+      "image-captions"
     ],
 
     "pluginsConfig": {
         "prism": {
           "css": ["prismjs/themes/prism-okaidia.css"
-    ]
-  }
-}
+          ]
+    },
+      "image-captions": {
+            "caption": "Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_"
+        }
+    },
+    "styles": {
+      "website": "website.css"
+    }
 
 }

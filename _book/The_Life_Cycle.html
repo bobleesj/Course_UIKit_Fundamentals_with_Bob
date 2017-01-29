@@ -29,6 +29,10 @@
                 
             
                 
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -42,15 +46,7 @@
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="website.css">
         
     
 
@@ -167,35 +163,42 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="the-life-cycle-of-an-ios-app">The Life Cycle of an iOS App</h1>
-<p>This is pretty dope.
-Wow, I love it. It&apos;s changing dynamically.</p>
-<p>Wow, this is real time bro? Wow, I love it. hahahah. I should have used it quite often.</p>
-<p>This is not. This is. I don&apos;t know what&apos;s happening. But this is working.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;My name is Bob&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;My name is Bobby&quot;</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">class</span> <span class="token class-name">UIViewController</span> <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p><br></p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">Foundation</span>
-
-<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">NSMutableArray</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> b<span class="token punctuation">:</span><span class="token builtin">NSArray</span> <span class="token operator">=</span> a
-
-a<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> at<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
-
-
-<span class="token comment" spellcheck="true">// I don&apos;t want to be able to mutate d</span>
-<span class="token keyword">let</span> d <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">NSArray</span> c<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> at<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span>
-d <span class="token comment" spellcheck="true">// ( 1, 2, 3 )</span>
-</code></pre>
-<p>hello, my name is Bob. Nice to meet you.</p>
-<p>Hello from name is Bob. I love me.</p>
+<h2 id="outline">Outline</h2>
+<h3 id="reference">Reference</h3>
+<p>[Apple Official Documentation]</p>
+<h2 id="the-life-cycle-of-an-app">The Life Cycle of an App</h2>
+<p>UIApplicationObject: The <code>UIApplication</code> object manages the event loop and other high-level app behaviors. It also reports key app transitions and some special events (such as incoming push notifications) to its delegate, which is a custom object you define. Use the UIApplication object as is&#x2014;that is, without subclassing.</p>
+<figure id="fig1.2.1"><img src="images/execution_States_for_Apps.png" alt="Drawing" title="Hello, friend" style="width: 300px;"><figcaption>Image 1.2.1 - Hello, friend</figcaption></figure>
+<p>hello</p>
+<p>Not running
+The app has not been launched or was running but was terminated by the system.
+Inactive
+The app is running in the foreground but is currently not receiving events. (It may be executing other code though.) An app usually stays in this state only briefly as it transitions to a different state.
+Active
+The app is running in the foreground and is receiving events. This is the normal mode for foreground apps.
+Background
+The app is in the background and executing code. Most apps enter this state briefly on their way to being suspended. However, an app that requests extra execution time may remain in this state for a period of time. In addition, an app being launched directly into the background enters this state instead of the inactive state. For information about how to execute code while in the background, see Background Execution.
+Suspended
+The app is in the background but is not executing code. The system moves apps to this state automatically and does not notify them before doing so. While suspended, an app remains in memory but does not execute any code.
+When a low-memory condition occurs, the system may purge suspended apps without notice to make more space for the foreground app.</p>
+<p>Most state transitions are accompanied by a corresponding call to the methods of your app delegate object. These methods are your chance to respond to state changes in an appropriate way. These methods are listed below, along with a summary of how you might use them.</p>
+<p>application:willFinishLaunchingWithOptions:&#x2014;This method is your app&#x2019;s first chance to execute code at launch time.
+application:didFinishLaunchingWithOptions:&#x2014;This method allows you to perform any final initialization before your app is displayed to the user.
+applicationDidBecomeActive:&#x2014;Lets your app know that it is about to become the foreground app. Use this method for any last minute preparation.
+applicationWillResignActive:&#x2014;Lets you know that your app is transitioning away from being the foreground app. Use this method to put your app into a quiescent state.
+applicationDidEnterBackground:&#x2014;Lets you know that your app is now running in the background and may be suspended at any time.
+applicationWillEnterForeground:&#x2014;Lets you know that your app is moving out of the background and back into the foreground, but that it is not yet active.
+applicationWillTerminate:&#x2014;Lets you know that your app is being terminated. This method is not called if your app is suspended.</p>
+<p>[UIViewController]</p>
+<p>UIViewController is responsible for
+View Management
+Each view controller manages a view hierarchy, the root view of which is stored in the view property of this class. The root view acts primarily as a container for the rest of the view hierarchy. The size and position of the root view is determined by the object that owns it, which is either a parent view controller or the app&#x2019;s window. The view controller that is owned by the window is the app&#x2019;s root view controller and its view is sized to fill the window.</p>
+<p>Specify the view controller and its views in your app&#x2019;s Storyboard. Storyboards are the preferred way to specify your views. With a storyboard, you specify the views and their connections to the view controller. You also specify the relationships and segues between your view controllers, which makes it easier to see and modify your app&apos;&#x20AC;&#x2122;s behavior.</p>
+<p>To load a view controller from a storyboard, call the instantiateViewController(withIdentifier:) method of the appropriate UIStoryboard object. The storyboard object creates the view controller and returns it to your code.</p>
+<p>When the visibility of its views changes, a view controller automatically calls its own methods so that subclasses can respond to the change</p>
+<figure id="fig1.2.2"><img src="images/Valid_State_Transitions.png" alt="Drawing Hello, I&apos;m Bob. Nice meeting you" style="width: 300px;"><figcaption>Image 1.2.2 - Drawing Hello, I&apos;m Bob. Nice meeting you</figcaption></figure>
+<p>Memory Management with
+<code>didReceiveMemoryWarning()</code></p>
 
                                 
                                 </section>
@@ -235,7 +238,7 @@ d <span class="token comment" spellcheck="true">// ( 1, 2, 3 )</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Life Cycle","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","livereload"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"Hello","gitbook":"*","description":"This is my first book"},"file":{"path":"The_Life_Cycle.md","mtime":"2017-01-29T12:39:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-29T13:17:10.724Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Life Cycle","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[{"backlink":"The_Life_Cycle.html#fig1.2.1","level":"1.2","list_caption":"Figure: Hello, friend","alt":"Drawing","nro":1,"url":"images/execution_States_for_Apps.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hello, friend","attributes":{},"title":"Hello, friend","skip":false,"key":"1.2.1"},{"backlink":"The_Life_Cycle.html#fig1.2.2","level":"1.2","list_caption":"Figure: Drawing Hello, I'm Bob. Nice meeting you","alt":"Drawing Hello, I'm Bob. Nice meeting you","nro":2,"url":"images/Valid_State_Transitions.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Drawing Hello, I'm Bob. Nice meeting you","attributes":{},"skip":false,"key":"1.2.2"}]},"title":"Hello","gitbook":"*","description":"This is my first book"},"file":{"path":"The_Life_Cycle.md","mtime":"2017-01-29T14:24:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-29T14:28:23.265Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
