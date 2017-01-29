@@ -1,3 +1,3 @@
 # Introduction
 
-Hello, My name is Bob. This will be used to organize lecture notes and YouTube videos will be attached. So, it is quite useful!
+This document will be used for notes and problem sets. This note will be used for you to study in-detail beyond my teaching. This documentation contains all the necessary files, code, and preparation and answer keys.
