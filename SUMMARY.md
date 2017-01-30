@@ -57,4 +57,3 @@
    * Location App to find Weather
    * Beta Testing
    * Submitting an app
-   
