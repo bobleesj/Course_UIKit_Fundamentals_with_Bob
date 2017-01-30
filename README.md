@@ -1,9 +1,9 @@
 
-![](images/Tesla_Model_S.png)
+![](images/cover/Tesla_Model_S.png)
 
-<p align="center"><a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-4099ff.svg?style=flat"></a><a href="https://github.com/bobleesj"><img src="https://img.shields.io/badge/Github-Follow-4c4c4c.svg?style=flat"></a><a><img src="https://img.shields.io/badge/Langauge-Swift_3-orange.svg?style=flat"></a><a><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+<p align="center"><a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-4099ff.svg?style=flat"></a> <a href="https://github.com/bobleesj"><img src="https://img.shields.io/badge/Github-Follow-4c4c4c.svg?style=flat"></a> <a><img src="https://img.shields.io/badge/Langauge-Swift_3-orange.svg?style=flat"></a> <a><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
 
-# Introduction
+# Intro
 Hi, I'm Bob. I'm currently creating a course on Udemy. After having relied on Evernote, I discovered I had to be more organized with images, source code, practice problems. This documentation will give you an overview of what the course will be like. There are about 200 people who are waiting for the course, so I also believe this is one way for me to show transparency and progress.
 
 ## Audience
