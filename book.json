@@ -17,8 +17,6 @@
 
     "pluginsConfig": {
         "prism": {
-          "css": ["prismjs/themes/prism-okaidia.css"
-          ]
     },
       "image-captions": {
             "caption": " _CAPTION_"

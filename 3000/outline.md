@@ -1,6 +1,3 @@
-
-# The Life Cycle of an iOS App
-
 ## Outline
 
 ### Reference
@@ -10,14 +7,13 @@
 
 UIApplicationObject: The `UIApplication` object manages the event loop and other high-level app behaviors. It also reports key app transitions and some special events (such as incoming push notifications) to its delegate, which is a custom object you define. Use the UIApplication object as is—that is, without subclassing.
 
+
 [Apple Official Documentation]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html
 
+<div align="center">
 
-
-<img src="images/execution_States_for_Apps.png" alt="Drawing" title="Hello, friend" style="width: 300px;"/>
-
-
-hello
+![Execution_States_for_Apps](Execution_States_for_Apps.png)
+</div>
 
 Not running
 The app has not been launched or was running but was terminated by the system.
@@ -59,7 +55,10 @@ To load a view controller from a storyboard, call the instantiateViewController(
 
 When the visibility of its views changes, a view controller automatically calls its own methods so that subclasses can respond to the change
 
-<img src="images/Valid_State_Transitions.png" alt="Drawing Hello, I'm Bob. Nice meeting you" style="width: 300px;"/>
+<img src="Valid_State_Transitions.png" alt="Drawing" style="width: 500px;"/>
+
+
+![Valid_State_Transitions](Valid_State_Transitions.png)
 
 
 Memory Management with

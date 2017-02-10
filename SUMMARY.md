@@ -1,4 +1,5 @@
 # Summary
+* [Course Expectation](EXPECTATION.md)
 * [Part 1: Swift 3 Intermediates](1000/1000_intro.md)
   * [Swift Fundamentals](1000/1100/1100_intro.md)
     * [Optionals](1000/1100//1101_optionals.md)
@@ -33,7 +34,7 @@
     * [Delegate](1000/1400/1404_delegate.md)
 * [Part II: UIKit Ecosystem (In-Progress)](2000/2000_intro.md)
   * Overview of Xcode
-    * [The Life Cycle](3000/the_life_cycle.md)
+    * [The Life Cycle](2000/the_life_cycle.md)
     * View Controller Structure
     * Provisioning Profile and Running Apps
     * Memory Management (ARC)
