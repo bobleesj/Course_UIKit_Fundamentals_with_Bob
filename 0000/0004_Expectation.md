@@ -1,7 +1,7 @@
 # Course Expectation
 Despite all the hype about learning how to build your first app, I'd like to give you a cold and harsh reality. Based on the Stack Overflow survey in 2016, Swift is considered as the second most loved language out of thousands. However, it doesn't mean it's going to be all those butterflies and rainbows. In fact, you will suffer.
 
-Also, I'd like to clearly inform my students that this course isn't just about making apps or portfolio. In fact, you most likely never get a job simply by taking a couple courses on Udemy or other platforms. Being an iOS developer takes of time, energy, and patience
+Also, I'd like to clearly inform my students that this course isn't just about making apps or portfolio. In fact, you most likely never get a job simply by taking a couple courses on Udemy or other platforms. Being an iOS developer takes of time, energy, and patience. I'd like you to jot down or write down some key points what it takes to become an iOS developer or build your dream app.
 
 ## Ground Rules
 1. **No excuses**. I don’t take complainers: If your English isn’t good, go learn. Go to YouTube, in fact, English is my second language too, and I don’t have a computer science degree. All I did was I went to public libraries and read books and took notes. If I'm able to learn, you are also as well.  You've got amazing resources available online. If you can afford buying either a Mac or iPhone, you have more than plenty of resources to go your own.
@@ -26,10 +26,12 @@ Never ever click those red notifications on the left side of Xcode like question
 ## Course Design
 **1. Personal Story:** Every lesson should flow like a story. I will introduce some of pain points in real-life situation and then try to solve with them using Swift.
 
-**2. Application:** In order to solve the problem, I will then provide you with examples and introduce new concepts and also apply concepts in real life situation.
+**2. Application:** In order to solve the problem, I will then provide you with examples and introduce new concepts and also apply concepts in real life situation. Lecture: Screen and My Face and. PowerPoints, visual graphics, I continue explaining the concept using the laymen's term.
 
 **3. Practice Problems:** You have to solve those problems with yourself. I will have source code available for each problem.
 
-**4. Resources:** I've attached plenty of resources for you to study by attaching numerous other articles and YouTube videos if necessary.
+**4. Resources:** I've attached plenty of resources for you to study by attaching numerous other articles and YouTube videos if necessary. Including lecture notes.
 
-**5. Independent Studies:** By now, you've learned how to catch fish. You may explore more by learning on your own. If you still confused after numerous times of googling, you may contact me for personal help. If I'm able to find your answer within the first 5 pages of Google, I will just give you the link.
+**5. Independent Studies:** By now, you've learned how to catch fish. You may explore more by learning on your own. If you still confused after numerous times of googling, you may ask the question to HipChat. If no one replies to you, try to send me an email. If I'm able to find your answer within the first 5 pages of Google, I will just give you the link.
+
+You do the work: Do the challenge problem, think about this learning can be beneficial for your future endeavor or your current life. Don't be like a code monkey who just does the same over and over. Apply. If you are confused, take a look at the resources, if you are still confused, don't ask anyone. but google. Read through the entire firs 10 pages, and if you are still stuck, and then ask on Stack Overflow or Hipchat. You will be surprised how much you learn through the research phase just beyond the things you were confused about.

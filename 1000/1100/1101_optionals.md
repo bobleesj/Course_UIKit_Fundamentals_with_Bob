@@ -99,7 +99,6 @@ The Complete Guide to Understanding Swift Optionals by Matteo Manferdini [PDF](h
 Great, you've learned two fundamental concepts in Swift. The rule number one is that every variable type has to be defined whether explicitly or implicitly. Second, if it is implicitly, the type is always inferred based on the value. Also, you've learned that Swift has implemented feature that every variable has to be define in order to prevent unexpected errors and problems while running the app. You've understood, let's take dive into our next lesson which we will use Optionals to objects and classes.
 
 
-
 #### Stay Connected
 If you have any questions, or you want to check out other materials, feel free to check out!
 <p><a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
