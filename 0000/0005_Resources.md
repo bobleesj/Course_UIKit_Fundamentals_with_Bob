@@ -1,7 +1,7 @@
 ## Resources
-To make your learning process more enjoyable with me, I provide what no other instructors have ever provided. I know this because I studied the market. I took every major online iOS course from every source including Lynda, Treehouse, Udemy, Plusralsite. You name it.
+To make your learning process more enjoyable with me, I provide what no other instructors have ever provided. I know this because I studied the market. I took every major online iOS course from every source including Lynda, Treehouse, Udemy, Plusralsite.
 
-Here are a list of resources that differentiate my course from the rest. Let's take a look.  
+Here are a list of resources that differentiate my course from the rest. 
 
 1. **HipChat**. Unlike Slack but free for unlimited users. If you don't know HipChat or Slack, it's a group message app. The name of the group is called, `iOS Geek Community`. Feel free to introduce yourself under the `welcome` section. I share articles, updates, and so on. You guys can create your own group. Make sure create a private group so that no other can see the group. We don't want to have too many. By creating a private group, you may form a study group and partners to learn together. Who knows you guys might find great partners. You can find the link right here, and download the app and join for free for unlimited users!
 
@@ -13,8 +13,4 @@ Here are a list of resources that differentiate my course from the rest. Let's t
 
 5. **Blogs**: I publish one article per week. This is where everything got started. You will find tons of great content that's not covered in this course such as tips and my biased perspectives!
 
-6. **Journey**: Last, and the least, if you are interested in my personal journey and my daily thought, feel free to read my public diary.
-
-Bob the Developer
-
-SangJoon
+6. **Journey**: Last, and the least, if you are interested in my personal journey and my daily thought, feel free to read my public [diary](https://bobthedeveloper.io/journey).

@@ -1,7 +1,7 @@
 # Swift Fundamentals
-Have you been frustrated by those red marks on the left side of your Xcode? I'm sure you have. They are annoying and you don't know how to deal with them. Well, you longer have to worry about them as much because we are going to solve most of the problems that you might face. First of all, we are going to learn the complete understanding of `optionals` and `optional chaining`. You might have used or heard about, but I'm sure we are going to really dig in.
+Have you been frustrated by those red marks on the left side of your Xcode? I'm sure you have. They are annoying and you don't know how to deal with them. Well, you longer have to worry about them as much because we are going to solve most of the problems that you might face. It's going to be one of the most comprehensive intermediate Swift tutorials. By the way, I already expect you to know what a `for-in` loop is and what it means to create an object with classes and structs.
 
-After that you are learning `learn type casting` which allows you to convert to different types of values, `guard statement` to unwrap optionals, and I mean there is a lot more. These topics are what beginners often struggle and they end up search through Google, but often they get frustrated by answers. Well, here I'm. Let's begin. ☝️
+You might have used these concepts below; however, you will find out why exactly we use these features over another in Swift. Let's find out and let's get started. 
 
 * [Optionals](1000/1100//1101_optionals.md)
 * [Optionals Chaining](1000/1100/1102_optionals_chaining.md)

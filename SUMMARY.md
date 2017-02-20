@@ -1,9 +1,8 @@
 # Summary
-  * [Marketing Video](0000/0001_Marketing_Video.md)
   * [Course Overview](0000/0002_Course_Overview.md)
-  * [Motivation to learn iOS](0000/0003_Motivation_to_Learn.md)
-  * [Course Expectations](0000/0004_Expectation.md)
+  * [Expectations](0000/0004_Expectation.md)
   * [Resources](0000/0005_Resources.md)
+
 
   * [Part I: Intermediate Swift]()
     * [Swift Fundamentals](1000/1100/1100_intro.md)
@@ -25,15 +24,11 @@
       * [Two Phase Init](1000/1200/1205_two_phase_init.md)
       * [Property Observer](1000/1200/1206_property_observer.md)
       * [Type Property and Method](1000/1200/1207_type_property_method.md)
-      * [Conclusion]()
     * [Functional Programming](1000/1300/1300_intro.md)
       * [Closures vs Functions](1000/1300/1301_closures_vs_functions.md)
       * [Closures (Part 2)](1000/1300/1302_closures_part2.md)
       * [Trailing Closures](1000/1300/1303_trailing_closures.md)
       * [Completion Handlers](1000/1300/1304_completion_handlers.md)
-      * [Filter, Reduce, and Map](1000/1300/1305_filter_reduce_map.md)
-      * [Filter, Reduce, and Map (Part 2)](1000/1300/1306_filter_reduce_map_part2.md)
-      * [@escape and @autoclosures](1000/1300/1307_@escape_@autoclosures.md)
       * [Conclusion]()
     * [Protocol Oriented Programming](1000/1400/1400_intro.md)
       * [Introduction to Protocol](1000/1400/1401_intro_to_protocol.md)

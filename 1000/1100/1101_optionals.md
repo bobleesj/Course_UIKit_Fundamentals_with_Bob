@@ -1,10 +1,9 @@
 # Optionals
 
 ## Introduction
-When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda, I bought books and whatever resources I could acquire to learn iOS programming.
+Welcome to lesson 1 of Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda, I bought books and whatever resources I could acquire to learn iOS programming by myself.
 
-Until for another month, I never really understood what those `?` and `!` used for and Xcode keeps telling me what to do. I got frustrated but it seems like no courses give us reasons how we use optionals, and why Swift engineers have implemented such feature that aren't prevalent any other programming languages. Well, you are going learn both of them today with me.
-
+Until for another month, I never really understood what those `?` and `!` stood for. Xcode kept telling me what to do on the left side, you know what I'm talking. I got frustrated. It seemed like no courses gave me clear reasons **how to use optionals, and why Swift engineers have implemented such feature** that is so unique compared to other programming languages. Well, today, you are going to learn why fundamentally we use optionals and how to use it with me, Bob the Developer.
 
 ## Lecture Notes
 
@@ -81,12 +80,16 @@ var myCoolName: String = ""
 // myCoolName = myFacebookName! // nil
 ```
 
+
 #### Implicit Unwrapping
 ```swift
 if let myFacebookName = myFacebookName {
   print("Hi, my name is \(myFacebookName)")
 }
 ```
+
+### Practice Problem
+
 
 ### Source Code
 Answer Included
@@ -96,12 +99,12 @@ The Complete Swift 3 Tutorial with Bob: Lesson12_Optionals [YouTube](https://www
 The Complete Guide to Understanding Swift Optionals by Matteo Manferdini [PDF](http://matteomanferdini.com/wp-content/uploads/2015/11/The-Complete-Guide-to-Understanding-Swift-Optionals.pdf)
 
 ## Conclusion
-Great, you've learned two fundamental concepts in Swift. The rule number one is that every variable type has to be defined whether explicitly or implicitly. Second, if it is implicitly, the type is always inferred based on the value. Also, you've learned that Swift has implemented feature that every variable has to be define in order to prevent unexpected errors and problems while running the app. You've understood, let's take dive into our next lesson which we will use Optionals to objects and classes.
+Boom! Now you finally understand the why Swift engineering have implemented optionals and how to use them. To be more specific, you've learned two fundamental concepts in optionals. The rule number one is that every variable type even if it's optionals type has to be defined whether explicitly or implicitly. Second, there are ways to unwrap optionals to normal values. Force using the ! mark and safe using if let. In our next lesson, you are learning how to apply optionals when you create an object and play around with its properties and methods. Let's go.
 
 
 #### Stay Connected
 If you have any questions, or you want to check out other materials, feel free to check out!
-<p><a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
+<p><a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-333333.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
 "><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj"><img src= "https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
 <a href="https://medium.com/@bobleesj"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"/></a>
 </p>
