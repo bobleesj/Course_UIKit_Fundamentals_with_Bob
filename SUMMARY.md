@@ -40,6 +40,7 @@
 
   * [Part II: UIKit Ecosystem (In-Progress)](2000/2000_intro.md)
     * Overview of Xcode
+      * Access Control
       * [The Life Cycle](2000/the_life_cycle.md)
       * View Controller Structure
       * Provisioning Profile and Running Apps
@@ -58,7 +59,6 @@
     * Tips for iOS Developers
       * Effective Reading of API Doc    
       * Apply Protocol to UIKit
-      * Access Control   
 
 
 * [Part III: Build Real Apps](3000/3000_intro.md)

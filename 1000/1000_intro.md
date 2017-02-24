@@ -37,7 +37,7 @@ In the second chapter, it's all about Object Oriented Programming. Often beginne
 * [Property Observer](1000/1200/1206_property_observer.md)
 * [Type Property and Method](1000/1200/1207_type_property_method.md)
 
-### Closure Programming
+### Intro to Functional Programming
 This is one of the most dreaded topic for beginner Swift developers. Many don't understand what closures are and how they are similar or different from functions. You are going to learn what Completion Handlers are and you will design your own.
 * [Closures vs Functions](1000/1300/1301_closures_vs_functions.md)
 * [Closures (Part 2)](1000/1300/1302_closures_part2.md)
@@ -55,3 +55,6 @@ Protocol Oriented Programming is the rising star in iOS development. In this cha
 
 ## Get Started
 I know you are super excited as I'm. I've deleted dozens of videos and outlines to create this course, and this course has been delayed to meet my standard. I created this course as if I were in your shoes. That being said, enough of talk, let's dive in!
+
+### Resources
+You can take a look at why I fell in love with Swift

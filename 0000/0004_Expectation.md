@@ -35,3 +35,5 @@ Never ever click those red notifications on the left side of Xcode like question
 **5. Independent Studies:** By now, you've learned how to catch fish. You may explore more by learning on your own. If you still confused after numerous times of googling, you may ask the question to HipChat. If no one replies to you, try to send me an email. If I'm able to find your answer within the first 5 pages of Google, I will just give you the link.
 
 You do the work: Do the challenge problem, think about this learning can be beneficial for your future endeavor or your current life. Don't be like a code monkey who just does the same over and over. Apply. If you are confused, take a look at the resources, if you are still confused, don't ask anyone. but google. Read through the entire firs 10 pages, and if you are still stuck, and then ask on Stack Overflow or Hipchat. You will be surprised how much you learn through the research phase just beyond the things you were confused about.
+
+Lastly, I highly recommend you read an article I wrote, "How to become an iOS Developer, Bob". If you are interested in knowing more about my perspective on becoming a better developer. 

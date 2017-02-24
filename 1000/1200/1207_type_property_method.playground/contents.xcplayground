@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='1201_Convenience_Init'/>
+        <page name='1202_Failable_Init'/>
+        <page name='1203_Computed_Property'/>
+        <page name='1204_Override_Method_Init_Property'/>
+        <page name='1205_Two_Phase_Init'/>
+        <page name='1206_Property_Observer'/>
+        <page name='1207_Type_Property_Method'/>
+    </pages>
+</playground>
