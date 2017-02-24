@@ -41,7 +41,6 @@
   * [Part II: UIKit Ecosystem (In-Progress)](2000/2000_intro.md)
     * Overview of Xcode
       * Access Control
-      * [The Life Cycle](2000/the_life_cycle.md)
       * View Controller Structure
       * Provisioning Profile and Running Apps
       * Memory Management (ARC)
