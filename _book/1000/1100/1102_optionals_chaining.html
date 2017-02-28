@@ -893,11 +893,13 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to lesson 2 of Part 1 of Swift Fundamentals with me. Just to recap, in our previous lesson, you&apos;ve learned why we optionals, and there are two ways to unwrap. But, have you ever wondered why you see those <code>?</code> and <code>!</code> automatically added when you randomly try to get properties and methods in object? If you haven&apos;t, that&apos;s okay. You will find out. The goal is to prevent you from guessing and checking. Let&apos;s find out what&apos;s really going under the hood. Let&apos;s begin!</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="example">Example</h3>
+<h3 id="problem">Problem</h3>
+<p>Why do I see &quot;?&quot; and &quot;!&quot; when accessing methods and properties?</p>
+<h3 id="optional-chaining-in-uikit">Optional Chaining in UIKit</h3>
 <pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
 <span class="token keyword">let</span> label <span class="token operator">=</span> <span class="token function">UILabel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>highlightedTextColor<span class="token operator">?</span><span class="token punctuation">.</span>cgColor
 </code></pre>
-<h3 id="create-an-object">Create an Object</h3>
+<h3 id="design-human">Design Human</h3>
 <pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
   <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
   <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -908,35 +910,46 @@
     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
-<span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Create an instance called <code>bob</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
 bob<span class="token punctuation">.</span>name
 bob<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h3 id="design-apartment">Design Apartment</h3>
+<p>Create <code>Apartment</code> class that contains a property whose type is <code>Human?</code>.</p>
 <pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Apartment</span> <span class="token punctuation">{</span>
   <span class="token keyword">var</span> human<span class="token punctuation">:</span> <span class="token builtin">Human</span><span class="token operator">?</span>
 <span class="token punctuation">}</span>
-
-<span class="token keyword">var</span> seoulApartment <span class="token operator">=</span> <span class="token function">Apartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="initialize-property">Initialize Property</h4>
+<p>Create an instance and assign the <code>human</code> property.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> seoulApartment <span class="token operator">=</span> <span class="token function">Apartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 seoulApartment<span class="token punctuation">.</span>human <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bobby&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="call-property">Call Property</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> myName <span class="token operator">=</span> seoulApartment<span class="token punctuation">.</span>human<span class="token operator">?</span><span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// Always return an optional since human is optional.</span>
 
-<span class="token keyword">var</span> myName <span class="token operator">=</span> seoulApartment<span class="token punctuation">.</span>human<span class="token operator">?</span><span class="token punctuation">.</span>name
-
+<span class="token comment" spellcheck="true">// Implicit Unwrap</span>
 <span class="token keyword">if</span> <span class="token keyword">let</span> name <span class="token operator">=</span> myName <span class="token punctuation">{</span>
   <span class="token function">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="source-code">Source Code</h3>
+<p><a href="https://www.dropbox.com/sh/175z8rul71numas/AADA3XYNrWQhYLnWWh0RHwMva?dl=0" target="_blank">1102_Optional Chaining</a></p>
 <h3 id="resources">Resources</h3>
-<p>Chapter for Object Oriented Programming</p>
+<p>If you are not familiar with Object Oriented Programming, feel free to upgrade your game and come back, although I expect you are familiar with OOP.</p>
+<p><a href="https://www.youtube.com/watch?v=orvmHi498YI" target="_blank">The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Structure</a></p>
+<p><a href="https://www.youtube.com/watch?v=YtA1b7dX_ZE" target="_blank">The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Inheritance</a></p>
+<p><a href="https://www.youtube.com/watch?v=Jejtrj9Xfpk&amp;t=403s" target="_blank">The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Initializers</a></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Now, you no longer have to guess when to use <code>?</code> and <code>!</code> mark when you are working with objects such as UIKit. Please remember that if you see any <code>?</code> then make sure you unwrap implicitly. If you have any questions, make sure check out resources and HipChat if you have any questions.</p>
 <p>In our next lesson, you are learn how to use a <code>guard</code> statement to implicitly unwrap and why you use it in the first place instead of using <code>if let</code>. Let&apos;s go!</p>
 <h4 id="stay-connected">Stay Connected</h4>
-<p>If you have any questions, don&apos;t hesitate to email me at bobleesj@gmail.com.</p>
+<p>If you&apos;d like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at <code>bobleesj@gmail.com</code></p>
 <p>
-<a href="https://bobthedeveloper.io" target="_blank"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
-<a href="https://facebook.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg" <="" a=""> <a href="https://twitter.com/bobleesj" target="_blank"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
+<a href="http://bobthedeveloper.io" target="_blank"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
+<a href="https://facebook.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg" <="" a=""> <a href="https://twitter.com/bobleesj" target="_blank"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
 " target="_blank"><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
 <a href="https://medium.com/@bobleesj" target="_blank"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"></a>
 </a></p>
@@ -983,7 +996,7 @@ seoulApartment<span class="token punctuation">.</span>human <span class="token o
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"next":{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},"previous":{"title":"Optionals","level":"2.1.1.1","depth":3,"path":"1000/1100/1101_optionals.md","ref":"1000/1100//1101_optionals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1102_optionals_chaining.md","mtime":"2017-02-27T03:14:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T01:44:26.409Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"next":{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},"previous":{"title":"Optionals","level":"2.1.1.1","depth":3,"path":"1000/1100/1101_optionals.md","ref":"1000/1100//1101_optionals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1102_optionals_chaining.md","mtime":"2017-02-28T11:11:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

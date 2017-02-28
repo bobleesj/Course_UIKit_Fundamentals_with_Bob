@@ -894,7 +894,14 @@
 <p>Welcome to lesson 1 of Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda, I bought books and whatever resources I could acquire to learn iOS programming by myself.</p>
 <p>Until for another month, I never really understood what those <code>?</code> and <code>!</code> stood for. Xcode kept telling me what to do on the left side, you know what I&apos;m talking. I got frustrated. It seemed like no courses gave me clear reasons how to use optionals, and why Swift engineers have implemented such feature that is so unique compared to other programming languages. Well, today, you are going to learn why fundamentally we use optionals and how to use it with me, <a href="../../GLOSSARY.html#bob-the-developer" class="glossary-term" title="This is my alias. Bob is such a competitive name on Google. So, I had to differentiate myself. Since I not only love programming, but also enjoy building my own brand and business. I&apos;ve decided to use this name. If you&apos;d like to know me more. You can follow my Instagram @bobthedev for my personal journey and daily activity.">Bob the Developer</a>.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="implicit-vs-explicit">Implicit vs Explicit</h3>
+<h3 id="problem">Problem</h3>
+<p>Why did Swift engineers implement optionals?</p>
+<h3 id="implicit-and-explicit-type">Implicit and Explicit Type</h3>
+<h4 id="rule">Rule</h4>
+<ol>
+<li>Every variable type must be defined (Implicit/Explicit)</li>
+<li>The Type is inferred based on the value</li>
+</ol>
 <pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// String</span>
 <span class="token keyword">let</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;Bob&quot;</span>          <span class="token comment" spellcheck="true">// Explicit</span>
 <span class="token keyword">let</span> newName <span class="token operator">=</span> <span class="token string">&quot;Bob the Developer&quot;</span> <span class="token comment" spellcheck="true">// Implicit</span>
@@ -903,18 +910,15 @@
 <span class="token keyword">let</span> myAge<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">20</span>               <span class="token comment" spellcheck="true">// Explicit</span>
 <span class="token keyword">let</span> mySisterAge <span class="token operator">=</span> <span class="token number">14</span>              <span class="token comment" spellcheck="true">// Implicit</span>
 <span class="token keyword">let</span> myGPA<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token operator">=</span> <span class="token number">3.54</span>          <span class="token comment" spellcheck="true">// Explicit</span>
-
-<span class="token comment" spellcheck="true">// Rule: Every variable with normal type must have value associated</span>
-<span class="token keyword">let</span> hi <span class="token operator">=</span> <span class="token string">&quot;123&quot;</span>
-
-<span class="token comment" spellcheck="true">// But why?</span>
 </code></pre>
 <h3 id="fetching-profile-picture">Fetching Profile Picture</h3>
+<p>When you fetch a profile picture from Facebook, it may return no value or <code>nil</code>.</p>
 <pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// If could return &quot;URL&quot; or &quot;nothing&quot;</span>
 <span class="token comment" spellcheck="true">// Successful</span>
 <span class="token keyword">let</span> myProfileImageURL<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;https//facebook.com/bobthedeveloper&quot;</span>
 </code></pre>
 <h3 id="introduction-to-optionals">Introduction to Optionals</h3>
+<p>Optional type allows storing <code>nil</code>.</p>
 <pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> myName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
 <span class="token keyword">let</span> myNewName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
 
@@ -924,58 +928,65 @@
 <span class="token keyword">let</span> bobAge<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
 <span class="token keyword">let</span> robAge<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">123</span>
 <span class="token keyword">let</span> danAge<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">3</span>
-
-
-<span class="token comment" spellcheck="true">// robAge + danAge</span>
-<span class="token comment" spellcheck="true">// Error</span>
 </code></pre>
 <h3 id="optionals-rules">Optionals Rules</h3>
 <ol>
 <li>Optionals/Normal Types do not interact with each other</li>
-<li>Must Convert Optionals to Normal Type for usage</li>
+<li>Must Convert Optionals to Normal Type for usage. The process is also known as unwrapping.</li>
 </ol>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// robAge + danAge</span>
+<span class="token comment" spellcheck="true">// Error</span>
+</code></pre>
 <h3 id="optionals-unwrapping">Optionals Unwrapping</h3>
-<p>Two ways to convert/unwrap Optionals to Normal Types</p>
+<p>There are two ways to convert/unwrap Optionals to Normal Types</p>
 <ol>
 <li>Forced unwrapping</li>
 <li>Implicit unwrapping</li>
 </ol>
 <h4 id="forced-unwrapping">Forced Unwrapping</h4>
+<p>Forced Unwrapping should be avoided since it causes a crash if an optional contains <code>nil</code>. To convert, add <code>!</code>.</p>
 <pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> profileImageFromFacebook<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token string">&quot;ImageURL...&quot;</span>
-<span class="token function">print</span><span class="token punctuation">(</span>profileImageFromFacebook<span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>profileImageFromFacebook<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Optional</span>
 
-<span class="token keyword">var</span> image<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;&quot;</span>
+<span class="token keyword">var</span> image <span class="token operator">=</span> profileImageFromFacebook<span class="token operator">!</span> <span class="token comment" spellcheck="true">// String? converted to String</span>
 
-image <span class="token operator">=</span> profileImageFromFacebook<span class="token operator">!</span> <span class="token comment" spellcheck="true">// String? --&gt; String</span>
-
-<span class="token function">print</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>profileImageFromFacebook<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Normal Type</span>
+<span class="token function">print</span><span class="token punctuation">(</span>profileImageFromFacebook<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Normal Type</span>
 </code></pre>
 <blockquote>
-<p>Forced Unwrapping is not recommended</p>
+<p>Again, forced Unwrapping is not recommended as shown below.</p>
 </blockquote>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> myFacebookName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token string">&quot;Bob Lee&quot;</span>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> newRobAge <span class="token operator">=</span> robAge<span class="token operator">!</span>
+<span class="token keyword">let</span> newDanAge <span class="token operator">=</span> danAge<span class="token operator">!</span>
 
-<span class="token keyword">var</span> myCoolName<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;&quot;</span>
-
-<span class="token comment" spellcheck="true">// myCoolName = myFacebookName! // nil</span>
+newRobAge <span class="token operator">+</span> newDanAge <span class="token comment" spellcheck="true">// Good</span>
 </code></pre>
+<p>Bad things happen when you try to force unwrap an optional type whose value contains <code>nil</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> bobAge<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
+<span class="token comment" spellcheck="true">// let newBobAge = bobAge! // Error</span>
+</code></pre>
+<blockquote>
+<p>You can&apos;t store nil to normal type in Swift. It violates the rule mentioned above.</p>
+</blockquote>
 <h4 id="implicit-unwrapping">Implicit Unwrapping</h4>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">if</span> <span class="token keyword">let</span> myFacebookName <span class="token operator">=</span> myFacebookName <span class="token punctuation">{</span>
-  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hi, my name is <span class="token interpolation"><span class="token delimiter variable">\(</span>myFacebookName<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> profileImageFromFacebook<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token string">&quot;Bob&apos;s pretty image&quot;</span>
+
+<span class="token keyword">if</span> <span class="token keyword">let</span> image <span class="token operator">=</span> profileImageFromFacebook <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="source-code">Source Code</h3>
-<p><a href="https://www.dropbox.com/sh/vcc6ydca4i7j9uk/AADTQUM6jv4iHFeQbBXRU_Pua?dl=0" target="_blank">Optionals</a></p>
+<p><a href="https://www.dropbox.com/sh/vcc6ydca4i7j9uk/AADTQUM6jv4iHFeQbBXRU_Pua?dl=0" target="_blank">1101_Optionals</a></p>
 <h3 id="resources">Resources</h3>
+<p>Feel free to check if you are confused.</p>
 <p><a href="https://www.youtube.com/watch?v=nTvngVHWe-M" target="_blank">The Complete Swift 3 Tutorial with Bob: Lesson12_Optionals</a></p>
-<p><a href="http://matteomanferdini.com/wp-content/uploads/2015/11/The-Complete-Guide-to-Understanding-Swift-Optionals.pdf" target="_blank">The Complete Guide to Understanding Swift Optionals by Matteo Manferdini</a></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Boom! Now you finally understand the why Swift engineering have implemented optionals and how to use them. To be more specific, you&apos;ve learned two fundamental concepts in optionals. The rule number one is that every variable type even if it&apos;s optionals type has to be defined whether explicitly or implicitly. Second, there are ways to unwrap optionals to normal values. Force using the ! mark and safe using if let. In our next lesson, you are learning how to apply optionals when you create an object and play around with its properties and methods. Let&apos;s go.</p>
-<h4 id="bob-the-developer">Bob the Developer</h4>
+<h4 id="stay-connected">Stay Connected</h4>
+<p>If you&apos;d like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at <code>bobleesj@gmail.com</code></p>
 <p>
-<a href="https://bobthedeveloper.io" target="_blank"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
-<a href="https://facebook.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg" <="" a=""> <a href="https://twitter.com/bobleesj" target="_blank"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
+<a href="http://bobthedeveloper.io" target="_blank"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
+<a href="https://facebook.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg" <="" a=""> <a href="https://twitter.com/bobleesj" target="_blank"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
 " target="_blank"><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
 <a href="https://medium.com/@bobleesj" target="_blank"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"></a>
 </a></p>
@@ -1022,7 +1033,7 @@ image <span class="token operator">=</span> profileImageFromFacebook<span class=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Optionals","level":"2.1.1.1","depth":3,"next":{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"path":"1000/1100/1102_optionals_chaining.md","ref":"1000/1100/1102_optionals_chaining.md","articles":[]},"previous":{"title":"Swift Fundamentals","level":"2.1.1","depth":2,"path":"1000/1100/1100_intro.md","ref":"1000/1100/1100_intro.md","articles":[{"title":"Optionals","level":"2.1.1.1","depth":3,"path":"1000/1100/1101_optionals.md","ref":"1000/1100//1101_optionals.md","articles":[]},{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"path":"1000/1100/1102_optionals_chaining.md","ref":"1000/1100/1102_optionals_chaining.md","articles":[]},{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},{"title":"Type Casting","level":"2.1.1.4","depth":3,"path":"1000/1100/1104_type_casting.md","ref":"1000/1100/1104_type_casting.md","articles":[]},{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"path":"1000/1100/1108_class_vs_struct.md","ref":"1000/1100/1108_class_vs_struct.md","articles":[]},{"title":"Typealias","level":"2.1.1.9","depth":3,"path":"1000/1100/1109_typealias.md","ref":"1000/1100/1109_typealias.md","articles":[]},{"title":"Conclusion","level":"2.1.1.10","depth":3,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1101_optionals.md","mtime":"2017-02-28T07:37:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T01:44:26.409Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Optionals","level":"2.1.1.1","depth":3,"next":{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"path":"1000/1100/1102_optionals_chaining.md","ref":"1000/1100/1102_optionals_chaining.md","articles":[]},"previous":{"title":"Swift Fundamentals","level":"2.1.1","depth":2,"path":"1000/1100/1100_intro.md","ref":"1000/1100/1100_intro.md","articles":[{"title":"Optionals","level":"2.1.1.1","depth":3,"path":"1000/1100/1101_optionals.md","ref":"1000/1100//1101_optionals.md","articles":[]},{"title":"Optionals Chaining","level":"2.1.1.2","depth":3,"path":"1000/1100/1102_optionals_chaining.md","ref":"1000/1100/1102_optionals_chaining.md","articles":[]},{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},{"title":"Type Casting","level":"2.1.1.4","depth":3,"path":"1000/1100/1104_type_casting.md","ref":"1000/1100/1104_type_casting.md","articles":[]},{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"path":"1000/1100/1108_class_vs_struct.md","ref":"1000/1100/1108_class_vs_struct.md","articles":[]},{"title":"Typealias","level":"2.1.1.9","depth":3,"path":"1000/1100/1109_typealias.md","ref":"1000/1100/1109_typealias.md","articles":[]},{"title":"Conclusion","level":"2.1.1.10","depth":3,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1101_optionals.md","mtime":"2017-02-28T11:16:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -7,7 +7,15 @@ Until for another month, I never really understood what those `?` and `!` stood 
 
 ## Lecture Notes
 
-### Implicit vs Explicit
+### Problem
+Why did Swift engineers implement optionals?
+
+### Implicit and Explicit Type
+
+#### Rule
+ 1. Every variable type must be defined (Implicit/Explicit)
+ 2. The Type is inferred based on the value
+
 ```swift
 // String
 let name: String = "Bob"          // Explicit
@@ -17,14 +25,11 @@ let newName = "Bob the Developer" // Implicit
 let myAge: Int = 20               // Explicit
 let mySisterAge = 14              // Implicit
 let myGPA: Double = 3.54          // Explicit
-
-// Rule: Every variable with normal type must have value associated
-let hi = "123"
-
-// But why?
 ```
 
 ### Fetching Profile Picture
+When you fetch a profile picture from Facebook, it may return no value or `nil`.
+
 ```swift
 // If could return "URL" or "nothing"
 // Successful
@@ -32,6 +37,8 @@ let myProfileImageURL: String = "https//facebook.com/bobthedeveloper"
 ```
 
 ### Introduction to Optionals
+Optional type allows storing `nil`.
+
 ```swift
 let myName: String? = nil
 let myNewName: String? = nil
@@ -42,67 +49,81 @@ print(myNewName)
 let bobAge: Int? = nil
 let robAge: Int? = 123
 let danAge: Int? = 3
-
-
-// robAge + danAge
-// Error
 ```
 
 ### Optionals Rules
 1. Optionals/Normal Types do not interact with each other
-2. Must Convert Optionals to Normal Type for usage
+2. Must Convert Optionals to Normal Type for usage. The process is also known as unwrapping.
+
+```swift
+// robAge + danAge
+// Error
+```
 
 ### Optionals Unwrapping
-Two ways to convert/unwrap Optionals to Normal Types
+There are two ways to convert/unwrap Optionals to Normal Types
+
 1. Forced unwrapping
 2. Implicit unwrapping
 
 #### Forced Unwrapping
+Forced Unwrapping should be avoided since it causes a crash if an optional contains `nil`. To convert, add `!`.
+
 ```swift
 let profileImageFromFacebook: String? = "ImageURL..."
-print(profileImageFromFacebook)
+print(profileImageFromFacebook) // Optional
 
-var image: String = ""
+var image = profileImageFromFacebook! // String? converted to String
 
-image = profileImageFromFacebook! // String? --> String
-
-print(image)
-print(profileImageFromFacebook!)
+print(image) // Normal Type
+print(profileImageFromFacebook!) // Normal Type
 
 ```
-> Forced Unwrapping is not recommended
+> Again, forced Unwrapping is not recommended as shown below.
 
 ```swift
-let myFacebookName: String? = "Bob Lee"
+let newRobAge = robAge!
+let newDanAge = danAge!
 
-var myCoolName: String = ""
-
-// myCoolName = myFacebookName! // nil
+newRobAge + newDanAge // Good
 ```
 
+Bad things happen when you try to force unwrap an optional type whose value contains `nil`.
+
+```swift
+let bobAge: Int? = nil
+// let newBobAge = bobAge! // Error
+```
+
+> You can't store nil to normal type in Swift. It violates the rule mentioned above.
 
 #### Implicit Unwrapping
 ```swift
-if let myFacebookName = myFacebookName {
-  print("Hi, my name is \(myFacebookName)")
+let profileImageFromFacebook: String? = "Bob's pretty image"
+
+if let image = profileImageFromFacebook {
+  print(image)
 }
 ```
 
+
 ### Source Code
-[Optionals](https://www.dropbox.com/sh/vcc6ydca4i7j9uk/AADTQUM6jv4iHFeQbBXRU_Pua?dl=0)
+[1101_Optionals](https://www.dropbox.com/sh/vcc6ydca4i7j9uk/AADTQUM6jv4iHFeQbBXRU_Pua?dl=0)
 
 ### Resources
+Feel free to check if you are confused.
+
 [The Complete Swift 3 Tutorial with Bob: Lesson12_Optionals](https://www.youtube.com/watch?v=nTvngVHWe-M)
 
-[The Complete Guide to Understanding Swift Optionals by Matteo Manferdini](http://matteomanferdini.com/wp-content/uploads/2015/11/The-Complete-Guide-to-Understanding-Swift-Optionals.pdf)
 
 ## Conclusion
 Boom! Now you finally understand the why Swift engineering have implemented optionals and how to use them. To be more specific, you've learned two fundamental concepts in optionals. The rule number one is that every variable type even if it's optionals type has to be defined whether explicitly or implicitly. Second, there are ways to unwrap optionals to normal values. Force using the ! mark and safe using if let. In our next lesson, you are learning how to apply optionals when you create an object and play around with its properties and methods. Let's go.
 
-#### Bob the Developer
+#### Stay Connected
+If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`
 <p>
-<a href="https://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
-<a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
+<a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
+<a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
 "><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj"><img src= "https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
 <a href="https://medium.com/@bobleesj"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"/></a>
 </p>

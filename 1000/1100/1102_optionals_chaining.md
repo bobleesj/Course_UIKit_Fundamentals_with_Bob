@@ -5,13 +5,17 @@ Welcome to lesson 2 of Part 1 of Swift Fundamentals with me. Just to recap, in o
 
 ## Lecture Notes
 
-### Example
+### Problem
+Why do I see "?" and "!" when accessing methods and properties?
+
+
+### Optional Chaining in UIKit
 ```swift
 import UIKit
 let label = UILabel().highlightedTextColor?.cgColor
 ```
 
-### Create an Object
+### Design Human
 ```swift
 class Human {
   var name: String
@@ -23,30 +27,46 @@ class Human {
     print("Hello")
   }
 }
+```
+Create an instance called `bob`.
 
+```swift
 let bob = Human(name: "Bob")
 bob.name
 bob.sayHello()
 ```
 
+### Design Apartment
+Create `Apartment` class that contains a property whose type is `Human?`.
 ```swift
 class Apartment {
   var human: Human?
 }
+```
 
+#### Initialize Property
+Create an instance and assign the `human` property.
+
+```swift
 var seoulApartment = Apartment()
 seoulApartment.human = Human(name: "Bobby")
+```
 
-var myName = seoulApartment.human?.name
+#### Call Property
+```swift
+var myName = seoulApartment.human?.name // Always return an optional since human is optional.
 
+// Implicit Unwrap
 if let name = myName {
   print(name)
 }
 ```
 
 ### Source Code
+[1102_Optional Chaining](https://www.dropbox.com/sh/175z8rul71numas/AADA3XYNrWQhYLnWWh0RHwMva?dl=0)
 
 ### Resources
+If you are not familiar with Object Oriented Programming, feel free to upgrade your game and come back, although I expect you are familiar with OOP.
 
 [The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Structure](https://www.youtube.com/watch?v=orvmHi498YI)
 
@@ -62,10 +82,11 @@ Now, you no longer have to guess when to use `?` and `!` mark when you are worki
 In our next lesson, you are learn how to use a `guard` statement to implicitly unwrap and why you use it in the first place instead of using `if let`. Let's go!
 
 
-#### Bob the Developer
+#### Stay Connected
+If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`
 <p>
-<a href="https://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
-<a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer
+<a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
+<a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
 "><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj"><img src= "https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
 <a href="https://medium.com/@bobleesj"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"/></a>
 </p>
