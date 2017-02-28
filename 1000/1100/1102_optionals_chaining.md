@@ -45,9 +45,15 @@ if let name = myName {
 ```
 
 ### Source Code
-### Resources
-Chapter for Object Oriented Programming
 
+### Resources
+
+[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Structure](https://www.youtube.com/watch?v=orvmHi498YI)
+
+
+[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Inheritance](https://www.youtube.com/watch?v=YtA1b7dX_ZE)
+
+[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Initializers](https://www.youtube.com/watch?v=Jejtrj9Xfpk&t=403s)
 
 
 ## Conclusion
@@ -56,8 +62,7 @@ Now, you no longer have to guess when to use `?` and `!` mark when you are worki
 In our next lesson, you are learn how to use a `guard` statement to implicitly unwrap and why you use it in the first place instead of using `if let`. Let's go!
 
 
-#### Stay Connected
-If you have any questions, don't hesitate to email me at bobleesj@gmail.com.
+#### Bob the Developer
 <p>
 <a href="https://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
 <a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bob_the_developer

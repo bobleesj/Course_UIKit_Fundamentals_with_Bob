@@ -23,9 +23,7 @@ Swift and iOS go through major updates each year. Compared to publishing a new v
 ## Vision
  I'd like to devote my career to teaching and helping the world. I'd like to provide affordable education channels for all people regardless wealth, religion, gender, sex, and race. I will continue to document my journey. Teaching iOS is one way for me to get started.
 
- Once I get enough of revenue and income through making courses and writing books, I plan to build a company in Silicon Valley and provide unmatchable online education marketplaces for people all around the world. In 2017, there are leading online teaching platforms such as `Udemy`, `Pluralsight`, `Treehouse`, and `Udacity`. I have a bigger goal such as implementing Virtual Reality/Augmented Reality to teaching and connecting the world.
-
- I imagine poor kids in Africa/Asia learning how to make robots and practical gadgets for their community through our platform. You can find about my daily journey right [here](http://www.bobthedeveloper.io/journey/).
+ Once I get enough of revenue and income through making courses and writing books, I hope to run an online company that  provides unmatchable online education marketplaces for people all around the world. In 2017, there are leading online teaching platforms such as `Udemy`, `Pluralsight`, `Treehouse`, and `Udacity`. I have a bigger goal such as implementing Virtual Reality/Augmented Reality to teaching and connecting the world.
 
 ## Contribution [![](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 

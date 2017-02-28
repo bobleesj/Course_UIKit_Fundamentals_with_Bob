@@ -3,6 +3,7 @@
 Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Intro to Functional Programming. In our previous lesson, you've learned how to create a closure. Now, you are going to create a function that both use it as a parameter, and even returns it.
 
 ### Resources
+Closure Article (Part 1, 2)
 ### Source Code
 Closure Part 1
 Closure Part 2

@@ -5,7 +5,7 @@
  4. Expectations
  5. Resources
 
-# Part 1: Swift Fundamentals
+# Part 1: Intermediate Swift Fundamentals
 > Learning how those cements, glues, woods, are made up of
 
 ## Introduction to Part 1
@@ -19,11 +19,11 @@
  - Lessons
  - Conclusion
 
-###  Chapter 3: Protocols
+###  Chapter 3: Intro to Functional Programming
  - Introduction
  - Lessons
  - Conclusion
-### Chapter 4: Functional Programming
+### Chapter 4: Intro to Protocol Oriented Programming
  - Introduction
  - Lessons
  - Conclusion t

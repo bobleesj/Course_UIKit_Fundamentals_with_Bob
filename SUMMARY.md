@@ -42,26 +42,16 @@
     * Overview of Xcode
       * Access Control
       * View Controller Structure
-      * Provisioning Profile and Running Apps
-      * Memory Management (ARC)
-      * Intro to Grand Central Dispatch
-      * Intro to Networking in iOS
-      * Learn how to use Cocopods
-      * Networking with Alamofire
-      * Pass data between ViewControllers
-      * NSNotifications
+      * The Life Cycle
+      * Pass data between ViewControllers      
+    * Xcode Autolayout
     * UIKit Components
       * UITextField and Delegate
       * UIAlertViewController and Delegate
     * UITableView
     * UICollectionView
-    * Tips for iOS Developers
-      * Effective Reading of API Doc    
-      * Apply Protocol to UIKit
-
 
 * [Part III: Build Real Apps](3000/3000_intro.md)
-  * Build NoteTaking App like Evernote
-  * Location App to find Weather
-  * Beta Testing
-  * Submitting an app
+  * Build NoteTaking App like Evernote and Camera
+  * Networking Firebase using Firebase
+  * Event Near me --> Photo from, * Google Map
