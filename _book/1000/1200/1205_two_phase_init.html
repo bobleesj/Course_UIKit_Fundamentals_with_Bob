@@ -893,7 +893,39 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 5 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson, you are going to learn how can one init method init the other. Sounds super confusing? Well, let&apos;s find out how it certainly works. In fact, it&apos;s super important. You will find out why by the end of this lesson. It could have three million dollars for NASA.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="resources">Resources</h3>
+<h3 id="problem">Problem</h3>
+<p>How can one init init the other?</p>
+<h3 id="design-struct">Design Struct</h3>
+<p>Design a struct called <code>NuclearRocket</code>. There are two init methods and two properties: <code>meters</code> and <code>liters</code>. Using the second init method, you may initialize using <code>ft</code> and <code>gallon</code>. However, the second init will call the first init method by calling <code>self.init</code>. This is analogous to <code>convenience init</code> you&apos;ve learned in <code>1201</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">NuclearRocket</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> meters<span class="token punctuation">:</span> <span class="token builtin">Double</span>
+  <span class="token keyword">var</span> liters<span class="token punctuation">:</span> <span class="token builtin">Double</span>
+
+  <span class="token comment" spellcheck="true">// Init for &#x1F1F0;&#x1F1F7;</span>
+  <span class="token keyword">init</span><span class="token punctuation">(</span>meters<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> liters<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>meters <span class="token operator">=</span> meters
+    <span class="token keyword">self</span><span class="token punctuation">.</span>liters <span class="token operator">=</span> liters
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// Init for &#x1F1FA;&#x1F1F8;</span>
+  <span class="token keyword">init</span><span class="token punctuation">(</span>ft<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> gallons<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> convertedMeters <span class="token operator">=</span> ft <span class="token operator">/</span> <span class="token number">3.28</span>
+    <span class="token keyword">let</span> convertedLiters <span class="token operator">=</span> gallons <span class="token operator">*</span> <span class="token number">3.79</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>meters<span class="token punctuation">:</span> convertedMeters<span class="token punctuation">,</span> liters<span class="token punctuation">:</span> convertedLiters<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-object">Create Object</h4>
+<p>For Korean scientist</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> rocket <span class="token operator">=</span> <span class="token function">NuclearRocket</span><span class="token punctuation">(</span>meters<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> liters<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span>
+rocket<span class="token punctuation">.</span>liters
+rocket<span class="token punctuation">.</span>meters
+</code></pre>
+<p>For American scientist</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> newRocket <span class="token operator">=</span> <span class="token function">NuclearRocket</span><span class="token punctuation">(</span>ft<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span> gallons<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span>
+newRocket<span class="token punctuation">.</span>liters
+newRocket<span class="token punctuation">.</span>meters
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/ydw8it7n6r59zuh/AAC_rhNPefMnsD1iLz96FXK7a?dl=0" target="_blank">1205_Two Phase Init</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -950,7 +982,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"next":{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},"previous":{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"path":"1000/1200/1204_override_init_method.md","ref":"1000/1200/1204_override_init_method.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1205_two_phase_init.md","mtime":"2017-02-28T11:12:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"next":{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},"previous":{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"path":"1000/1200/1204_override_init_method.md","ref":"1000/1200/1204_override_init_method.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1205_two_phase_init.md","mtime":"2017-03-01T08:42:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

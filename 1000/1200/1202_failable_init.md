@@ -4,11 +4,87 @@
 Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson you are going learn how to design an init method that, first, possibly returns no object and, second, even throw an error using error handling. I understand it sounds quite confusing to you right now. So, let's dive into it.
 
 ## Lecture Notes
+### Problem
+Can initialization fail? Okay, how?
 
+### Failable Init
+Insert `?` right after `init`. When the init method is called, you may return `nil`.  If initialization is successful, it returns an object whose type is optional.
+
+```swift
+class Product {
+  let name: String
+  init?(name: String) {
+    if name.isEmpty { return nil }
+    self.name = name
+  }
+}
+```
+#### Create Object
+```swift
+var iOSGeeKCommunity = Product(name: "iOS Geek Community") // returns Product?
+var myNewProduct = Product(name: "") // nil
+
+print(myNewProduct)
+myNewProduct?.name
+print(iOSGeeKCommunity?.name)
+```
+
+### Error Handling with Init
+> This is a review from 1105_Error Handling.
+
+#### Design Error
+```swift
+// Second Part: Throwing Error
+enum NameError: Error {
+  case noName
+}
+```
+
+#### Design Throwable Struct
+If the user enters an empty string value, it throws `NameError.noName`.
+
+```swift
+struct UdemyCourse {
+  let courseName: String
+
+  init(name: String) throws {
+    if name == "" {
+      throw NameError.noName
+    }
+    self.courseName = name
+  }
+}
+```
+
+#### Call and Handle Error
+```swift
+do {
+  let myCourse = try UdemyCourse(name: "Bob")
+  myCourse.courseName
+
+} catch NameError.noName {
+  print("Bob, please enter the name")
+}
+```
+
+#### try?
+If error is thrown, it will return `nil`. If not, it will return an optional object.
+
+```swift
+var myCourse = try? UdemyCourse(name: "Bob Lee")
+myCourse // Optional
+```
+
+#### try!
+If error is thrown, it will crash. If not, it will return a non-optional object.
+```swift
+var newCourse = try! UdemyCourse(name: "") // Crash
+```
 
 ### Resources
+This is a review for you if you are not still familiar with Error Handling.
 
-Intro to Error Handling:  https://medium.com/ios-geek-community/intro-to-error-handling-in-swift-3-edb2ce6a6668#.2uk9hyp7h
+[Intro to Error Handling (Blog)](https://medium.com/ios-geek-community/intro-to-error-handling-in-swift-3-edb2ce6a6668#.2uk9hyp7h)
 
 ### Source Code
 [1202_Failable Init](https://www.dropbox.com/sh/hf36tvvnzqbx8ke/AABB67EWiJ8GMN-BU-EHjPwXa?dl=0)

@@ -4,6 +4,41 @@
 Welcome to Lesson 3 of The UIKIt Fundamentals Part 1 Intro to Functional Programming. Today, we are going to learn how to make your closure block readable to your eyes when you try to use it as a parameter/argument. It's quite hard to describe in words. So, let's just dive into it.
 
 ## Lecture Notes
+### Problem
+A closure is too long to pass through a function
+
+### Trailing Closure
+Create a function that contains a closure block as the last parameter
+```swift
+func trailingClosure(number: Int, closure: (String) -> String) {
+}
+```
+You may insert a closure right inside.
+```swift
+trailingClosure(number: 123, closure: { word in word })
+```
+
+If the last parameter is a closure block,
+
+```swift
+trailingClosure(number: 123) { word in word }
+```
+
+Here is another example.
+```swift
+func trailingClosures(closure: (Int) -> Int) { }
+```
+
+Without trailing closure
+```swift
+trailingClosures(closure: { number in number })
+```
+
+With trailing closures
+```swift
+trailingClosures() { number in number }
+trailingClosures() { $0 }
+```
 
 ### Source Code
 ### Resources

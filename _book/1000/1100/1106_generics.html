@@ -893,9 +893,142 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome back to Lesson 6 of Part 1 Swift Fundamentals with Bob. When you think of the word, &quot;generic&quot;, what makes you think? Well, I&apos;m sure you&apos;ve thought you want to write code that can work with many other types. Haha, I know you are super confused, I will walk you through. But remember, the number goal is to write reusable code so that we do not repeat ourself.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I feel like I&apos;m repeating myself...</p>
+<h3 id="your-past">Your Past</h3>
+<p>Let us reflect on how you access value before you encounter generics</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> highSchoolGPA <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2.8</span><span class="token punctuation">,</span> <span class="token number">3.2</span><span class="token punctuation">,</span> <span class="token number">3.5</span><span class="token punctuation">,</span> <span class="token number">3.8</span><span class="token punctuation">,</span> <span class="token number">3.5</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> favoritePeople <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Elon Musk&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Steve Jobs&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Kevin O&apos;leary&quot;</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> favoriteNumbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Worst way to access elements</p>
+<pre class="language-"><code class="lang-swift">highSchoolGPA<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+highSchoolGPA<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+highSchoolGPA<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+</code></pre>
+<h4 id="loop-and-print">Loop and Print</h4>
+<p>You create a function that loops through an element.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">printDoubleElement</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Double</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token constant">GPA</span> <span class="token keyword">in</span> array <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token constant">GPA</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">printStringElement</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> person <span class="token keyword">in</span> array <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;I love <span class="token interpolation"><span class="token delimiter variable">\(</span>person<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">printNumberElement</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> number <span class="token keyword">in</span> array <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;I like <span class="token interpolation"><span class="token delimiter variable">\(</span>number<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Needlessly many functions. It goes against the DRY principle. Don&apos;t Repeat Yourself.</p>
+</blockquote>
+<h3 id="introducing-generics">Introducing Generics</h3>
+<p>You may create a function that may pass regardless of type</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> genericFunction<span class="token operator">&lt;</span>anything<span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> anything<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> genericFunctions<span class="token operator">&lt;</span><span class="token constant">WHATEVER</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token constant">WHATEVER</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You may pass any type of value. Swift sets the type of <code>value</code> as the type of the input.</p>
+<pre class="language-"><code class="lang-swift"><span class="token function">genericFunction</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// value is String</span>
+<span class="token function">genericFunction</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">// value is Bool</span>
+</code></pre>
+<h4 id="generic-loop">Generic Loop</h4>
+<p>Let us apply to a function that loops through an array.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> printElement<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> element <span class="token keyword">in</span> array <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Call the function</p>
+<pre class="language-"><code class="lang-swift"><span class="token function">printElement</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> highSchoolGPA<span class="token punctuation">)</span>
+<span class="token function">printElement</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> favoritePeople<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define.</p>
+</blockquote>
+<h4 id="non-generic-struct">Non-Generic Struct</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">Family</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> members <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">mutating</span> <span class="token keyword">func</span> <span class="token function">push</span><span class="token punctuation">(</span>member<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    members<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="non-generic-instance">Non-Generic Instance</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> myFam <span class="token operator">=</span> <span class="token function">Family</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+myFam<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>member<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+myFam<span class="token punctuation">.</span>members
+</code></pre>
+<h3 id="generic-struct">Generic Struct</h3>
+<p>You may create a generic struct.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> genericFam<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> members <span class="token operator">=</span> <span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">mutating</span> <span class="token keyword">func</span> <span class="token function">push</span><span class="token punctuation">(</span>member<span class="token punctuation">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    members<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-object-explicitly">Create Object Explicitly</h4>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// Generic whose type is String</span>
+<span class="token keyword">var</span> myGenericFamily <span class="token operator">=</span> genericFam<span class="token operator">&lt;</span><span class="token builtin">String</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+myGenericFamily<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>member<span class="token punctuation">:</span> <span class="token string">&quot;Bobby&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Generic whose type is Int</span>
+<span class="token keyword">var</span> genericFamily <span class="token operator">=</span> genericFam<span class="token operator">&lt;</span><span class="token builtin">Int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+genericFamily<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>member<span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="create-object-implicitly">Create Object Implicitly</h4>
+<p>Struct type inferred based on the property type.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> myHappyFamily <span class="token operator">=</span> <span class="token function">genericFam</span><span class="token punctuation">(</span>members<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// struct is now Int type</span>
+</code></pre>
+<h3 id="generic-extension">Generic Extension</h3>
+<p>Grab the first value</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">extension</span> genericFam <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> firstElement<span class="token punctuation">:</span> T<span class="token operator">?</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> members<span class="token punctuation">.</span><span class="token builtin">isEmpty</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token constant">nil</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> members<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> geekFamilyMember <span class="token operator">=</span> <span class="token function">genericFam</span><span class="token punctuation">(</span>members<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;Bob&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Bobby&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> firstElement <span class="token operator">=</span> geekFamilyMember<span class="token punctuation">.</span>firstElement
+</code></pre>
+<h3 id="type-constraint">Type Constraint</h3>
+<p>You may limit type you interact with</p>
+<h4 id="create-class">Create Class</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">LOL</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">BabyLol</span><span class="token punctuation">:</span> <span class="token constant">LOL</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-function-with-constraint">Create Function with Constraint</h4>
+<p>Create a function that only takes an input whose type is <code>LOL</code></p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> addClassOnly<span class="token operator">&lt;</span>T<span class="token punctuation">:</span> <span class="token constant">LOL</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// addClassOnly(array: [1, 2, 3, 5, 6, ])</span>
+<span class="token comment" spellcheck="true">// Error</span>
+
+<span class="token function">addClassOnly</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token function">addClassOnly</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">LOL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">BabyLol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Automatically Upcasted</span>
+</code></pre>
 <h3 id="resources">Resources</h3>
-<p>Article
-Extension</p>
+<p><a href="https://www.youtube.com/watch?v=4pPtLjkF0HE" target="_blank">The Complete Swift 3 Tutorial with Bob: Extension (YouTube)</a></p>
+<p><a href="https://medium.com/ios-geek-community/intro-to-generics-in-swift-with-bob-df58118a5001#.fkmmjqnwd" target="_blank">Intro to Generics in Swift with Bob (Blog)</a></p>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/yln3s9r0fpnhlhm/AAD_0kollYRBkc82qFUpe_0va?dl=0" target="_blank">1106_Generics</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -951,7 +1084,7 @@ Extension</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generics","level":"2.1.1.6","depth":3,"next":{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},"previous":{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1106_generics.md","mtime":"2017-02-28T11:12:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Generics","level":"2.1.1.6","depth":3,"next":{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},"previous":{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1106_generics.md","mtime":"2017-02-28T14:04:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -5,9 +5,178 @@ Welcome back to Lesson 6 of Part 1 Swift Fundamentals with Bob. When you think o
 
 ## Lecture Notes
 
+### Problem
+I feel like I'm repeating myself...
+
+### Your Past
+Let us reflect on how you access value before you encounter generics
+
+```swift
+let highSchoolGPA = [2.8, 3.2, 3.5, 3.8, 3.5]
+let favoritePeople = ["Elon Musk", "Steve Jobs", "Kevin O'leary"]
+let favoriteNumbers = [3, 20]
+```
+
+Worst way to access elements
+```swift
+highSchoolGPA[0]
+highSchoolGPA[1]
+highSchoolGPA[2]
+```
+
+#### Loop and Print
+You create a function that loops through an element.
+```swift
+func printDoubleElement(array: [Double]) {
+  for GPA in array {
+    print(GPA)
+  }
+}
+
+func printStringElement(array: [String]) {
+  for person in array {
+    print("I love \(person)")
+  }
+}
+
+func printNumberElement(array: [Int]) {
+  for number in array {
+    print("I like \(number)")
+  }
+}
+```
+> Needlessly many functions. It goes against the DRY principle. Don't Repeat Yourself.
+
+### Introducing Generics
+You may create a function that may pass regardless of type  
+
+```swift
+func genericFunction<anything>(value: anything) {
+  print(value)
+}
+
+func genericFunctions<WHATEVER>(value: WHATEVER) {
+  print(value)
+}
+```
+
+You may pass any type of value. Swift sets the type of `value` as the type of the input.
+
+```swift
+genericFunction(value: "Bob")  // value is String
+genericFunction(value: true)    // value is Bool
+```
+
+#### Generic Loop
+Let us apply to a function that loops through an array.
+
+```swift
+func printElement<T>(array: [T]) {
+  for element in array {
+    print(element)
+  }
+}
+```
+Call the function
+
+```swift
+printElement(array: highSchoolGPA)
+printElement(array: favoritePeople)
+```
+
+> Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define.
+
+#### Non-Generic Struct
+```swift
+struct Family {
+  var members = [String]()
+
+  mutating func push(member: String) {
+    members.append(member)
+  }
+}
+```
+
+#### Non-Generic Instance
+```swift
+var myFam = Family()
+myFam.push(member: "Bob")
+myFam.members
+```
+
+### Generic Struct
+You may create a generic struct.
+
+```swift
+struct genericFam<T> {
+  var members = [T]()
+
+  mutating func push(member: T) {
+    members.append(member)
+  }
+}
+```
+
+#### Create Object Explicitly
+```swift
+
+// Generic whose type is String
+var myGenericFamily = genericFam<String>()
+myGenericFamily.push(member: "Bobby")
+
+// Generic whose type is Int
+var genericFamily = genericFam<Int>()
+genericFamily.push(member: 123)
+```
+#### Create Object Implicitly
+Struct type inferred based on the property type.
+
+```swift
+let myHappyFamily = genericFam(members: [1, 2, 3, 4, 5])  // struct is now Int type
+```
+
+### Generic Extension
+Grab the first value
+```swift
+extension genericFam {
+  var firstElement: T? {
+    if members.isEmpty {
+      return nil
+    } else {
+      return members[0]
+    }
+  }
+}
+
+let geekFamilyMember = genericFam(members: ["Bob", "Bobby"])
+let firstElement = geekFamilyMember.firstElement
+```
+
+### Type Constraint
+You may limit type you interact with
+
+#### Create Class
+```swift
+class LOL {}
+class BabyLol: LOL {}
+```
+#### Create Function with Constraint
+Create a function that only takes an input whose type is `LOL`
+```swift
+func addClassOnly<T: LOL>(array: [T]) {}
+
+// addClassOnly(array: [1, 2, 3, 5, 6, ])
+// Error
+
+addClassOnly(array: [LOL(), LOL(), LOL()])
+addClassOnly(array: [LOL(), LOL(), LOL(), BabyLol()]) // Automatically Upcasted
+```
+
 ### Resources
-Article
-Extension
+[The Complete Swift 3 Tutorial with Bob: Extension (YouTube)](https://www.youtube.com/watch?v=4pPtLjkF0HE)
+
+[Intro to Generics in Swift with Bob (Blog)](https://medium.com/ios-geek-community/intro-to-generics-in-swift-with-bob-df58118a5001#.fkmmjqnwd)
+
 ### Source Code
 [1106_Generics](https://www.dropbox.com/sh/yln3s9r0fpnhlhm/AAD_0kollYRBkc82qFUpe_0va?dl=0)
 

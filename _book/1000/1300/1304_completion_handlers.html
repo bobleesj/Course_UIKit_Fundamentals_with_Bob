@@ -891,6 +891,59 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 4 of The UIKIt Fundamentals Part 1 Intro to Functional Programming. This is the last lesson. But, this is the important lesson we will talk about in this course. You will definitely see a lot of completion handler blocks when it comes to using APIs such as getting images from Facebook, Instagram, and so on. You will learn what completion handlers is and why we use it in the first place. Enough of said, let&apos;s get into the meat and potatoes. However, again, learning completion handlers is challenging. It took weeks for me understand. I could have done an extraordinary job in explaining, but I still expect you feel uncomfortable. Don&apos;t worry. We will dive more in Part 2 and Part 3 of this course.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I&apos;ve heard about it. I don&apos;t know how to make one</p>
+<h3 id="usage">Usage</h3>
+<ol>
+<li>Notify the user when download completed</li>
+<li>Animation</li>
+</ol>
+<h3 id="design-handler-block">Design Handler Block</h3>
+<p>If you pass <code>true</code>, it calls a print statement.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> handlerBlock<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>isSucess<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+  <span class="token keyword">if</span> isSucess <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Download has been finished&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The example below is a shorter way to write a closure block.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> handlerBlock<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> $<span class="token number">0</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Download Completed&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You may run the closure.</p>
+<pre class="language-"><code class="lang-swift"><span class="token function">handlerBlock</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &quot;Download has been completed&quot;</span>
+</code></pre>
+<h3 id="design-function">Design Function</h3>
+<p>Create a function that imitates the user downloading an image by calling a <code>for-in</code> loop. Once the download has been finished, you may pass <code>completionHandler(true)</code> which will run the print statement.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">downloadAnImage</span><span class="token punctuation">(</span>completionHandler<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">for</span> <span class="token number">_</span> <span class="token keyword">in</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token number">1000</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Downloading&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">completionHandler</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-swift"><span class="token function">downloadAnImage</span><span class="token punctuation">(</span>completionHandler<span class="token punctuation">:</span> handlerBlock<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Good</span>
+</code></pre>
+<h4 id="pass-closure-directly">Pass Closure Directly</h4>
+<pre class="language-"><code class="lang-swift"><span class="token function">downloadAnImage</span><span class="token punctuation">(</span>completionHandler<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>isSucess<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+  <span class="token keyword">if</span> isSucess <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Download has been finished&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="use-trailing-closure">Use Trailing Closure</h4>
+<pre class="language-"><code class="lang-swift">downloadAnImage <span class="token punctuation">{</span> <span class="token punctuation">(</span>isSucess<span class="token punctuation">)</span> <span class="token keyword">in</span>
+  <span class="token keyword">if</span> isSucess <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Download has been finished&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/pupb2loge227ka2/AAAA73NEu-yUWUza5QYmvZqsa?dl=0" target="_blank">1304_Completion Handlers</a></p>
 <h3 id="resources">Resources</h3>
@@ -943,7 +996,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Completion Handlers","level":"2.1.3.4","depth":3,"next":{"title":"Conclusion","level":"2.1.3.5","depth":3,"ref":"","articles":[]},"previous":{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1300/1304_completion_handlers.md","mtime":"2017-02-28T11:13:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Completion Handlers","level":"2.1.3.4","depth":3,"next":{"title":"Conclusion","level":"2.1.3.5","depth":3,"ref":"","articles":[]},"previous":{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1300/1304_completion_handlers.md","mtime":"2017-03-01T10:13:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

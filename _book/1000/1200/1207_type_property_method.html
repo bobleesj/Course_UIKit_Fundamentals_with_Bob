@@ -893,6 +893,120 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 7, the last lesson of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. Today, you are going to learn one of the most confused topics when it comes to Object Oriented Programming and type methods and properties. If you aren&apos;t with this, don&apos;t you worry my friend. You might a bit confused, but you will come out strong, confident, and pumped. You will be excited to apply what you will learn today in your code later. Enough of talking. Let&apos;s go!</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I&apos;m so confused by Static, Final, Class. What are those?</p>
+<h3 id="static-property-and-method">Static Property and Method</h3>
+<p>Anything that has <code>static</code> in front will not be overriden. In fact, <code>static</code> is the only type property and method used within <code>struct</code> since it does not provide inheritance.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">SomeStructure</span> <span class="token punctuation">{</span>
+ <span class="token keyword">static</span> <span class="token keyword">var</span> storedTypeProperty <span class="token operator">=</span> <span class="token string">&quot;Some value.&quot;</span>
+ <span class="token keyword">static</span> <span class="token keyword">var</span> computedProperty<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
+   <span class="token keyword">get</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token number">120</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">set</span> <span class="token punctuation">{</span>
+     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;You&apos;ve set to <span class="token interpolation"><span class="token delimiter variable">\(</span>newValue<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Access properties</p>
+<pre class="language-"><code class="lang-swift"><span class="token builtin">SomeStructure</span><span class="token punctuation">.</span>computedProperty <span class="token operator">=</span> <span class="token number">150</span>
+<span class="token builtin">SomeStructure</span><span class="token punctuation">.</span>computedProperty <span class="token operator">=</span> <span class="token number">24234</span>
+</code></pre>
+<h3 id="class">Class</h3>
+<p>Unlike <code>static</code>, <code>class</code> is only used within Classes. But, Classes also support <code>static</code>. It&apos;s just that it won&apos;t be overridden.</p>
+<h4 id="design-class">Design Class</h4>
+<p>Create a class called <code>GrandParent</code>. It contains one static property and one static method. It also contains a normal method and another method with <code>final</code> attached.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">GrandParent</span> <span class="token punctuation">{</span>
+ <span class="token keyword">static</span> <span class="token keyword">var</span> numberOfYearsInMarriage <span class="token operator">=</span> <span class="token number">30</span>
+ <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;We&apos;ve been married for <span class="token interpolation"><span class="token delimiter variable">\(</span>numberOfYearsInMarriage<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">func</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;What&apos;s popping?&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">final</span> <span class="token keyword">func</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;What Up?&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="design-subclass">Design Subclass</h4>
+<p>Now, create <code>Parent</code> class that inherits <code>GrandParent</code>.  You may override <code>func sayHi()</code>, but you may not override <code>final func sayHello()</code>. <code>final</code> prevents Classes from overriding. It&apos;s similar to <code>static</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Parent</span><span class="token punctuation">:</span> <span class="token builtin">GrandParent</span> <span class="token punctuation">{</span>
+ <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;I&apos;m a parent&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//  final func sayHello() {</span>
+<span class="token comment" spellcheck="true">//    print(&quot;What Up?&quot;)</span>
+<span class="token comment" spellcheck="true">//  }</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="access-type-property-and-method">Access Type Property and Method</h4>
+<p>Now, let us access <code>numberOfYearsInMarriage</code> and <code>introduction</code> whose both are <code>static</code> from the <code>GrandParent</code> class. If you use <code>static</code>, you may inherit, but you can&apos;t override.</p>
+<pre class="language-"><code class="lang-swift"><span class="token builtin">Parent</span><span class="token punctuation">.</span>numberOfYearsInMarriage <span class="token comment" spellcheck="true">// 30</span>
+<span class="token function">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// Good</span>
+<span class="token function">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Good</span>
+</code></pre>
+<h3 id="design-class">Design Class</h3>
+<p>Create a class called, <code>Human</code> that contains two type properties.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+ <span class="token keyword">static</span> <span class="token keyword">var</span> legs <span class="token operator">=</span> <span class="token number">2</span>
+
+ <span class="token comment" spellcheck="true">// class var name = &quot;Bob&quot;</span>
+ <span class="token comment" spellcheck="true">// Stored property not valid for class var</span>
+
+ <span class="token keyword">class</span> <span class="token class-name">var</span> myName<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token string">&quot;Human&quot;</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="design-subclass">Design Subclass</h3>
+<blockquote>
+<p>Again, subclasses can override class methods/properties, but cannot override static methods properties.</p>
+</blockquote>
+<p>Create a class called, <code>Bob</code> that inherits <code>Human</code>. Attempt to override <code>myName</code> class type property.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Bob</span><span class="token punctuation">:</span> <span class="token builtin">Human</span> <span class="token punctuation">{</span>
+ <span class="token keyword">override</span> <span class="token keyword">class</span> <span class="token class-name">var</span> myName<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token string">&quot;My name is Bob&quot;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="practical-usage">Practical Usage</h3>
+<p>You may store a list of items using the follow way below.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">BluetoothID</span> <span class="token punctuation">{</span>
+ <span class="token keyword">struct</span> iPhone <span class="token punctuation">{</span>
+   <span class="token keyword">static</span> <span class="token keyword">let</span> iPhone4 <span class="token operator">=</span> <span class="token string">&quot;4234-1232-1232-5465&quot;</span>
+   <span class="token keyword">static</span> <span class="token keyword">let</span> iPhone5 <span class="token operator">=</span> <span class="token string">&quot;7867-5676-4535-1235&quot;</span>
+   <span class="token keyword">static</span> <span class="token keyword">let</span> iPhone6 <span class="token operator">=</span> <span class="token string">&quot;3938-6738-1424-9876&quot;</span>
+   <span class="token keyword">static</span> <span class="token keyword">let</span> iPhone7 <span class="token operator">=</span> <span class="token string">&quot;4845-3148-1237-1296&quot;</span>
+   <span class="token keyword">static</span> <span class="token keyword">let</span> iPhone8 <span class="token operator">=</span> <span class="token string">&quot;7967-8123-7892-4563&quot;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-swift"><span class="token builtin">BluetoothID</span><span class="token punctuation">.</span>iPhone<span class="token punctuation">.</span>iPhone8
+</code></pre>
+<p>You may also use <code>enum</code>. but I prefer the method above since I do n&apos;t have to call <code>rawValue</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">enum</span> <span class="token builtin">AirDropID</span><span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+ <span class="token keyword">case</span> iPhone4 <span class="token operator">=</span> <span class="token string">&quot;4234-1232-1232-5465&quot;</span>
+ <span class="token keyword">case</span> iPhone5 <span class="token operator">=</span> <span class="token string">&quot;7867-5676-4535-1235&quot;</span>
+ <span class="token keyword">case</span> iPhone6 <span class="token operator">=</span> <span class="token string">&quot;3938-6738-1424-9876&quot;</span>
+ <span class="token keyword">case</span> iPhone7 <span class="token operator">=</span> <span class="token string">&quot;4845-3148-1237-1296&quot;</span>
+ <span class="token keyword">case</span> iPhone8 <span class="token operator">=</span> <span class="token string">&quot;7967-8123-7892-4563&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token builtin">AirDropID</span><span class="token punctuation">.</span>iPhone8<span class="token punctuation">.</span>rawValue <span class="token comment" spellcheck="true">// &quot;7967-8123-7892-4563&quot;</span>
+</code></pre>
 <h3 id="resources">Resources</h3>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/s3h4zvem064kldq/AADq_PTq0ZfDgjlQiSIT_6Pua?dl=0" target="_blank">1207_Type Property and Method</a></p>
@@ -949,7 +1063,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"next":{"title":"Functional Programming","level":"2.1.3","depth":2,"path":"1000/1300/1300_intro.md","ref":"1000/1300/1300_intro.md","articles":[{"title":"Closures vs Functions","level":"2.1.3.1","depth":3,"path":"1000/1300/1301_closures_vs_functions.md","ref":"1000/1300/1301_closures_vs_functions.md","articles":[]},{"title":"Closures (Part 2)","level":"2.1.3.2","depth":3,"path":"1000/1300/1302_closures_part2.md","ref":"1000/1300/1302_closures_part2.md","articles":[]},{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},{"title":"Completion Handlers","level":"2.1.3.4","depth":3,"path":"1000/1300/1304_completion_handlers.md","ref":"1000/1300/1304_completion_handlers.md","articles":[]},{"title":"Conclusion","level":"2.1.3.5","depth":3,"ref":"","articles":[]}]},"previous":{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1207_type_property_method.md","mtime":"2017-02-28T11:12:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"next":{"title":"Functional Programming","level":"2.1.3","depth":2,"path":"1000/1300/1300_intro.md","ref":"1000/1300/1300_intro.md","articles":[{"title":"Closures vs Functions","level":"2.1.3.1","depth":3,"path":"1000/1300/1301_closures_vs_functions.md","ref":"1000/1300/1301_closures_vs_functions.md","articles":[]},{"title":"Closures (Part 2)","level":"2.1.3.2","depth":3,"path":"1000/1300/1302_closures_part2.md","ref":"1000/1300/1302_closures_part2.md","articles":[]},{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},{"title":"Completion Handlers","level":"2.1.3.4","depth":3,"path":"1000/1300/1304_completion_handlers.md","ref":"1000/1300/1304_completion_handlers.md","articles":[]},{"title":"Conclusion","level":"2.1.3.5","depth":3,"ref":"","articles":[]}]},"previous":{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1207_type_property_method.md","mtime":"2017-03-01T09:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

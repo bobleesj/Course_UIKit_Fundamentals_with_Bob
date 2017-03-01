@@ -892,12 +892,62 @@
                                 <h1 id="closures-vs-functions-part-2">Closures vs Functions (Part 2)</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Intro to Functional Programming. In our previous lesson, you&apos;ve learned how to create a closure. Now, you are going to create a function that both use it as a parameter, and even returns it.</p>
+<h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>Can you pass/return a function/functions to a function?</p>
+<h3 id="review">Review</h3>
+<p>Add two numbers using a closure</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> addWithClosures<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>number1<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> number2<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+  <span class="token keyword">return</span> number1 <span class="token operator">+</span> number2
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Return a string value</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> returnString<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+  <span class="token string">&quot;hello&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> returnedValue <span class="token operator">=</span> <span class="token function">returnString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &quot;hello&quot;</span>
+</code></pre>
+<h3 id="first-class-citizen">First Class Citizen</h3>
+<ol>
+<li>Pass</li>
+<li>Return</li>
+<li>Store</li>
+</ol>
+<h3 id="pass-closure">Pass Closure</h3>
+<p>You may pass a closure to a function. Create a function that takes a closure whose type is <code>() -<span class="token entity" title="&gt;">&amp;gt;</span> String</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">insertClosure</span><span class="token punctuation">(</span>closure<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">insertClosure</span><span class="token punctuation">(</span>closure<span class="token punctuation">:</span> returnString<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p><strong>Disclosure</strong>: Function is called Global Closure</p>
+</blockquote>
+<h3 id="return-closure">Return Closure</h3>
+<p>Now only you may pass a closure to a function block, you may return a closure.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">returnClosure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token punctuation">(</span>number1<span class="token punctuation">,</span> number2<span class="token punctuation">)</span> <span class="token keyword">in</span> number1 <span class="token operator">+</span> number2 <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> returnedClosure <span class="token operator">=</span> <span class="token function">returnClosure</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">returnedClosure</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="token function">returnClosure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="return-short-closures">Return Short Closures</h4>
+<p>You might get confused by this. Again, a closure begins with <code>{</code> and ends with <code>}</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">returnShortClosure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> $<span class="token number">0</span> <span class="token operator">*</span> $<span class="token number">1</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">returnShortClosure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 100</span>
+</code></pre>
 <h3 id="resources">Resources</h3>
-<p>Closure Article (Part 1, 2)</p>
+<p>If you are not familiar with closures, it takes a while for you to get used to it. I highly recommend you to read my article on No Fear Closures with Bob <a href="https://medium.com/ios-geek-community/no-fear-closure-in-swift-3-with-bob-72a10577c564#.m832h4jppz" target="_blank">Part 1</a> and <a href="https://medium.com/ios-geek-community/no-fear-closure-in-swift-3-with-bob-72a10577c564#.m832h4jpp" target="_blank">Part 2</a>.</p>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/95xt4fmepicptte/AABvcKLuJ3oBMUSo_xtHYeLEa?dl=0" target="_blank">1302_Closures vs Functions (Part 2)</a></p>
-<p>Closure Part 1
-Closure Part 2</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>If you were to take away one thing, please remember this. You can pass closure to an argument label and even return closure. This is the basis of functional programming, which I&apos;m not going to dive into. If you want to register for the course, feel free to send me an email, <code>bobleesj@gmail.com</code> to receive personal updates from me, and receive special offers on books, courses, and so on. My next course will be about MVVM, Protocol Oriented Programming, Functional Programming, and RxSwift. If you really want to improve your coding skill, I highly recommend it for you. You will be surprised how much you will learn more me. Keep developing your skill. If you are confused, make sure check out the resources, and keep googling and searching. Feel free to ask questions as well. s</p>
 <h4 id="stay-connected">Stay Connected</h4>
@@ -951,7 +1001,7 @@ Closure Part 2</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Closures (Part 2)","level":"2.1.3.2","depth":3,"next":{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},"previous":{"title":"Closures vs Functions","level":"2.1.3.1","depth":3,"path":"1000/1300/1301_closures_vs_functions.md","ref":"1000/1300/1301_closures_vs_functions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1300/1302_closures_part2.md","mtime":"2017-02-28T11:13:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Closures (Part 2)","level":"2.1.3.2","depth":3,"next":{"title":"Trailing Closures","level":"2.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},"previous":{"title":"Closures vs Functions","level":"2.1.3.1","depth":3,"path":"1000/1300/1301_closures_vs_functions.md","ref":"1000/1300/1301_closures_vs_functions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1300/1302_closures_part2.md","mtime":"2017-03-01T09:48:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

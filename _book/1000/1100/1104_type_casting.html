@@ -893,11 +893,100 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome back to lesson 4 of Part 1 Swift Fundamentals with Bob. I think you might be a little tired of seeing these <code>!</code> and <code>?</code> since Lesson 1. However, this is the most confusing concept in Swift, so we had to go over. I just wanted to be on the same as you guys are. In this lesson, you are going to learn how to convert types in objects that are created classes. I don&apos;t think I need to talk to much. I will show the example right away. Let&apos;s dive into.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>How do you distinguish between as, as?, as! ?</p>
+<p>Why does Xcode keep telling me what to do?</p>
+<h3 id="type-casting-from-uikit">Type Casting from UIKit</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+<span class="token keyword">let</span> label <span class="token operator">=</span> <span class="token function">UILabel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">UIView</span>
+</code></pre>
+<h3 id="human-class">Human Class</h3>
+<p>Design a class called, <code>Human</code> that contains a single method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hi, I&apos;m a human&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="human-subclass">Human Subclass</h3>
+<p>Design <code>Korean</code> and <code>Japanese</code> that inherit from the <code>Human</code> class.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Korean</span><span class="token punctuation">:</span> <span class="token builtin">Human</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">singGangNamStyle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Oppa Gangnam Style&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Japanese</span><span class="token punctuation">:</span> <span class="token builtin">Human</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">doNinja</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Shhh.....&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="check">Check</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">Korean</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span><span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">.</span><span class="token function">singGangNamStyle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="type-casting">Type Casting</h3>
+<p>There are two ways: upcasting and downcasting.</p>
+<h4 id="upcasting">Upcasting</h4>
+<p>Upcasting is all about going to its base/super class. Imagine the UIKIt class structure. If you may upcast <code>UILable</code> to <code>UIView</code>. To upcast, use <code>as</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> newBob <span class="token operator">=</span> bob <span class="token keyword">as</span> <span class="token builtin">Human</span>  <span class="token comment" spellcheck="true">// Korean -&gt; Human</span>
+newBob<span class="token punctuation">.</span><span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+newBob<span class="token punctuation">.</span><span class="token function">singGangNamStyle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Does not exist</span>
+</code></pre>
+<h4 id="upcasting-example-in-swift">Upcasting Example in Swift</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">&quot;Bob&quot;</span> <span class="token keyword">as</span> <span class="token builtin">Any</span>
+<span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">20</span> <span class="token keyword">as</span> <span class="token builtin">Any</span>
+<span class="token keyword">var</span> anyArray <span class="token operator">=</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> number<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// [Any]</span>
+</code></pre>
+<h4 id="downcasting">Downcasting</h4>
+<p>Downcasting the opposite of upcasting. Downcasting may fail. As a result, you may as force downcasting or implicit downcasting.</p>
+<h4 id="force-downcasting-">Force Downcasting (!)</h4>
+<p>It does not return an optional type but it fails, crashes.</p>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// Force Downcasting</span>
+<span class="token keyword">let</span> newValue <span class="token operator">=</span> anyArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">String</span>
+</code></pre>
+<blockquote>
+<p>Downcasting only applies when you upcast first.</p>
+</blockquote>
+<h4 id="safe-downcasting-">Safe Downcasting (?)</h4>
+<p>It returns an optional type. If downcasting fails, returns <code>nil</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// Implicit Downcasting (safety)</span>
+<span class="token keyword">let</span> newNewValue <span class="token operator">=</span> anyArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span>
+</code></pre>
+<h3 id="type-casting-in-practice">Type Casting in Practice</h3>
+<h4 id="create-instances">Create Instances</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> shion <span class="token operator">=</span> <span class="token function">Japanese</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> lee <span class="token operator">=</span> <span class="token function">Korean</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> kenji <span class="token operator">=</span> <span class="token function">Japanese</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> park <span class="token operator">=</span> <span class="token function">Korean</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="group">Group</h4>
+<p>Explicit upcasting</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> humans<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Human</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>shion <span class="token keyword">as</span> <span class="token builtin">Human</span><span class="token punctuation">,</span> lee <span class="token keyword">as</span> <span class="token builtin">Human</span><span class="token punctuation">,</span> kenji <span class="token keyword">as</span> <span class="token builtin">Human</span><span class="token punctuation">,</span> park <span class="token keyword">as</span> <span class="token builtin">Human</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Automatic upcasting inferred</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> humans<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Human</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>shion<span class="token punctuation">,</span> lee<span class="token punctuation">,</span> kenji<span class="token punctuation">,</span> park<span class="token punctuation">]</span>
+</code></pre>
+<h4 id="call-method-in-element">Call Method in Element</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">for</span> human <span class="token keyword">in</span> humans <span class="token punctuation">{</span>
+
+  <span class="token keyword">if</span> <span class="token keyword">let</span> korean <span class="token operator">=</span> human <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Korean</span> <span class="token punctuation">{</span>
+    korean<span class="token punctuation">.</span><span class="token function">singGangNamStyle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token keyword">let</span> japanese <span class="token operator">=</span> human <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Japanese</span> <span class="token punctuation">{</span>
+    japanese<span class="token punctuation">.</span><span class="token function">doNinja</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/hxtqsqm8giidire/AACw-_bIamHcQMhMNMaqSIH8a?dl=" target="_blank">1104_Type Casting</a></p>
 <h3 id="resources">Resources</h3>
-<p>If you are still confused with type casting, feel free to watch my YouTube video.</p>
-<p><a href="https://www.youtube.com/watch?v=A2M5sIXFNbg&amp;t=12s" target="_blank">The Complete Swift 3 Tutorials with Bob: Type Casting</a></p>
+<p>If you are still confused with type casting, feel free to watch my YouTube video I posted earlier.</p>
+<p><a href="https://www.youtube.com/watch?v=A2M5sIXFNbg&amp;t=12s" target="_blank">The Complete Swift 3 Tutorials with Bob: Type Casting (YouTube)</a></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Great job, if you&apos;ve understood what type casting is finally. It is somewhat similar to optionals right? You&apos;ve learn two ways convert types. One is upcasting, <code>as</code>, which always works because you are going up to super class and you getting rid of properties and methods. The other way downcasting which is become more specific, but as you&apos;ve seen it may work and may not work. Therefore you use either <code>as?</code>to safely convert or <code>as!</code> to force convert. You are going to find out how type casting is such a beautiful thing when it comes to grouping objets. You will find out in Part 2 of this course. I know you are excited, just bear with me for a second. In our next lesson, we are going to deal with another <code>?</code> and <code>!</code>. It&apos;s going to be the last one, and you will no longer fear those red signs on the left.</p>
 <h4 id="stay-connected">Stay Connected</h4>
@@ -951,7 +1040,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Type Casting","level":"2.1.1.4","depth":3,"next":{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},"previous":{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1104_type_casting.md","mtime":"2017-02-28T11:11:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Type Casting","level":"2.1.1.4","depth":3,"next":{"title":"Error Handling","level":"2.1.1.5","depth":3,"path":"1000/1100/1105_error_handling.md","ref":"1000/1100/1105_error_handling.md","articles":[]},"previous":{"title":"Guard Statements","level":"2.1.1.3","depth":3,"path":"1000/1100/1103_guard_statements.md","ref":"1000/1100/1103_guard_statements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1104_type_casting.md","mtime":"2017-02-28T13:35:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

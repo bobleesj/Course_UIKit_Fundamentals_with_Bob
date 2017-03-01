@@ -4,9 +4,46 @@
 Welcome to Lesson 5 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson, you are going to learn how can one init method init the other. Sounds super confusing? Well, let's find out how it certainly works. In fact, it's super important. You will find out why by the end of this lesson. It could have three million dollars for NASA.
 
 ## Lecture Notes
+### Problem
+How can one init init the other?
 
+### Design Struct
+Design a struct called `NuclearRocket`. There are two init methods and two properties: `meters` and `liters`. Using the second init method, you may initialize using `ft` and `gallon`. However, the second init will call the first init method by calling `self.init`. This is analogous to `convenience init` you've learned in `1201`.
 
-### Resources
+```swift
+struct NuclearRocket {
+  var meters: Double
+  var liters: Double
+
+  // Init for 🇰🇷
+  init(meters: Double, liters: Double) {
+    self.meters = meters
+    self.liters = liters
+  }
+
+  // Init for 🇺🇸
+  init(ft: Double, gallons: Double) {
+    let convertedMeters = ft / 3.28
+    let convertedLiters = gallons * 3.79
+    self.init(meters: convertedMeters, liters: convertedLiters)
+  }
+}
+```
+
+#### Create Object
+For Korean scientist
+```swift
+var rocket = NuclearRocket(meters: 20, liters: 20)
+rocket.liters
+rocket.meters
+```
+
+For American scientist
+```swift
+var newRocket = NuclearRocket(ft: 300, gallons: 2)
+newRocket.liters
+newRocket.meters
+```
 ### Source Code
 [1205_Two Phase Init](https://www.dropbox.com/sh/ydw8it7n6r59zuh/AAC_rhNPefMnsD1iLz96FXK7a?dl=0)
 

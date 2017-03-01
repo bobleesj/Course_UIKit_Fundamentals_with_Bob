@@ -10,6 +10,74 @@ When you subclass, you have to inherit properties and methods which you may not 
 When you make a lot of super classes, it becomes extremely hard to navigate between each class and fix bugs/edit.
 Since objects are referencing to the same place in memory, if you make a copy and create a small change its property, it can f up the rest. (Mutability due to reference)
 
+### Problem
+Problem: I don't know Protocol
+
+> Protocol is like a basketball coach. He/she tells players what to do, but he/she doesn't know how to dunk.
+
+### Protocol
+Create a protocol called, `Rookieable`. It contains two properties and one method. Do not worry about `get` and `set` for now.
+
+```swift
+protocol Rookieable {
+  var numberOfEXP: String { get set }
+  var name: String { get }
+
+  func introduce()
+}
+```
+
+Create a class that conforms to `Rookieable` just like how you would subclass. To prevent Swift from screaming, you must implement two properties and one method defined in the protocol.
+
+```swift
+class Bob: Rookieable {
+  // Stored property has no effect on get or set
+  var numberOfEXP: String = "13"
+  var name: String = "Bob"
+
+  func introduce() {
+    print("Hi, I'm \(name) and I have \(numberOfEXP) years of experience")
+  }
+
+}
+```
+
+Create an object and call the `introduce` method.
+```swift
+Bob().introduce()
+```
+
+> { get } or { get set} only apply to computed property. If you are defining a stored property, you may choose either { get } or { get set }.
+
+
+### Computed Property
+Create a protocol called, `Breathable`. It contains two properties: `isBreathing` and `isLiving`.
+
+```swift
+protocol Breathable {
+  var isBreating: Bool { get set }
+  var isLiving: Bool { get }
+}
+```
+
+Create a struct that conforms to `Breathable`. The struct contains properties: `isBreathing` and `isLiving`. Define them as computed properties rather than stored.
+
+```swift
+struct Human: Breathable {
+  var isBreating: Bool {
+    get { return true }
+    set { } // If no set, error occurs. isBreathing is { get set }
+  }
+
+  var isLiving: Bool {
+    get { return true }
+    set { }
+  }
+
+}
+```
+
+> **Rule:** If you are using a computer property, if it is { get } you may make a property gettable or settable. If it is defined as { get set } within a protocol, you must make it gettable and settable.
 
 ### Resources
 ### Source Code

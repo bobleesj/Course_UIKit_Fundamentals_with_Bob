@@ -68,12 +68,11 @@ if let name = myName {
 ### Resources
 If you are not familiar with Object Oriented Programming, feel free to upgrade your game and come back, although I expect you are familiar with OOP.
 
-[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Structure](https://www.youtube.com/watch?v=orvmHi498YI)
+[The Complete Swift 3 Tutorial with Bob: Structure (YouTube)](https://www.youtube.com/watch?v=orvmHi498YI)
 
+[The Complete Swift 3 Tutorial with Bob:  Inheritance (YouTube)](https://www.youtube.com/watch?v=YtA1b7dX_ZE)
 
-[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Inheritance](https://www.youtube.com/watch?v=YtA1b7dX_ZE)
-
-[The Complete Swift 3 Tutorial with Bob: Object Oriented Programming: Initializers](https://www.youtube.com/watch?v=Jejtrj9Xfpk&t=403s)
+[The Complete Swift 3 Tutorial with Bob: Initializers ( YouTube)](https://www.youtube.com/watch?v=Jejtrj9Xfpk&t=403s)
 
 
 ## Conclusion

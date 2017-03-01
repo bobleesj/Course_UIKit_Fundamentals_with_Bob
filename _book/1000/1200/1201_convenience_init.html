@@ -894,7 +894,70 @@
 <p>Welcome to the first lesson of The UIKit Fundamentals Part 1 Chapter 2 Advanced Object Oriented Programming.</p>
 <p>In this lesson, you will learn. How to become lazy, or in other words, become smart when it comes to initializing an object. In programming, getting lazy to write less code is in fact good for your teammates and users as long as it&apos;s readable. Bill Gates once said, Whenever there is hard work to be done, I assign it to the laziest man as he is sure to find an easy way of doing it. Be Lazy. Think Crazy!&quot; Let&apos;s get started.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="resources">Resources</h3>
+<h3 id="problem">Problem</h3>
+<p>I&apos;m lazy. Can we initialize quickly?</p>
+<h3 id="create-class-with-designated-init">Create Class with Designated Init</h3>
+<p>Create a class called <code>Human</code></p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+ <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">self</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> newName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   name <span class="token operator">=</span> newName
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="convenience-init">Convenience Init</h3>
+<p>Convenience init initializes the designated init method by calling <code>self.init</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+
+  <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> newName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    name <span class="token operator">=</span> newName
+  <span class="token punctuation">}</span>
+
+ <span class="token keyword">convenience</span> <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">convenience</span> <span class="token keyword">init</span><span class="token punctuation">(</span>enterNumber<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token function">String</span><span class="token punctuation">(</span>enterNumber<span class="token punctuation">)</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="create-objects">Create Objects</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> ben <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span><span class="token string">&quot;Hi&quot;</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// init(_ newName: String)</span>
+<span class="token keyword">let</span> leob <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// convenience init()</span>
+<span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// init(name: String)</span>
+
+<span class="token keyword">let</span> rob <span class="token operator">=</span> <span class="token function">Human</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// Convenience Init()</span>
+rob<span class="token punctuation">.</span>name  <span class="token comment" spellcheck="true">// &quot;Bob&quot;</span>
+</code></pre>
+<h3 id="initialize-uicolor">Initialize UIColor</h3>
+<p>Create an instance that stores <code>UIColor</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+
+<span class="token keyword">let</span> randomColor <span class="token operator">=</span> <span class="token function">UIColor</span><span class="token punctuation">(</span>colorLiteralRed<span class="token punctuation">:</span> <span class="token number">255</span><span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> green<span class="token punctuation">:</span> <span class="token number">80</span><span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> blue<span class="token punctuation">:</span> <span class="token number">85</span><span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> alpha<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="custom-convenience-init">Custom Convenience Init</h4>
+<p>Create our own convenience init that initializes the designated init by adding <code>extension</code> to <code>UIColor</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">extension</span> <span class="token builtin">UIColor</span> <span class="token punctuation">{</span>
+ <span class="token keyword">convenience</span> <span class="token keyword">init</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token builtin">Float</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token builtin">Float</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token builtin">Float</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>colorLiteralRed<span class="token punctuation">:</span> r<span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> green<span class="token punctuation">:</span> g<span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> blue<span class="token punctuation">:</span> b<span class="token operator">/</span><span class="token number">255</span><span class="token punctuation">,</span> alpha<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> randomColorWtihMe <span class="token operator">=</span> <span class="token function">UIColor</span><span class="token punctuation">(</span>r<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> g<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/irzwlfsvq551s9o/AAB0Taf5E7IFXPj-yzHuCSYoa?dl=0" target="_blank">1201_Convenience Init</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -950,7 +1013,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Convenience Init","level":"2.1.2.1","depth":3,"next":{"title":"Failable Init","level":"2.1.2.2","depth":3,"path":"1000/1200/1202_failable_init.md","ref":"1000/1200/1202_failable_init.md","articles":[]},"previous":{"title":"Advanced OOP","level":"2.1.2","depth":2,"path":"1000/1200/1200_intro.md","ref":"1000/1200/1200_intro.md","articles":[{"title":"Convenience Init","level":"2.1.2.1","depth":3,"path":"1000/1200/1201_convenience_init.md","ref":"1000/1200/1201_convenience_init.md","articles":[]},{"title":"Failable Init","level":"2.1.2.2","depth":3,"path":"1000/1200/1202_failable_init.md","ref":"1000/1200/1202_failable_init.md","articles":[]},{"title":"Computed Property","level":"2.1.2.3","depth":3,"path":"1000/1200/1203_computed_property.md","ref":"1000/1200/1203_computed_property.md","articles":[]},{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"path":"1000/1200/1204_override_init_method.md","ref":"1000/1200/1204_override_init_method.md","articles":[]},{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"path":"1000/1200/1207_type_property_method.md","ref":"1000/1200/1207_type_property_method.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1201_convenience_init.md","mtime":"2017-02-28T11:12:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Convenience Init","level":"2.1.2.1","depth":3,"next":{"title":"Failable Init","level":"2.1.2.2","depth":3,"path":"1000/1200/1202_failable_init.md","ref":"1000/1200/1202_failable_init.md","articles":[]},"previous":{"title":"Advanced OOP","level":"2.1.2","depth":2,"path":"1000/1200/1200_intro.md","ref":"1000/1200/1200_intro.md","articles":[{"title":"Convenience Init","level":"2.1.2.1","depth":3,"path":"1000/1200/1201_convenience_init.md","ref":"1000/1200/1201_convenience_init.md","articles":[]},{"title":"Failable Init","level":"2.1.2.2","depth":3,"path":"1000/1200/1202_failable_init.md","ref":"1000/1200/1202_failable_init.md","articles":[]},{"title":"Computed Property","level":"2.1.2.3","depth":3,"path":"1000/1200/1203_computed_property.md","ref":"1000/1200/1203_computed_property.md","articles":[]},{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"path":"1000/1200/1204_override_init_method.md","ref":"1000/1200/1204_override_init_method.md","articles":[]},{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},{"title":"Property Observer","level":"2.1.2.6","depth":3,"path":"1000/1200/1206_property_observer.md","ref":"1000/1200/1206_property_observer.md","articles":[]},{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"path":"1000/1200/1207_type_property_method.md","ref":"1000/1200/1207_type_property_method.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1201_convenience_init.md","mtime":"2017-03-01T04:48:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

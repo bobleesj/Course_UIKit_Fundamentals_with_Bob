@@ -892,14 +892,122 @@
                                 <h1 id="error-handling">Error Handling</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 5 of Part 1: Swift Intermediates with Bob. In this lesson, you are going to learn how to write modular and more explicit code to indicate a possible error message instead of using a bloated, thick <code>else-if</code> statement. If you are confused, that&apos;s alright. I will walk you through, and let&apos;s find out!</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>In this lesson, you&apos;ve learned the motivation for using Swift Errror Handling snytax such as <code>catch</code>, <code>do</code>, and <code>try</code> instead of writing a <code>else-if</code> statement to handle unexpected outcomes. You&apos;ve also learned the differences between <code>try</code>, <code>try?</code>, and <code>try!</code>. You can only use <code>try</code> when you use it within a <code>do</code> block. However, if you don&apos;t care about catching errors that thrown, you may use <code>try?</code> and <code>try!</code>. But make sure never use <code>!</code> because it can crash at any time.</p>
-<p>That&apos;s it guys. You&apos;ve covered the entire <code>!</code> and <code>?</code> such as type casting, error handling, optionals, and optional chaning. I&apos;m so proud of how much you&apos;ve come, and you will find out how these Swift concepts play a major role in Part 2 of the course and of course Part 3. In our next lesson, we are learn how make ourselves dry. In other words, we are going to prevent us from repeating our code. See you soon!</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<ol>
+<li>How do you warn your co-workers this function can result unexpected outcomes?</li>
+<li>What is do-try block?</li>
+<li>How do you distinguish try?, try!, an try</li>
+</ol>
+<h3 id="problem-with-else-if-alone">Problem with Else-If alone</h3>
+<ol>
+<li>Bloated Function</li>
+<li>Modularity</li>
+</ol>
+<p>Create a program for a roller coaster ride height limit</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">checkHeight</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> height <span class="token operator">&gt;</span> <span class="token number">200</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;You are going to hit your head and fall off&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// Take him/her off from the ride</span>
+    <span class="token comment" spellcheck="true">// Code ...</span>
+    <span class="token comment" spellcheck="true">// Seatbeat Tighten</span>
+
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> height <span class="token operator">&lt;</span> <span class="token number">140</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;You might fly in the air&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// Take him/her off from the ride</span>
+    <span class="token comment" spellcheck="true">// Code ...</span>
+
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Enjoy&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// Take him/her to the ride</span>
+    <span class="token comment" spellcheck="true">// Code ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="error-handling">Error Handling</h3>
+<p>Error Handling is just additional way to write an else-if statement to deal with error messages</p>
+<h4 id="design-error">Design Error</h4>
+<p>Create an enum that conforms to <code>Error</code> protocol. Determine a few cases.</p>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// Design Error</span>
+<span class="token keyword">enum</span> <span class="token builtin">HeightError</span><span class="token punctuation">:</span> <span class="token builtin">Error</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> maxHeight
+  <span class="token keyword">case</span> minHeight
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="design-throwable-function">Design Throwable Function</h4>
+<p>Create a function that can throw errors by inserting <code>throws</code> at the end of the function parameter.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">checkHeightError</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> height <span class="token operator">&gt;</span> <span class="token number">200</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token builtin">HeightError</span><span class="token punctuation">.</span>maxHeight
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> height <span class="token operator">&lt;</span> <span class="token number">140</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token builtin">HeightError</span><span class="token punctuation">.</span>minHeight
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Enjoy your ride&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="call-and-handle-error">Call and Handle Error</h4>
+<p>To call a function that contains <code>throws</code>, you must call it by putting <code>try</code> in front of the function within a <code>do</code> block. A <code>catch</code> block is used to handle error thrown by the function.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">do</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token function">checkHeightError</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">240</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token builtin">HeightError</span><span class="token punctuation">.</span>maxHeight <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Get out of here&quot;</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// Logic</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token builtin">HeightError</span><span class="token punctuation">.</span>minHeight <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Too short to ride&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="error-handling-to-object-creation">Error Handling to Object Creation</h3>
+<p>Error handling not only applies to functions, but also objects.</p>
+<h4 id="design-error">Design Error</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">enum</span> <span class="token builtin">NameError</span><span class="token punctuation">:</span> <span class="token builtin">Error</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> noName
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="design-throwable-class">Design Throwable Class</h4>
+<p>When the user enters an empty string when initializing, it will throw <code>NameError.noName</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Course</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+
+  <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">&quot;&quot;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token builtin">NameError</span><span class="token punctuation">.</span>noName
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">self</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+      <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;You&apos;ve created an object!&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create an object using <code>try</code> within <code>do</code>.</p>
+<h4 id="init-and-handle-error">Init and Handle Error</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">do</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> myCourse <span class="token operator">=</span> <span class="token keyword">try</span> <span class="token function">Course</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token builtin">NameError</span><span class="token punctuation">.</span>noName <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Please make sure put something&quot;</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// Logic</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="try-vs-try">try? vs try!</h3>
+<p><code>try</code> is only used within a <code>do-catch</code> block. However, <code>try?</code> and <code>try!</code> can be used without it. In other words, you can only call a method or init, without handling error.</p>
+<h4 id="try">try?</h4>
+<p>It returns an optional value if it is used for init. If it throw an error, the result will be <code>nil</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> newCourse <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">Course</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob the Dev&quot;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// returns Course?</span>
+<span class="token keyword">let</span> newDopeCourse <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">Course</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// nil</span>
+</code></pre>
+<h4 id="try">try!</h4>
+<p>It will return a normal type if is used for init. If a method/init throws an error, it will crash.</p>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// try!</span>
+<span class="token keyword">let</span> myNewCourse <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">!</span> <span class="token function">Course</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bobby Lee&quot;</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// let myDopeNewCourse = try! Course(name: &quot;&quot;)</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/r1axtorwrjdr4a4/AACXvFONcrqDb6ZnuBW9xaHqa?dl=0" target="_blank">1105_Error Handling</a></p>
 <h3 id="resources">Resources</h3>
-<p><a href="https://goo.gl/EaepCa" target="_blank">Intro to Error Handling: Blog</a></p>
+<p><a href="https://goo.gl/EaepCa" target="_blank">Intro to Error Handling (Blog)</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this lesson, you&apos;ve learned the motivation for using Swift Errror Handling snytax such as <code>catch</code>, <code>do</code>, and <code>try</code> instead of writing a <code>else-if</code> statement to handle unexpected outcomes. You&apos;ve also learned the differences between <code>try</code>, <code>try?</code>, and <code>try!</code>. You can only use <code>try</code> when you use it within a <code>do</code> block. However, if you don&apos;t care about catching errors that thrown, you may use <code>try?</code> and <code>try!</code>. But make sure never use <code>!</code> because it can crash at any time.</p>
+<p>That&apos;s it guys. You&apos;ve covered the entire <code>!</code> and <code>?</code> such as type casting, error handling, optionals, and optional chaning. I&apos;m so proud of how much you&apos;ve come, and you will find out how these Swift concepts play a major role in Part 2 of the course and of course Part 3. In our next lesson, we are learn how make ourselves dry. In other words, we are going to prevent us from repeating our code. See you soon!</p>
 <h4 id="stay-connected">Stay Connected</h4>
 <p>If you&apos;d like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at <code>bobleesj@gmail.com</code></p>
 <p>
@@ -951,7 +1059,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Error Handling","level":"2.1.1.5","depth":3,"next":{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},"previous":{"title":"Type Casting","level":"2.1.1.4","depth":3,"path":"1000/1100/1104_type_casting.md","ref":"1000/1100/1104_type_casting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1105_error_handling.md","mtime":"2017-02-28T11:11:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Error Handling","level":"2.1.1.5","depth":3,"next":{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},"previous":{"title":"Type Casting","level":"2.1.1.4","depth":3,"path":"1000/1100/1104_type_casting.md","ref":"1000/1100/1104_type_casting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1105_error_handling.md","mtime":"2017-02-28T13:36:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

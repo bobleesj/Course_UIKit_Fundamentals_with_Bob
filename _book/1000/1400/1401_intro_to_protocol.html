@@ -897,6 +897,62 @@
 When you subclass, you have to inherit properties and methods which you may not need. Your object becomes unnecessarily bloated.
 When you make a lot of super classes, it becomes extremely hard to navigate between each class and fix bugs/edit.
 Since objects are referencing to the same place in memory, if you make a copy and create a small change its property, it can f up the rest. (Mutability due to reference)</p>
+<h3 id="problem">Problem</h3>
+<p>Problem: I don&apos;t know Protocol</p>
+<blockquote>
+<p>Protocol is like a basketball coach. He/she tells players what to do, but he/she doesn&apos;t know how to dunk.</p>
+</blockquote>
+<h3 id="protocol">Protocol</h3>
+<p>Create a protocol called, <code>Rookieable</code>. It contains two properties and one method. Do not worry about <code>get</code> and <code>set</code> for now.</p>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">Rookieable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> numberOfEXP<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token keyword">set</span> <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token punctuation">}</span>
+
+  <span class="token keyword">func</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create a class that conforms to <code>Rookieable</code> just like how you would subclass. To prevent Swift from screaming, you must implement two properties and one method defined in the protocol.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Bob</span><span class="token punctuation">:</span> <span class="token builtin">Rookieable</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Stored property has no effect on get or set</span>
+  <span class="token keyword">var</span> numberOfEXP<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;13&quot;</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token string">&quot;Bob&quot;</span>
+
+  <span class="token keyword">func</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hi, I&apos;m <span class="token interpolation"><span class="token delimiter variable">\(</span>name<span class="token delimiter variable">)</span></span> and I have <span class="token interpolation"><span class="token delimiter variable">\(</span>numberOfEXP<span class="token delimiter variable">)</span></span> years of experience&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create an object and call the <code>introduce</code> method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token function">Bob</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>{ get } or { get set} only apply to computed property. If you are defining a stored property, you may choose either { get } or { get set }.</p>
+</blockquote>
+<h3 id="computed-property">Computed Property</h3>
+<p>Create a protocol called, <code>Breathable</code>. It contains two properties: <code>isBreathing</code> and <code>isLiving</code>.</p>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">Breathable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> isBreating<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token keyword">set</span> <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> isLiving<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create a struct that conforms to <code>Breathable</code>. The struct contains properties: <code>isBreathing</code> and <code>isLiving</code>. Define them as computed properties rather than stored.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">Human</span><span class="token punctuation">:</span> <span class="token builtin">Breathable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> isBreating<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
+    <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+    <span class="token keyword">set</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// If no set, error occurs. isBreathing is { get set }</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> isLiving<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
+    <span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+    <span class="token keyword">set</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Rule:</strong> If you are using a computer property, if it is { get } you may make a property gettable or settable. If it is defined as { get set } within a protocol, you must make it gettable and settable.</p>
+</blockquote>
 <h3 id="resources">Resources</h3>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/n5y58kvek9zp1ef/AACvWcKQbmtclxYLxc3Qy8zAa?dl=0" target="_blank">1401_Protocol Basics</a></p>
@@ -953,7 +1009,7 @@ Since objects are referencing to the same place in memory, if you make a copy an
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"next":{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"path":"1000/1400/1402_protocol_extension.md","ref":"1000/1400/1402_protocol_extension.md","articles":[]},"previous":{"title":"Protocol Oriented Programming","level":"2.1.4","depth":2,"path":"1000/1400/1400_intro.md","ref":"1000/1400/1400_intro.md","articles":[{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"path":"1000/1400/1401_intro_to_protocol.md","ref":"1000/1400/1401_intro_to_protocol.md","articles":[]},{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"path":"1000/1400/1402_protocol_extension.md","ref":"1000/1400/1402_protocol_extension.md","articles":[]},{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},{"title":"Delegate","level":"2.1.4.4","depth":3,"path":"1000/1400/1404_delegate.md","ref":"1000/1400/1404_delegate.md","articles":[]},{"title":"Conclusion","level":"2.1.4.5","depth":3,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1401_intro_to_protocol.md","mtime":"2017-02-28T11:13:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"next":{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"path":"1000/1400/1402_protocol_extension.md","ref":"1000/1400/1402_protocol_extension.md","articles":[]},"previous":{"title":"Protocol Oriented Programming","level":"2.1.4","depth":2,"path":"1000/1400/1400_intro.md","ref":"1000/1400/1400_intro.md","articles":[{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"path":"1000/1400/1401_intro_to_protocol.md","ref":"1000/1400/1401_intro_to_protocol.md","articles":[]},{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"path":"1000/1400/1402_protocol_extension.md","ref":"1000/1400/1402_protocol_extension.md","articles":[]},{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},{"title":"Delegate","level":"2.1.4.4","depth":3,"path":"1000/1400/1404_delegate.md","ref":"1000/1400/1404_delegate.md","articles":[]},{"title":"Conclusion","level":"2.1.4.5","depth":3,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1401_intro_to_protocol.md","mtime":"2017-03-01T10:23:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

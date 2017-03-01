@@ -890,6 +890,48 @@
                                 <h1 id="delegate">Delegate</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to the last lesson of The UIKIt Fundamentals Part 1 Intro to Protocol Oriented Programming. Today, you learn the most important concept. It is not technically about protocol oriented programming. You use Protocol, but you will learn how to pass data between two classes using it. There are a lot of bullshit tutorials out there. You&apos;ve come to the right place. Let me tell you the majority of people don&apos;t understand what&apos;s going on, and they simply copy off from the screen. Have you ever seen, tableView.delegate = self? What the heck is that?</p>
+<h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I don&apos;t get it.</p>
+<blockquote>
+<p>You just have to memorize it. It&apos;s a gift from Apple engineers. Take it. Do not question why it works. But, find out why it is useful.You might have to watch this video multiple times</p>
+</blockquote>
+<h3 id="pass-data-from-classone-to-classtwo">Pass Data from ClassOne to ClassTwo</h3>
+<p>Create a protocol called, <code>PassDataDelegate</code>. It contains a method that takes <code>data</code> whose type is in <code>String</code> and returns <code>String</code>.</p>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">PassDataDelegate</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">passData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create a class that contains an optional property whose type is <code>PassDataDelegate?</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">ClassOne</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> delegate<span class="token punctuation">:</span> <span class="token builtin">PassDataDelegate</span><span class="token operator">?</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>If you call the method, <code>passData</code> associated with the property, <code>delegate</code>, it will return <code>nil</code> since you have not initialized <code>delegate</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token function">ClassOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>delegate<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">passData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Create <code>ClassTwo</code> that conforms to <code>PassDataDelegate</code>.  <code>ClassTwo</code> must contain <code>passData(data: String)</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">ClassTwo</span><span class="token punctuation">:</span> <span class="token builtin">PassDataDelegate</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">func</span> <span class="token function">passData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;You passed <span class="token interpolation"><span class="token delimiter variable">\(</span>data<span class="token delimiter variable">)</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create instances</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> classOne <span class="token operator">=</span> <span class="token function">ClassOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> classTwo <span class="token operator">=</span> <span class="token function">ClassTwo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Set <code>classOne.delegate</code> to <code>classTwo</code>. It is possible since <code>classTwo</code> conforms to <code>PassDataDelegate</code>.</p>
+<pre class="language-"><code class="lang-swift">classOne<span class="token punctuation">.</span>delegate <span class="token operator">=</span> classTwo <span class="token comment" spellcheck="true">// you are sending data to classTwo</span>
+</code></pre>
+<p>As soon as you make the relationship like above, whenver you call a method from <code>classOne</code>, you pass data to <code>classTwo</code> and execute the required method.</p>
+<pre class="language-"><code class="lang-swift">classOne<span class="token punctuation">.</span>delegate<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">passData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token string">&quot;123124124&quot;</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//  &quot;You passed 123124124&quot;</span>
+classOne<span class="token punctuation">.</span>delegate<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">passData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// &quot;You passed Hello&quot;</span>
+</code></pre>
 <h3 id="source-code">Source code</h3>
 <p><a href="https://www.dropbox.com/sh/we5epsu2egiwyqa/AAC2JkR9H4VGWhLnmaBy9c2fa?dl=0" target="_blank">1404_Delegate</a></p>
 <h3 id="resources">Resources</h3>
@@ -942,7 +984,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Delegate","level":"2.1.4.4","depth":3,"next":{"title":"Conclusion","level":"2.1.4.5","depth":3,"ref":"","articles":[]},"previous":{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1404_delegate.md","mtime":"2017-02-28T11:13:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Delegate","level":"2.1.4.4","depth":3,"next":{"title":"Conclusion","level":"2.1.4.5","depth":3,"ref":"","articles":[]},"previous":{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1404_delegate.md","mtime":"2017-03-01T12:32:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,9 +4,55 @@
 You guys know how I'm going to start, right? Welcome to Lesson 6 of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. You are going to learn how to put a tracker to a property. For example, never mind. Let's find out!
 
 ## Lecture Notes
+### Problem
+How can I add observer/tracker to a property?
+
+### willSet and didSet
+  1. willSet is called just before the value is set
+  2. didSet is called immediately after the new value is set.
+
+### Create Step Counter
+Create a variable called, `totalSteps`. When the variable encounters a new value, you may notify the user that the value has been changed. In the `willSet` block, `newTotalSteps` refers to the new value stored. In the `didSet` block, `oldValue` refers to the previous value before `totalSteps` encounters a new value.
+
+```swift
+var totalSteps: Int = 20 {
+ willSet(newTotalSteps) {
+   print("About to set totalSteps to \(newTotalSteps)")
+ }
+ didSet {
+   if totalSteps > oldValue  {
+     print("Added \(totalSteps - oldValue) steps")
+   }
+ }
+}
+
+totalSteps = 100  
+// About to set totalSteps to 100
+// Added 80 steps
+```
+### Real Life Application
+You may notify the user or change background color once the user successfully logs in to the apps.
+
+```swift
+var userLoggedIn: Bool = false {
+ willSet(newValue) {
+   print("The user has tried something")
+ }
+ didSet {
+   if userLoggedIn {
+     print("The user switched from \(oldValue) to \(userLoggedIn)")
+   }
+ }
+}
+
+userLoggedIn = false
+// "The user has tried something"
+userLoggedIn = true
+// "The user has tried something"
+// "The user switched from false to true"
+```
 
 
-### Resources
 ### Source Code
 [1206_Property Observer](https://www.dropbox.com/sh/icjktltawrgwmxn/AADakYCf4MubhbRBmGmvTreOa?dl=0)
 

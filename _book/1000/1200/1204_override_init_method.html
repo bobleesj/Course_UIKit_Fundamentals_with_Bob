@@ -893,7 +893,117 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 4 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson, you are going to learn what it truly means by the world <code>super</code>. A lot of beginners often just type because of what they have seen on StackOver Flow or tutorials, today we are going to dive in what&apos;s really going on. There are a lot of examples, so let&apos;s get started with me, <a href="../../GLOSSARY.html#bob-the-developer" class="glossary-term" title="This is my alias. Bob is such a competitive name on Google. So, I had to differentiate myself. Since I not only love programming, but also enjoy building my own brand and business. I&apos;ve decided to use this name. If you&apos;d like to know me more. You can follow my Instagram @bobthedev for my personal journey and daily activity.">Bob the Developer</a>.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="resources">Resources</h3>
+<h3 id="problem">Problem</h3>
+<p>Problem: Super... Super.init?</p>
+<h3 id="uiviewcontroller">UIViewController</h3>
+<p>You might have seen something like this below. Many wonder what <code>super</code> and <code>override</code> stand for. Let us find out.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyViewController</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span> <span class="token punctuation">{</span>
+ <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="create-vehicle-class">Create Vehicle Class</h3>
+<p>Create a class called <code>Vehicle</code>. It contains one gettable property and one method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+
+ <span class="token keyword">var</span> description<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token string">&quot;Hello, I&apos;m moving at 30km/hr&quot;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">func</span> <span class="token function">warning</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Be careful, I&apos;m going pretty fast&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="subclass">Subclass</h3>
+<p>You may customize inherited properties and methods by inserting <code>override</code>.  You may access inherited properties and methods by calling <code>super</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">ToyCar</span><span class="token punctuation">:</span> <span class="token builtin">Vehicle</span> <span class="token punctuation">{</span>
+
+ <span class="token keyword">let</span> price <span class="token operator">=</span> <span class="token string">&quot;$100&quot;</span>
+
+ <span class="token keyword">override</span> <span class="token keyword">var</span> description<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token string">&quot;<span class="token interpolation"><span class="token delimiter variable">\(</span><span class="token keyword">super</span><span class="token punctuation">.</span>description<span class="token delimiter variable">)</span></span>, I&apos;m <span class="token interpolation"><span class="token delimiter variable">\(</span>price<span class="token delimiter variable">)</span></span>&quot;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">warning</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &quot;Be careful, I&apos;m going pretty fast&quot;</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Let me just tell you, I&apos;m not dangerous much&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="subclass-object">Subclass Object</h4>
+<p>Create an object to check if the method and property have been overriden in the subclass,<code>ToyCar</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> myCar <span class="token operator">=</span> <span class="token function">ToyCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+myCar<span class="token punctuation">.</span>description
+myCar<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="super-init">Super Init</h3>
+<p>You may override init from super class. The number one rule is: you must put value to every property</p>
+<h4 id="design-super-class">Design Super Class</h4>
+<p>Create a class that contain one property called, <code>origin</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+ <span class="token keyword">var</span> origin<span class="token punctuation">:</span> <span class="token builtin">String</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span>enterOrgin<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   origin <span class="token operator">=</span> enterOrgin
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="design-subclass">Design Subclass</h4>
+<p>Create a subclass, called <code>Korean</code> that inherits from <code>Human</code>. The <code>Korean</code> class contains a property called, <code>name</code>.  However, when you initialize, you must initialize the <code>origin</code> property from the <code>Human</code> class by calling <code>super.init</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Korean</span><span class="token punctuation">:</span> <span class="token builtin">Human</span> <span class="token punctuation">{</span>
+
+ <span class="token keyword">let</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span>enterName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   name <span class="token operator">=</span> enterName
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>enterOrgin<span class="token punctuation">:</span> <span class="token string">&quot;Bob the Developer&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span>enterName<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> myOrigin<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   name <span class="token operator">=</span> enterName
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>enterOrgin<span class="token punctuation">:</span> myOrigin<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-object">Create Object</h4>
+<p>There are two init methods in the <code>Korean</code> class. You may choose any since both initializes the <code>origin</code> property from the <code>Human</code> class.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">Korean</span><span class="token punctuation">(</span>enterName<span class="token punctuation">:</span> <span class="token string">&quot;Bob the Dev&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> bobby <span class="token operator">=</span> <span class="token function">Korean</span><span class="token punctuation">(</span>enterName<span class="token punctuation">:</span> <span class="token string">&quot;Bob the Dev&quot;</span><span class="token punctuation">,</span> myOrigin<span class="token punctuation">:</span> <span class="token string">&quot;Korean&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="override-init">Override Init</h3>
+<p>Similar to how you may override a method and property, you may include additional code when you call the overriden init method.</p>
+<h4 id="design-base-class">Design Base Class</h4>
+<p>Design a class called, <code>Tesla</code>. It contains a property called, <code>numberOfWheels</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">Tesla</span> <span class="token punctuation">{</span>
+ <span class="token keyword">var</span> numberOfWheels<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+
+ <span class="token keyword">init</span><span class="token punctuation">(</span>enterWheelNumber<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   numberOfWheels <span class="token operator">=</span> enterWheelNumber
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="override-init">Override Init</h4>
+<p>You may override the init method within the <code>Tesla</code> class. Let us add a print statement when you call the init method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">ModelS</span><span class="token punctuation">:</span> <span class="token builtin">Tesla</span> <span class="token punctuation">{</span>
+ <span class="token keyword">override</span> <span class="token keyword">init</span><span class="token punctuation">(</span>enterWheelNumber<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>enterWheelNumber<span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// Calling the init method</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Yo, I&apos;ve cerated this object bruh&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> myFutureSexyCar <span class="token operator">=</span> <span class="token function">ModelS</span><span class="token punctuation">(</span>enterWheelNumber<span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// print(&quot;Yo, I&apos;ve cerated this object bruh&quot;)</span>
+
+myFutureSexyCar<span class="token punctuation">.</span>numberOfWheels <span class="token comment" spellcheck="true">// 500</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/4jl0hxqy7m3i4zx/AAC_q3xyS0iKVsxn4NXr0INga?dl=0" target="_blank">1204_Override Init/Method</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -952,7 +1062,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"next":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},"previous":{"title":"Computed Property","level":"2.1.2.3","depth":3,"path":"1000/1200/1203_computed_property.md","ref":"1000/1200/1203_computed_property.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1204_override_init_method.md","mtime":"2017-02-28T11:12:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Override Init/Method","level":"2.1.2.4","depth":3,"next":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},"previous":{"title":"Computed Property","level":"2.1.2.3","depth":3,"path":"1000/1200/1203_computed_property.md","ref":"1000/1200/1203_computed_property.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1204_override_init_method.md","mtime":"2017-03-01T08:37:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -7,10 +7,82 @@ In this lesson, you will learn. How to become lazy, or in other words, become sm
 
 ## Lecture Notes
 
-### Resources
+### Problem
+I'm lazy. Can we initialize quickly?
 
+### Create Class with Designated Init
+Create a class called `Human`
+```swift
+class Human {
+ var name: String
 
+ init(name: String) {
+   self.name = name
+ }
 
+ init(_ newName: String) {
+   name = newName
+ }
+
+}
+ ```
+
+### Convenience Init
+Convenience init initializes the designated init method by calling `self.init`.
+```swift
+class Human {
+  var name: String
+
+  init(name: String) {
+    self.name = name
+  }
+
+  init(_ newName: String) {
+    name = newName
+  }
+
+ convenience init() {
+   self.init(name: "Bob")
+ }
+
+ convenience init(enterNumber: Int) {
+   self.init(name: String(enterNumber))
+ }
+
+}
+```
+
+### Create Objects
+```swift
+let ben = Human("Hi")  // init(_ newName: String)
+let leob = Human()  // convenience init()
+let bob = Human(name: "Bob")  // init(name: String)
+
+let rob = Human()  // Convenience Init()
+rob.name  // "Bob"
+```
+
+### Initialize UIColor
+Create an instance that stores `UIColor`.
+
+```swift
+import UIKit
+
+let randomColor = UIColor(colorLiteralRed: 255/255, green: 80/255, blue: 85/255, alpha: 1)
+```
+
+#### Custom Convenience Init
+Create our own convenience init that initializes the designated init by adding `extension` to `UIColor`.
+
+```swift
+extension UIColor {
+ convenience init(r: Float, g: Float, b: Float) {
+   self.init(colorLiteralRed: r/255, green: g/255, blue: b/255, alpha: 1)
+ }
+}
+
+let randomColorWtihMe = UIColor(r: 20, g: 10, b: 50)
+```
 
 ### Source Code
 [1201_Convenience Init](https://www.dropbox.com/sh/irzwlfsvq551s9o/AAB0Taf5E7IFXPj-yzHuCSYoa?dl=0)

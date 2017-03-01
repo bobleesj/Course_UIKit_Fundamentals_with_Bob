@@ -893,7 +893,49 @@
 <h2 id="introduction">Introduction</h2>
 <p>You guys know how I&apos;m going to start, right? Welcome to Lesson 6 of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. You are going to learn how to put a tracker to a property. For example, never mind. Let&apos;s find out!</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="resources">Resources</h3>
+<h3 id="problem">Problem</h3>
+<p>How can I add observer/tracker to a property?</p>
+<h3 id="willset-and-didset">willSet and didSet</h3>
+<ol>
+<li>willSet is called just before the value is set</li>
+<li>didSet is called immediately after the new value is set.</li>
+</ol>
+<h3 id="create-step-counter">Create Step Counter</h3>
+<p>Create a variable called, <code>totalSteps</code>. When the variable encounters a new value, you may notify the user that the value has been changed. In the <code>willSet</code> block, <code>newTotalSteps</code> refers to the new value stored. In the <code>didSet</code> block, <code>oldValue</code> refers to the previous value before <code>totalSteps</code> encounters a new value.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> totalSteps<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">20</span> <span class="token punctuation">{</span>
+ <span class="token keyword">willSet</span><span class="token punctuation">(</span>newTotalSteps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;About to set totalSteps to <span class="token interpolation"><span class="token delimiter variable">\(</span>newTotalSteps<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
+   <span class="token keyword">if</span> totalSteps <span class="token operator">&gt;</span> oldValue  <span class="token punctuation">{</span>
+     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Added <span class="token interpolation"><span class="token delimiter variable">\(</span>totalSteps <span class="token operator">-</span> oldValue<span class="token delimiter variable">)</span></span> steps&quot;</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+totalSteps <span class="token operator">=</span> <span class="token number">100</span>  
+<span class="token comment" spellcheck="true">// About to set totalSteps to 100</span>
+<span class="token comment" spellcheck="true">// Added 80 steps</span>
+</code></pre>
+<h3 id="real-life-application">Real Life Application</h3>
+<p>You may notify the user or change background color once the user successfully logs in to the apps.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> userLoggedIn<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token punctuation">{</span>
+ <span class="token keyword">willSet</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;The user has tried something&quot;</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
+   <span class="token keyword">if</span> userLoggedIn <span class="token punctuation">{</span>
+     <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;The user switched from <span class="token interpolation"><span class="token delimiter variable">\(</span>oldValue<span class="token delimiter variable">)</span></span> to <span class="token interpolation"><span class="token delimiter variable">\(</span>userLoggedIn<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+userLoggedIn <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token comment" spellcheck="true">// &quot;The user has tried something&quot;</span>
+userLoggedIn <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment" spellcheck="true">// &quot;The user has tried something&quot;</span>
+<span class="token comment" spellcheck="true">// &quot;The user switched from false to true&quot;</span>
+</code></pre>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/icjktltawrgwmxn/AADakYCf4MubhbRBmGmvTreOa?dl=0" target="_blank">1206_Property Observer</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -949,7 +991,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Property Observer","level":"2.1.2.6","depth":3,"next":{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"path":"1000/1200/1207_type_property_method.md","ref":"1000/1200/1207_type_property_method.md","articles":[]},"previous":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1206_property_observer.md","mtime":"2017-02-28T11:12:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Property Observer","level":"2.1.2.6","depth":3,"next":{"title":"Type Property and Method","level":"2.1.2.7","depth":3,"path":"1000/1200/1207_type_property_method.md","ref":"1000/1200/1207_type_property_method.md","articles":[]},"previous":{"title":"Two Phase Init","level":"2.1.2.5","depth":3,"path":"1000/1200/1205_two_phase_init.md","ref":"1000/1200/1205_two_phase_init.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1206_property_observer.md","mtime":"2017-03-01T09:15:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

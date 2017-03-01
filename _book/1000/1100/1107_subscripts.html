@@ -893,6 +893,67 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome back to lesson 7 of Part 1 Swift Fundamentals with Bob. What if I told you right now that you can create a shortcut? I know it sounds super super abstract. But, I will walk you through. I know you guys trust me more than any. Let&apos;s dive into it.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I want a shortcut without calling a method.</p>
+<h3 id="normal-method">Normal Method</h3>
+<p>Create a class called, <code>HelloKitty</code> which contains a method that returns a string value.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">HelloKitty</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">saySomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;I&apos;m Cute&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create an instance and call <code>saySomething()</code></p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> babe <span class="token operator">=</span> <span class="token function">HelloKitty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+babe<span class="token punctuation">.</span><span class="token function">saySomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="subscripts">Subscripts</h3>
+<p>Subscripts provide shortcuts. It is analogous to creating a method but without a name.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">WeekDays</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> days <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Monday&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Tuesday&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Wednesday&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Thursday&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Friday&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">subscript</span><span class="token punctuation">(</span>index<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> days<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="access-shortcut">Access Shortcut</h4>
+<p>Call the subscript by entering <code>[]</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> myDays <span class="token operator">=</span> <span class="token function">WeekDays</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+myDays<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">// &quot;Monday&quot;</span>
+myDays<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">// &quot;Tuesday&quot;</span>
+</code></pre>
+<h3 id="dictionary">Dictionary</h3>
+<p>When you access elements in a dictionary, it always returns an optional type.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> info <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Height&quot;</span><span class="token punctuation">:</span> <span class="token number">183</span><span class="token punctuation">,</span> <span class="token string">&quot;Body Fat&quot;</span><span class="token punctuation">:</span> <span class="token number">12.5</span><span class="token punctuation">,</span> <span class="token string">&quot;Weight&quot;</span><span class="token punctuation">:</span> <span class="token number">76</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> height <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token string">&quot;Eye Color&quot;</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// height is optional string</span>
+</code></pre>
+<h3 id="artificial-dictionary-subscript">Artificial Dictionary Subscript</h3>
+<p>Access element without returning an optional type</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">HealthInfo</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> info <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Height&quot;</span><span class="token punctuation">:</span> <span class="token number">183</span><span class="token punctuation">,</span> <span class="token string">&quot;Body Fat&quot;</span><span class="token punctuation">:</span> <span class="token number">12.5</span><span class="token punctuation">,</span> <span class="token string">&quot;Weight&quot;</span><span class="token punctuation">:</span> <span class="token number">76</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">subscript</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token keyword">let</span> newInfo <span class="token operator">=</span> info<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> newInfo
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="access-elements">Access Elements</h4>
+<p>Return normal type</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> bob <span class="token operator">=</span> <span class="token function">HealthInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bob<span class="token punctuation">[</span><span class="token string">&quot;Height&quot;</span><span class="token punctuation">]</span>         <span class="token comment" spellcheck="true">// 183</span>
+bob<span class="token punctuation">[</span><span class="token string">&quot;Body Fat&quot;</span><span class="token punctuation">]</span>        <span class="token comment" spellcheck="true">// 12.5</span>
+bob<span class="token punctuation">[</span><span class="token string">&quot;123456789&quot;</span><span class="token punctuation">]</span>       <span class="token comment" spellcheck="true">// 0</span>
+</code></pre>
+<h3 id="shortcoming-of-subscript">Shortcoming of Subscript</h3>
+<p>No Context means &#x2620;&#xFE0F;</p>
 <h3 id="resources">Resources</h3>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/hqjvfrlf6ha2kqz/AAANCaEigEMbbckdHgOSPr3da?dl=0" target="_blank">1107_Subscripts</a></p>
@@ -949,7 +1010,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Subscripts","level":"2.1.1.7","depth":3,"next":{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"path":"1000/1100/1108_class_vs_struct.md","ref":"1000/1100/1108_class_vs_struct.md","articles":[]},"previous":{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1107_subscripts.md","mtime":"2017-02-28T11:12:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Subscripts","level":"2.1.1.7","depth":3,"next":{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"path":"1000/1100/1108_class_vs_struct.md","ref":"1000/1100/1108_class_vs_struct.md","articles":[]},"previous":{"title":"Generics","level":"2.1.1.6","depth":3,"path":"1000/1100/1106_generics.md","ref":"1000/1100/1106_generics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1107_subscripts.md","mtime":"2017-03-01T04:24:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

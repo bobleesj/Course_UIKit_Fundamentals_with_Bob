@@ -113,7 +113,7 @@ if let image = profileImageFromFacebook {
 ### Resources
 Feel free to check if you are confused.
 
-[The Complete Swift 3 Tutorial with Bob: Lesson12_Optionals](https://www.youtube.com/watch?v=nTvngVHWe-M)
+[The Complete Swift 3 Tutorial with Bob: Optionals (YouTube)](https://www.youtube.com/watch?v=nTvngVHWe-M)
 
 
 ## Conclusion

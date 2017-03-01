@@ -3,9 +3,20 @@
 
 ## Introduction
 
-
 ## Lecture Notes
+### Problem
+My parameter is too boring and long
 
+### Create Typealias
+```swift
+typealias Name = String
+```
+
+### Create Function
+```swift
+func insertName(name: Name) { }
+insertName(name: "Bob")
+```
 
 ### Resources
 ### Source Code

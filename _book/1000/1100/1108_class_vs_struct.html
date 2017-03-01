@@ -893,8 +893,55 @@
 <h2 id="introduction">Introduction</h2>
 <p>Great to see you at lesson 8 of Part 1 Swift Fundamentals with Bob. I&apos;m super excited. You all know, and you should by now, that there is no inheritance in Structs. Right? Okay, anything else? Sure, there is. Let&apos;s find out.</p>
 <h2 id="lectures-notes">Lectures Notes</h2>
-<h3 id="source-code">Source Code</h3>
+<h3 id="problem">Problem</h3>
+<ol>
+<li>What&apos;s the difference besides inheritance?</li>
+<li>When to use Struct over Class?</li>
+</ol>
+<h3 id="create-class">Create Class</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">HumanClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+  <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-class-object">Create Class Object</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> humanClassObject <span class="token operator">=</span> <span class="token function">HumanClass</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+humanClassObject<span class="token punctuation">.</span>name
+</code></pre>
+<p>Create an instance that has a reference to <code>humanClassObject</code></p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">let</span> newHumanClassObject <span class="token operator">=</span> humanClassObject
+</code></pre>
+<p>Change the <code>name</code> property of <code>humanClassObject</code> to &quot;Bobby&quot;. Then, the name property of <code>newHumanClassObject</code> will be also changed to &quot;Bobby&quot;.</p>
+<pre class="language-"><code class="lang-swift">humanClassObject<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;Bobby&quot;</span>
+newHumanClassObject<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// &quot;Bobby&quot;</span>
+</code></pre>
+<h3 id="create-struct">Create Struct</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">HumanStruct</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
+  <span class="token keyword">init</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="create-struct-object">Create Struct Object</h4>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> structObject <span class="token operator">=</span> <span class="token function">HumanStruct</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Bob&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> newStructObject <span class="token operator">=</span> structObject
+</code></pre>
+<p>Change the name property of <code>structObject</code> to &quot;Bobby&quot;. However, it has no effect on <code>newStructObject.name</code> because <code>newStructObject</code> is no relationship between the two objects.</p>
+<pre class="language-"><code class="lang-swift">structObject<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;Bobby&quot;</span>
+newStructObject<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// &quot;Bob&quot;</span>
+</code></pre>
+<h3 id="when-to-use-structvalue-type">When to use Struct/Value Type?</h3>
+<ul>
+<li>100,000 - 1,000,000 faster than Class</li>
+<li>No mutability due to no relationship between objects</li>
+</ul>
 <h3 id="resources">Resources</h3>
+<p>You may read the introduction part why OOP isn&apos;t the best option. We are going to cover Protocol Oriented Programming in Chapter 4.</p>
+<p><a href="https://medium.com/ios-geek-community/introduction-to-protocol-oriented-programming-in-swift-b358fe4974f#.nyah1q3fo" target="_blank">Intro to Protocol Oriented Programming</a></p>
+<h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/eiy1yqq1em7f4n5/AABWZr6yNX8OCzrinGSaUXMfa?dl=0" target="_blank">1108_Class vs Struct</a></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>You&apos;ve learned the fundamental difference when an object is created using classes vs struct in terms of memory.  You&apos;ve learned the difference between reference type and value type. Why am I talking about this?</p>
@@ -949,7 +996,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"next":{"title":"Typealias","level":"2.1.1.9","depth":3,"path":"1000/1100/1109_typealias.md","ref":"1000/1100/1109_typealias.md","articles":[]},"previous":{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1108_class_vs_struct.md","mtime":"2017-02-28T11:12:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Class vs Struct","level":"2.1.1.8","depth":3,"next":{"title":"Typealias","level":"2.1.1.9","depth":3,"path":"1000/1100/1109_typealias.md","ref":"1000/1100/1109_typealias.md","articles":[]},"previous":{"title":"Subscripts","level":"2.1.1.7","depth":3,"path":"1000/1100/1107_subscripts.md","ref":"1000/1100/1107_subscripts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1100/1108_class_vs_struct.md","mtime":"2017-03-01T04:28:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

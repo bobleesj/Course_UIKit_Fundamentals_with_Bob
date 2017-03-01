@@ -5,10 +5,91 @@ Welcome back to lesson 7 of Part 1 Swift Fundamentals with Bob. What if I told y
 
 
 ## Lecture Notes
+### Problem
+I want a shortcut without calling a method.
+
+### Normal Method
+Create a class called, `HelloKitty` which contains a method that returns a string value.
+
+```swift
+struct HelloKitty {
+  func saySomething() -> String {
+    return "I'm Cute"
+  }
+}
+```
+
+Create an instance and call `saySomething()`
+```swift
+let babe = HelloKitty()
+babe.saySomething()
+```
+
+### Subscripts
+Subscripts provide shortcuts. It is analogous to creating a method but without a name.
+
+```swift
+
+struct WeekDays {
+  var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+  subscript(index: Int) -> String {
+    return days[index]
+  }  
+}
+```
+
+#### Access Shortcut
+
+Call the subscript by entering `[]`.
+```swift
+let myDays = WeekDays()
+
+myDays[0]  // "Monday"
+myDays[1]  // "Tuesday"
+```
+
+### Dictionary
+When you access elements in a dictionary, it always returns an optional type.
+
+```swift
+var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
+
+let height = info["Eye Color"] // height is optional string
+```
+
+### Artificial Dictionary Subscript
+Access element without returning an optional type
+```swift
+struct HealthInfo {
+  var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
+
+  subscript(key: String) -> Double {
+    if let newInfo = info[key] {
+      return newInfo
+    } else {
+      return 0
+    }
+  }
+
+}
+```
+#### Access Elements
+Return normal type
+
+```swift
+let bob = HealthInfo()
+bob["Height"]         // 183
+bob["Body Fat"]        // 12.5
+bob["123456789"]       // 0
+```
+
+### Shortcoming of Subscript
+No Context means ☠️
 
 ### Resources
-### Source Code
 
+### Source Code
 [1107_Subscripts](https://www.dropbox.com/sh/hqjvfrlf6ha2kqz/AAANCaEigEMbbckdHgOSPr3da?dl=0)
 
 

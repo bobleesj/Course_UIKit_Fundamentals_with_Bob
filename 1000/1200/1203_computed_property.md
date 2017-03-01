@@ -4,11 +4,86 @@
 Welcome to Lesson 3 of The UIKIt Fundamentals Part 1 Object Oriented Programming. Today, we are going to learn how to create relationship between variables. So that you don't need to manage two variable separately. Are you confused? Well, have you heard, `get` and `set` before? Haven't? No worry. I will walk you through by placing your feet on mine. Let's dive into it.
 
 ## Lecture Notes
+### Problem
+Do we have to make functions all the time to calculate something?
 
+### Atrocious Code
+Unrelated functions that take up many lines. The functions below are used to calculate radius.
 
-### Resources
+```swift
+func getDiameter(radius: Double) -> Double {
+ return radius * 2
+}
+func getRadius(diameter: Double) -> Double {
+ return diameter / 2
+}
+
+getDiameter(radius: 10) // return 20
+getRadius(diameter: 200) // return 100
+getRadius(diameter: 600) // return 300
+```
+
+### Introducing Computed Property
+You may create a variable that only can be read. You may not customize. It is also referred to as a gettable property.
+
+#### Gettable Property
+Create a only readable property.
+```swift
+var gettaleNumber: Double {
+ get {
+   return 123.2
+ }
+}
+```
+
+Shorter way to express a gettable property by removing the `get` keyword.
+
+```swift
+var readableVariable: Double {
+ return 20
+}
+```
+If you attempt to modify the property, it will give you an error.
+
+```swift
+gettableNumber = 10 // Error
+readableVariable = 20 // Error
+```
+
+#### Gettable and Settable Property
+You may not only make a property gettable, but also settable by inserting `set` right after `get`.  Let us create a relationship between radius and diameter.
+
+```swift
+var radius: Double = 10
+var diameter: Double {
+ get {
+   return radius * 20
+ } set {
+   radius = newValue / 2  // newValue refers to recently set value of diameter
+ }
+}
+```
+Now, if you set `diameter` to 100,  `newValue` becomes 100. As a result, `radius` will be 50. If you set `radius` to 500, `diameter` will be 1000.
+
+Instead of calling `newValue`, you may name the recently set value as you wish. In the example below, there is a relationship between `area` and `side`. Instead of calling `newValue`, I call it as `newArea`.
+
+```swift
+import Foundation
+
+var side: Double = 100
+
+var area: Double {
+ get {
+   return side * side
+ } set(newArea) {
+   side = sqrt(newArea)
+ }
+}
+
+area = 400 // side becomes 20
+```
+
 ### Source Code
-
 [1203_Computed Property](https://www.dropbox.com/sh/uha7lagqevpnmfu/AAAQZzHRtM3MMYd1hFF5T_yfa?dl=0)
 
 ## Conclusion

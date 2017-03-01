@@ -893,7 +893,63 @@
 <h2 id="introduction">Introduction</h2>
 <p>Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Intro to Protocol Oriented Programming. Today, you are going to learn a magic. It will dramatically reduce the number of lines by... so much. It&apos;s just incredible. I don&apos;t need to talk much. Let&apos;s dive in.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="problem">Problem</h3>
+<p>I don&apos;t even want to type anymore.</p>
+<h3 id="create-protocol">Create Protocol</h3>
+<p>Create a protocol called <code>MathGenius</code> that contains one method.</p>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">MathGenius</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">calculateGPA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="create-protocol-extension">Create Protocol Extension</h3>
+<p>Create an extension to <code>MathGenius</code>. The extension contains a default method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">extension</span> <span class="token builtin">MathGenius</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">calculateGPA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;I&apos;m too cool for school&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create a struct that conforms to <code>MathGenius</code>. Since the extension provides a default method, you no longer have to specify the required method. If you do, it will override the default method.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">Bob</span><span class="token punctuation">:</span> <span class="token builtin">MathGenius</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Override</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">Bob</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">calculateGPA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &quot;I&apos;m too cool for school&quot;</span>
+
+<span class="token keyword">struct</span> <span class="token builtin">Bobby</span><span class="token punctuation">:</span> <span class="token builtin">MathGenius</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">Bobby</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">calculateGPA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &quot;I&apos;m too cool for school&quot;</span>
+<span class="token builtin">Bobby</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Same as calling Bobby()</span>
+</code></pre>
+<h3 id="practical-protocol-extension">Practical Protocol Extension</h3>
+<p>Create a protocol that contains a method that takes two <code>Double</code> parameters and return <code>String</code>.</p>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">FindAreable</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">calculateArea</span><span class="token punctuation">(</span>side<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create an extension to <code>FindAreable</code> which will return a statement whose type is in <code>String</code>.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">extension</span> <span class="token builtin">FindAreable</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">func</span> <span class="token function">calculateArea</span><span class="token punctuation">(</span>side<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> area <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>side <span class="token operator">*</span> length<span class="token punctuation">)</span>
+     <span class="token keyword">return</span> <span class="token string">&quot;The area is <span class="token interpolation"><span class="token delimiter variable">\(</span>area<span class="token delimiter variable">)</span></span>&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Every struct and class that conforms to <code>FindArea</code> contains the default <code>calculateArea</code> method from the extension.</p>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">struct</span> <span class="token builtin">Square</span><span class="token punctuation">:</span> <span class="token builtin">FindAreable</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token builtin">Square</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">calculateArea</span><span class="token punctuation">(</span>side<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> bigSquare <span class="token operator">=</span> <span class="token builtin">Square</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+bigSquare<span class="token punctuation">.</span><span class="token function">calculateArea</span><span class="token punctuation">(</span>side<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span>
+
+<span class="token keyword">struct</span> <span class="token builtin">Hexagon</span><span class="token punctuation">:</span> <span class="token builtin">FindAreable</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">Hexagon</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">calculateArea</span><span class="token punctuation">(</span>side<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="usage-case">Usage Case</h3>
+<p>UIAnimation.</p>
 <h3 id="resources">Resources</h3>
+<p>If you are interested in how you may apply Protocol to UIKit, you may read <a href="https://medium.com/ios-geek-community/protocol-oriented-programming-view-in-swift-3-8bcb3305c427#.u3rr936vm" target="_blank">Protocol Oriented View with Bob (Blog)</a>. But, I plan to cover in Part 2. So, you may get head started.</p>
 <h3 id="source-code">Source Code</h3>
 <p><a href="https://www.dropbox.com/sh/qw9qw6z5ygyayz3/AAAkhxvYyAv1JFbyNd8UEGj_a?dl=0" target="_blank">1402_Protocol Extension</a></p>
 <h2 id="conclusion">Conclusion</h2>
@@ -949,7 +1005,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"next":{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},"previous":{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"path":"1000/1400/1401_intro_to_protocol.md","ref":"1000/1400/1401_intro_to_protocol.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1402_protocol_extension.md","mtime":"2017-02-28T11:13:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T11:16:02.172Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Protocol Extension","level":"2.1.4.2","depth":3,"next":{"title":"Protocol as Type","level":"2.1.4.3","depth":3,"path":"1000/1400/1403_protocol_as_type.md","ref":"1000/1400/1403_protocol_as_type.md","articles":[]},"previous":{"title":"Introduction to Protocol","level":"2.1.4.1","depth":3,"path":"1000/1400/1401_intro_to_protocol.md","ref":"1000/1400/1401_intro_to_protocol.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1400/1402_protocol_extension.md","mtime":"2017-03-01T10:35:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-01T03:46:36.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

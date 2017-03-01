@@ -103,7 +103,7 @@ func safetlyUnwrapUsingGuard() {
 [1103_Guard Statement](https://www.dropbox.com/sh/locish5028pi9vh/AAD2ZnHDhOHdy8ArFspUO219a?dl=0)
 
 ### Resources
-[The Complete Swift 3 Tutorial with Bob: Guard Statement](https://www.youtube.com/watch?v=oeUYGNLqqqg)
+[The Complete Swift 3 Tutorial with Bob: Guard Statement (YouTube)](https://www.youtube.com/watch?v=oeUYGNLqqqg)
 
 ## Conclusion
 Boom, What's going on? How was the lesson just now? I hope you understand the power of using a `guard` statement that it provides an early exit and you don't have to read all the way to the bottom. You are using a `guard` statement not because just to please yourself, but also for the sake of your teammate's hair so it doesn't turn grey when he/she is reading your code. Okay, great. In next our lesson, we are going to learn another `!` and `?` for type casting which allows you to convert types. Let's find out!
