@@ -1,5 +1,4 @@
 # Promotional Video
-Between 3:30 - 4:00 minutes in length
 
 ### Value Proposition
 -  Have you been seeing those red marks on the left side of Xcode but you don't know why you have the particular problems?

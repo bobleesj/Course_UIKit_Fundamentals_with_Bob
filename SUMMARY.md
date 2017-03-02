@@ -1,4 +1,5 @@
 # Summary
+  * [Introduction Video](0000/0001_Introduction.md)
   * [Course Overview](0000/0002_Course_Overview.md)
   * [Expectations](0000/0004_Expectation.md)
   * [Resources](0000/0005_Resources.md)

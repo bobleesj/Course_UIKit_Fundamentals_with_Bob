@@ -10,29 +10,15 @@
 
 ## Introduction to Part 1
 ### Chapter 1: Swift Intermediates
- - Introduction
- - Lessons
- - Conclusion
-
 ### Chapter 2: Advanced Object Oriented Programming
- - Introduction
- - Lessons
- - Conclusion
-
 ###  Chapter 3: Intro to Functional Programming
- - Introduction
- - Lessons
- - Conclusion
 ### Chapter 4: Intro to Protocol Oriented Programming
- - Introduction
- - Lessons
- - Conclusion t
+
 
 ##  Conclusion to Part 1
 
 # Part 2: UIKit Components
 > Building how to use those tools to build smaller structures
-
 
 ## Introduction to Part 2
 ### Chapter 1: Understanding the iOS ecosystem
@@ -61,7 +47,7 @@
 > Create an empire using those tools
 
 ### Chapter 1: Firebase
- - Facebook Login, Google LogIn
+ - Facebook Login, Google Login,
  - Grand Dispatch Central
 
 ### Chapter 2:

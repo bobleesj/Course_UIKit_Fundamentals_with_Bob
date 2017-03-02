@@ -13,7 +13,7 @@ Here is the real problem. Often times, when students learn iOS development for t
 ## Organization of Part 1
 There are four chapters that are the building blocks of the iOS ecosystem. Without an understanding these concepts in Swift, you will never be able to build apps without getting errors and not knowing what to do.
 
-### Swift 3 Fundamentals
+### Swift 3 Intermediate Fundamentals
 Out of four chapters, in the first, you will learn the most commonly misunderstood and skipped concepts when beginners learn how to make apps for the first time. You will primarily understand why we use these features of Swift and how to use fix and prevent error messages on the left side of Playground or Xcode. From now on, You no longer have to guess and check.
 * [Optionals](1000/1100//1101_optionals.md)
 * [Optionals Chaining](1000/1100/1102_optionals_chaining.md)
@@ -44,7 +44,7 @@ This is one of the most dreaded topic for beginner Swift developers. Many don't 
 * [Trailing Closures](1000/1300/1303_trailing_closures.md)
 * [Completion Handlers](1000/1300/1304_completion_handlers.md)
 
-### Protocol Oriented Programming
+### Intro to Protocol Oriented Programming
 Protocol Oriented Programming is the rising star in iOS development. In this chapter, you will learn how and why such a paradigm is used and this will prepare for you to apply in Part 2 which is primarily for UIKits. Along with Functional Programming, it allows you to write readable and organized code. Also, you are going to learn what delegate truly means in iOS.
 
 * [Protocol Oriented Programming](1000/1400/1400_intro.md)

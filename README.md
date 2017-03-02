@@ -2,34 +2,33 @@
 <div align="center" font-size="20">
 <strong><h1>The UIKit Fundamentals with Bob</h1></strong>
 </div>
-<p align="center"><a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-4099ff.svg?style=flat"></a> <a href="https://github.com/bobleesj"><img src="https://img.shields.io/badge/Github-Follow-4c4c4c.svg?style=flat"></a> <a><img src="https://img.shields.io/badge/Langauge-Swift_3-orange.svg?style=flat"></a> <a><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+
+<p align="center">
+ <a><img src="https://img.shields.io/badge/Langauge-Swift_3-orange.svg?style=flat"></a>
+ <a><img src="https://img.shields.io/badge/iOS-10-0072B4.svg?style=flat"></a>
+<a><img src="https://img.shields.io/badge/Author-Bob Lee-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://linkedin.com/in/bobleesj"><img src= "https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
+<a href="https://medium.com/@bobleesj"><img src="https://img.shields.io/badge/Medium-Blog-00AB6C.svg"/></a>
+</p>
 <hr>
 
-# Purpose
-I've started working on this course for 8 weeks. Since this is my first course,  there has been a number of internal issues and struggles. So far, I've deleted dozens of videos to meet my standard. However, I think I've finally found my way. For those who are new, this course is targeted towards Swift intermediates. To be more specific, it aims at those who've been learning Swift for 3-6 months, and you have an understanding of Objective-Oriented Programming, but you'd like to get used to the iOS ecosystem such as design patterns and practical skills.
+
+## Purpose
+As a developer whose first programming language is Swift, I've taken online courses from major platforms. However, I have been frustrated by a lack of detailed explanation from instructors. They tend to focus on final products, thus missing out the fundamentals. I was confused by which design principles to follow, and why. Soon after I've been blogging for the last 5 months, I've discovered this isn't the only problem of mine. I've received hundreds of emails and questions regarding how to write code that does not violate principles such as DRY, modularity, and readability. As a result, I've decided to create this course dedicated for my younger self. I believe it all comes down to fundamentals which I lacked in the beginning. If you are interested in knowing more about its content, please visit [here](0000/0002_Course_Overview.md).
+
 
 ## Reference
-This document will be used as the place for my students to download source code, practice problem answers, and all of my lecture notes. I've taken many courses on various platforms, but I've always wanted to have a complete overview of what I've learned so that I can always look back. Most instructors do not document because it takes a lot more time than making videos alone. However, I understand I'm the underdog. I have decided to choose this journey to help my students and differentiate myself from the competitive marketplace.
+This is a platform for my students to download source code, lecture notes, and scripts. As a life-long student, I've always wanted to have a complete overview of what I've learned. Most instructors avoid documenting since it takes effort besides making videos alone. I chose the road less travelled to help my students and differentiate myself from the competitive marketplace.
 
-## Progress update
-Because I've gone through many trials and errors to produce courses that would provide as much value for my students, it's been taking a lot longer than I had expected. I hope this documentation would at least give you a progress update in terms of where I'm standing at. You can find out the latest update on the bottom.
 
-## Advertisement
-This document will demonstrate the amount of research and preparation it requires to produce a single course. Prospective students might be able to find out how the course is structured by skimming through each section before they decide to purchase.
+## Personal Motivation
+Since I was young, I have been grateful for what learning has offered so far. It would have been impossible for me create this course or even write a blog post. It would have been impossible for me to speak in English and reach out to more people.
 
-## Long Term Benefits
-Swift and iOS go through major updates each year. Compared to publishing a new version of a book, releasing a new video course takes up a lot more time due to editing and recording. However, if I organize my notes, practice problems, and scripts into a single basket, it becomes much easier to reproduce videos for future updates.
+I'd like to contribute back. My goal is to provide affordable top learning channels for all people regardless of gender, color, race, economic, and any background. I believe hard work met with constant learning allows anyone to rise up. I have started off with teaching iOS development. I'm at the very early stage just getting started. Meanwhile, I'd like to raise as much as funds so that I could invest and build a company that meets VR/AR so that everyone has access to learning.
 
-## Vision
- I'd like to devote my career to teaching and helping the world. I'd like to provide affordable education channels for all people regardless wealth, religion, gender, sex, and race. I will continue to document my journey. Teaching iOS is one way for me to get started.
-
- Once I get enough of revenue and income through making courses and writing books, I hope to run an online company that  provides unmatchable online education marketplaces for people all around the world. In 2017, there are leading online teaching platforms such as `Udemy`, `Pluralsight`, `Treehouse`, and `Udacity`. I have a bigger goal such as implementing Virtual Reality/Augmented Reality to teaching and connecting the world.
 
 ## Contribution [![](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-If you've found this document on Github, you may read the entire lecture notes [here](https://www.gitbook.com/book/bobleesj/udemy_uikit_fundamentals_notes/details). If you are interested in registering for this course, send me a quick email briefly introducing yourself at `bobleesj@gmail.com`. It's going to be free until it is released. As of today (Feb 14th), 220 student have registered so far. I send a weekly update. If you've noticed any issues and  you'd like to review or provide better examples, feel free to help me out. I will credit your work by mentioning your name at the end of this document.
+If you've found this document on Github, you may read the entire lecture notes [here](https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/). If you are interested in registering for this course, feel free to send me a quick email briefly introducing yourself at *bobleesj@gmail.com*. I will send you a form you to register your spot for free until its release date which is unknown. As of today (March 2nd), 240 student have registered.
 
-## License
-You are welcome to clone. However, please identify your source. If you'd like to stay in touch, you can visit my [Facebook Page](https://facebook.com/bobthedeveloper)
 
 ###### Last Update: {{ gitbook.time }}
