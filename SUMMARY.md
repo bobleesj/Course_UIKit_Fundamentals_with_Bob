@@ -1,11 +1,13 @@
 # Summary
-  * [Introduction Video](0000/0001_Introduction.md)
-  * [Course Overview](0000/0002_Course_Overview.md)
-  * [Expectations](0000/0004_Expectation.md)
-  * [Resources](0000/0005_Resources.md)
+  * [Promotional Video](0000/promo_video.md)
+  * [Course Expectation](0000/course_expectation.md)
+  * [Resources](0000/resources.md)
 
 
-  * [Part I: Intermediate Swift]()
+  * [Table of Content](0000/table_of_content.md)
+
+
+  * [Part I: Intermediate Swift](1000/1000_intro.md)
     * [Swift Fundamentals](1000/1100/1100_intro.md)
       * [Optionals](1000/1100//1101_optionals.md)
       * [Optionals Chaining](1000/1100/1102_optionals_chaining.md)
@@ -16,7 +18,7 @@
       * [Subscripts](1000/1100/1107_subscripts.md)
       * [Class vs Struct](1000/1100/1108_class_vs_struct.md)
       * [Typealias](1000/1100/1109_typealias.md)
-      * [Conclusion]()
+      * [Conclusion](1000/1100/1110_conclusion.md)
     * [Advanced OOP](1000/1200/1200_intro.md)
       * [Convenience Init](1000/1200/1201_convenience_init.md)
       * [Failable Init](1000/1200/1202_failable_init.md)
@@ -25,34 +27,71 @@
       * [Two Phase Init](1000/1200/1205_two_phase_init.md)
       * [Property Observer](1000/1200/1206_property_observer.md)
       * [Type Property and Method](1000/1200/1207_type_property_method.md)
+      * [Conclusion](1000/1200/1208_conclusion.md)
     * [Functional Programming](1000/1300/1300_intro.md)
       * [Closures vs Functions](1000/1300/1301_closures_vs_functions.md)
       * [Closures (Part 2)](1000/1300/1302_closures_part2.md)
       * [Trailing Closures](1000/1300/1303_trailing_closures.md)
       * [Completion Handlers](1000/1300/1304_completion_handlers.md)
-      * [Conclusion]()
+      * [Conclusion](1000/1300/1305_conclusion.md)
     * [Protocol Oriented Programming](1000/1400/1400_intro.md)
       * [Introduction to Protocol](1000/1400/1401_intro_to_protocol.md)
       * [Protocol Extension](1000/1400/1402_protocol_extension.md)
       * [Protocol as Type](1000/1400/1403_protocol_as_type.md)
       * [Delegate](1000/1400/1404_delegate.md)
-      * [Conclusion]()
+      * [Conclusion](1000/1400/1405_conclusion.md)
+  * [Part I: Conclusion](1000/1000_conclusion.md)
 
 
   * [Part II: UIKit Ecosystem (In-Progress)](2000/2000_intro.md)
-    * Overview of Xcode
-      * Access Control
+    * iOS Ecosystem
       * View Controller Structure
-      * The Life Cycle
-      * Pass data between ViewControllers      
-    * Xcode Autolayout
-    * UIKit Components
+      * The Life Cycle of an App
+      * The Life Cycle of a View
+      * Access Control
+      * Pass Data Design Patterns
+        * Delegate
+        * NSNotification
+        * Callback
+    * Foundational UI Structure
+      * Enum Oriented Storyboard
+      * Autolayout: Stackview
+      * No More Storyboard Forever
+      * UINavigation and Tab Structure  
+   * UIKIt Components (No Storyboard)
+      * Coding Principles 101
       * UITextField and Delegate
-      * UIAlertViewController and Delegate
-    * UITableView
-    * UICollectionView
+      * UIScrollView
+      * Page View Controller
+      * Protocol Oriented UITableView
+      * Reusable TableViewCell
+      * Protocol Oriented UICollectionView
+      * Reusable TableViewCell
+      * UIAlertViewController
+      * Grouping UIViews and Color      
+    * Extra Skills
+      * Parse JSON
+      * Protocol Oriented Animation
+      * Learn Dependency Manager: Cocopod
+      * Debugger Tool
+      * Popular Library Tools: Alamofire, Hero Animation,  SwiftyJSON
+  * [Part II Conclusion]()
 
-* [Part III: Build Real Apps](3000/3000_intro.md)
-  * Build NoteTaking App like Evernote and Camera
-  * Networking Firebase using Firebase
-  * Event Near me --> Photo from, * Google Map
+
+* [Part III: Real Work](3000/3000_intro.md)
+  * Chapter 1: Build Server and Database
+     * Intro to Realm
+     * Local Server with Mac
+     * Intro to Cloud Computing
+     * Cloud Server with Digital Ocean
+  * Chapter 2: Design Stage
+     * Intro to the App
+     * Brainstorming and Sketch
+     * Required Design Patterns
+* Chapter 3: Build Stage
+
+* Extra Section
+  * Github Fundamentals
+  * Beta Testing
+  * Submitting an App
+  * What's Next

@@ -1,7 +1,7 @@
 # Optionals Chaining
 
 ## Introduction
-Welcome to lesson 2 of Part 1 of Swift Fundamentals with me. Just to recap, in our previous lesson, you've learned why we optionals, and there are two ways to unwrap. But, have you ever wondered why you see those `?` and `!` automatically added when you randomly try to get properties and methods in object? If you haven't, that's okay. You will find out. The goal is to prevent you from guessing and checking. Let's find out what's really going under the hood. Let's begin!
+Welcome to Lesson 2 of Part 1 Swift Fundamentals with me. Just to recap, in our previous lesson, you've learned why we optionals, and there are two ways to unwrap. But, have you ever wondered why `?` and `!` automatically appear when you randomly try to get  properties and methods of an object? If you haven't, that's okay. You will find out. The goal is to prevent you from guessing and checking. Let's dig in what's really going under the hood. We shall begin.
 
 ## Lecture Notes
 
@@ -76,7 +76,7 @@ If you are not familiar with Object Oriented Programming, feel free to upgrade y
 
 
 ## Conclusion
-Now, you no longer have to guess when to use `?` and `!` mark when you are working with objects such as UIKit. Please remember that if you see any `?` then make sure you unwrap implicitly. If you have any questions, make sure check out resources and HipChat if you have any questions.
+Now, you no longer have to guess when to use `?` and `!` mark when you are working with objects such as UIKit. Please remember that if you see any `?`to return an object or value, make sure unwrap implicitly the return value. If you have any questions, make sure check out resources above.
 
 In our next lesson, you are learn how to use a `guard` statement to implicitly unwrap and why you use it in the first place instead of using `if let`. Let's go!
 

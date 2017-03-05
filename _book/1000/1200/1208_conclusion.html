@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Computed Property · UIKit Fundamentals with Bob Lecture Notes</title>
+        <title>Conclusion · UIKit Fundamentals with Bob Lecture Notes</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="1204_override_init_method.html" />
+    <link rel="next" href="../1300/1300_intro.html" />
     
     
-    <link rel="prev" href="1202_failable_init.html" />
+    <link rel="prev" href="1207_type_property_method.html" />
     
 
     </head>
@@ -375,7 +375,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.2.3" data-path="1203_computed_property.html">
+        <li class="chapter " data-level="3.1.2.3" data-path="1203_computed_property.html">
             
                 <a href="1203_computed_property.html">
             
@@ -440,7 +440,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.8" data-path="1208_conclusion.html">
+        <li class="chapter active" data-level="3.1.2.8" data-path="1208_conclusion.html">
             
                 <a href="1208_conclusion.html">
             
@@ -1385,7 +1385,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Computed Property</a>
+        <a href="../.." >Conclusion</a>
     </h1>
 </div>
 
@@ -1400,83 +1400,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="computed-property">Computed Property</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Welcome to Lesson 3 of The UIKIt Fundamentals Part 1 Object Oriented Programming. Today, we are going to learn how to create relationship between variables. So that you don&apos;t need to manage two variable separately. Are you confused? Well, have you heard, <code>get</code> and <code>set</code> before? Haven&apos;t? No worry. I will walk you through by placing your feet on mine. Let&apos;s dive into it.</p>
-<h2 id="lecture-notes">Lecture Notes</h2>
-<h3 id="problem">Problem</h3>
-<p>Do we have to make functions all the time to calculate something?</p>
-<h3 id="atrocious-code">Atrocious Code</h3>
-<p>Unrelated functions that take up many lines. The functions below are used to calculate radius.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">func</span> <span class="token function">getDiameter</span><span class="token punctuation">(</span>radius<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">return</span> radius <span class="token operator">*</span> <span class="token number">2</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">func</span> <span class="token function">getRadius</span><span class="token punctuation">(</span>diameter<span class="token punctuation">:</span> <span class="token builtin">Double</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">return</span> diameter <span class="token operator">/</span> <span class="token number">2</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">getDiameter</span><span class="token punctuation">(</span>radius<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// return 20</span>
-<span class="token function">getRadius</span><span class="token punctuation">(</span>diameter<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// return 100</span>
-<span class="token function">getRadius</span><span class="token punctuation">(</span>diameter<span class="token punctuation">:</span> <span class="token number">600</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// return 300</span>
-</code></pre>
-<h3 id="introducing-computed-property">Introducing Computed Property</h3>
-<p>You may create a variable that only can be read. You may not customize. It is also referred to as a gettable property.</p>
-<h4 id="gettable-property">Gettable Property</h4>
-<p>Create a only readable property.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> gettaleNumber<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">get</span> <span class="token punctuation">{</span>
-   <span class="token keyword">return</span> <span class="token number">123.2</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Shorter way to express a gettable property by removing the <code>get</code> keyword.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> readableVariable<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">return</span> <span class="token number">20</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>If you attempt to modify the property, it will give you an error.</p>
-<pre class="language-"><code class="lang-swift">gettableNumber <span class="token operator">=</span> <span class="token number">10</span> <span class="token comment" spellcheck="true">// Error</span>
-readableVariable <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment" spellcheck="true">// Error</span>
-</code></pre>
-<h4 id="gettable-and-settable-property">Gettable and Settable Property</h4>
-<p>You may not only make a property gettable, but also settable by inserting <code>set</code> right after <code>get</code>.  Let us create a relationship between radius and diameter.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">var</span> radius<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token operator">=</span> <span class="token number">10</span>
-<span class="token keyword">var</span> diameter<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">get</span> <span class="token punctuation">{</span>
-   <span class="token keyword">return</span> radius <span class="token operator">*</span> <span class="token number">20</span>
- <span class="token punctuation">}</span> <span class="token keyword">set</span> <span class="token punctuation">{</span>
-   radius <span class="token operator">=</span> newValue <span class="token operator">/</span> <span class="token number">2</span>  <span class="token comment" spellcheck="true">// newValue refers to recently set value of diameter</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>Now, if you set <code>diameter</code> to 100,  <code>newValue</code> becomes 100. As a result, <code>radius</code> will be 50. If you set <code>radius</code> to 500, <code>diameter</code> will be 1000.</p>
-<p>Instead of calling <code>newValue</code>, you may name the recently set value as you wish. In the example below, there is a relationship between <code>area</code> and <code>side</code>. Instead of calling <code>newValue</code>, I call it as <code>newArea</code>.</p>
-<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">Foundation</span>
-
-<span class="token keyword">var</span> side<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token operator">=</span> <span class="token number">100</span>
-
-<span class="token keyword">var</span> area<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
- <span class="token keyword">get</span> <span class="token punctuation">{</span>
-   <span class="token keyword">return</span> side <span class="token operator">*</span> side
- <span class="token punctuation">}</span> <span class="token keyword">set</span><span class="token punctuation">(</span>newArea<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   side <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>newArea<span class="token punctuation">)</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-area <span class="token operator">=</span> <span class="token number">400</span> <span class="token comment" spellcheck="true">// side becomes 20</span>
-</code></pre>
-<h3 id="source-code">Source Code</h3>
-<p><a href="https://www.dropbox.com/sh/uha7lagqevpnmfu/AAAQZzHRtM3MMYd1hFF5T_yfa?dl=0" target="_blank">1203_Computed Property</a></p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Boom! In the beginning of the lesson, you&apos;ve learned what it means to create a <code>gettable</code> property by calling <code>get</code> or just by returning value. After that, you&apos;ve also learned how to add <code>set</code> which allows you to modify its value as well as those of other variables. We are going to take a look at how Apple Engineers use computed property to create the iOS ecosystem safe and non-customizable. I know you are super excited to build apps. You will learn how everything fits together in Part 2 and Part 3 of this course. Keep developing your skills and take care bye bye.</p>
-<h4 id="stay-connected">Stay Connected</h4>
-<p>If you&apos;d like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at <code>bobleesj@gmail.com</code></p>
-<p>
-<a href="http://bobthedeveloper.io" target="_blank"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
-<a href="https://facebook.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper" target="_blank"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg" <="" a=""> <a href="https://twitter.com/bobleesj" target="_blank"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
-" target="_blank"><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
-<a href="https://medium.com/@bobleesj" target="_blank"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"></a>
-</a></p>
+                                <h2 id="conclusion">Conclusion</h2>
+<p>You&apos;ve completed Chapter 2 Advanced Object Oriented Programming with me. If you&apos;ve coded before, you can start imagining how all these learnings and tips come together to make better, solid, programs whether it is for your app or just enriching your life. We&apos;ve got two more chapters before we jump in making real apps since Part 2 of this course. I&apos;m really happy for you because you&apos;ve come to the right place with me <a href="../../GLOSSARY.html#bob-the-developer" class="glossary-term" title="Bob is such a competitive name on Google. So, I had to differentiate myself.  Not only I enjoy programming, but also building things up including my business and personal brand. As you may realize, Bob is my nickname. When I was in 8th grade, a few American friends couldn&apos;t pronounce my Korean name, so they decided to call me Bob. So, here I&apos;m today. ">Bob the Developer</a>. If you want to keep learning about iOS development, feel free to follow me on Social Media if you haven&apos;t so that you don&apos;t miss out any useful and fun tips for you guys. In our next chapter, we are going to learn one of the most dreaded topics in iOS programming for beginners. Closures and introduction to functional programming. I&apos;m super excited to continue off this journey with you. Let&apos;s begin!</p>
 
                                 
                                 </section>
@@ -1504,12 +1429,12 @@ area <span class="token operator">=</span> <span class="token number">400</span>
 
             
                 
-                <a href="1202_failable_init.html" class="navigation navigation-prev " aria-label="Previous page: Failable Init">
+                <a href="1207_type_property_method.html" class="navigation navigation-prev " aria-label="Previous page: Type Property and Method">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="1204_override_init_method.html" class="navigation navigation-next " aria-label="Next page: Override Init/Method">
+                <a href="../1300/1300_intro.html" class="navigation navigation-next " aria-label="Next page: Functional Programming">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1520,7 +1445,7 @@ area <span class="token operator">=</span> <span class="token number">400</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Computed Property","level":"3.1.2.3","depth":3,"next":{"title":"Override Init/Method","level":"3.1.2.4","depth":3,"path":"1000/1200/1204_override_init_method.md","ref":"1000/1200/1204_override_init_method.md","articles":[]},"previous":{"title":"Failable Init","level":"3.1.2.2","depth":3,"path":"1000/1200/1202_failable_init.md","ref":"1000/1200/1202_failable_init.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1203_computed_property.md","mtime":"2017-03-01T08:05:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-05T06:15:07.455Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Conclusion","level":"3.1.2.8","depth":3,"next":{"title":"Functional Programming","level":"3.1.3","depth":2,"path":"1000/1300/1300_intro.md","ref":"1000/1300/1300_intro.md","articles":[{"title":"Closures vs Functions","level":"3.1.3.1","depth":3,"path":"1000/1300/1301_closures_vs_functions.md","ref":"1000/1300/1301_closures_vs_functions.md","articles":[]},{"title":"Closures (Part 2)","level":"3.1.3.2","depth":3,"path":"1000/1300/1302_closures_part2.md","ref":"1000/1300/1302_closures_part2.md","articles":[]},{"title":"Trailing Closures","level":"3.1.3.3","depth":3,"path":"1000/1300/1303_trailing_closures.md","ref":"1000/1300/1303_trailing_closures.md","articles":[]},{"title":"Completion Handlers","level":"3.1.3.4","depth":3,"path":"1000/1300/1304_completion_handlers.md","ref":"1000/1300/1304_completion_handlers.md","articles":[]},{"title":"Conclusion","level":"3.1.3.5","depth":3,"path":"1000/1300/1305_conclusion.md","ref":"1000/1300/1305_conclusion.md","articles":[]}]},"previous":{"title":"Type Property and Method","level":"3.1.2.7","depth":3,"path":"1000/1200/1207_type_property_method.md","ref":"1000/1200/1207_type_property_method.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"1000/1200/1208_conclusion.md","mtime":"2017-02-21T13:02:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-05T06:15:07.455Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

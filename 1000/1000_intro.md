@@ -1,60 +1,66 @@
 # Part I: Swift 3 Intermediates
 
 ## Motivation
-Welcome to Part One of The UIKit Fundamentals with Bob. You will learn intermediate Swift concepts which often many courses and books tend to skip due to complexity. However, these concepts are mandatory for you to understand the entire iOS ecosystem.
+Welcome to Part I of The UIKit Fundamentals with Bob. You will learn intermediate Swift concepts which often many courses and books tend to skip due to complexity. However, these concepts are mandatory for you to understand the entire iOS ecosystem.
 
-I'd like describe making an iOS app is like creative works such as you can write novels, poems, songs, and so forth. However, if you don't know how to read and write alphabets and grammar, you will make terrible books. You can still publish that books.
+I describe building an app is analogous to writing a book, novel, or any other types. If I don't know how to read and write alphabets, I could still publish that book, but no ones wants to read and except my mom.
 
-Often times, students get lost because instructors perceive these intermediate concepts to be "obvious" largely due to their past experience in iOS development. Many have lost the ability to relate with new students, a lack of empathy. I don't want to be one of those. I have been a student in school for the last 13 years in a row and I absolutely how it feels to learn something new.
+But, I wondered why don't have these absolute fundamentals ready. Here is the problem based on hundreds of students  I've personally talked to. The primary reason is that instructors lost the ability to relate and be in the shoes of many students since those concepts are "obvious" due to their past experience. How do I know? As Swift is first programming, I was one of those students.
 
-## The Real Problem
-Here is the real problem. Often times, when students learn iOS development for the first time, they get hyped, and all they want to do is building apps. So what happens is they start taking courses that market themselves as, "Take this course to become a full time developer and build 21 apps!". As a formal student learning Swift, I've taken and read many. However, I've soon found it's not just building apps. It's about becoming a self sustainable developer. Do you think you can replicate those apps on your own without copying from the screen like a code monkey?  In other words, courses must teach how to catch fish instead of feeding by them without knowing what they are eating. So, let's get started with the intermediate fundamentals.
+As a private tutor for the 5 years, I often get frustrated and saw a lack of empathy based on questions and answers I've seen through thousands questions on Stack OverFlow, blog articles, and YouTube tutorials. We need to stop this madness. So, I've decided to step up.
+
+## Another Problem
+Often times, when students learn iOS development for the first time, they get hyped. All they want to do is building apps. Don't get me wrong, I was one of them.
+
+ So what happens is that they start taking courses that state, "Take this course to become a full time developer and build 21 apps!". As a formal student who took a dozen of online courses, I've never heard anyone becoming an iOS developer just by taking online courses.
+
+ Being a developer is becoming independent. What those courses do is they feed you in the mouth. They bring spoons and forks steamy dumplings attached. You copy off their screens like a zombie or often people refer to code monkeys Again, it's not about building apps. If you really want to submit apps, you may download from Github for free and claim it as yours. In this course, you will learn to become independent and follow the best practices that I know of.
 
 ## Organization of Part 1
-There are four chapters that are the building blocks of the iOS ecosystem. Without an understanding these concepts in Swift, you will never be able to build apps without getting errors and not knowing what to do.
+There are four chapters that are the building blocks of the iOS ecosystem. Without a solid understanding of any of them, you will face errors after errors without knowing what to do. You will write 20 lines of code which you can possibly write in 5.
 
 ### Swift 3 Intermediate Fundamentals
-Out of four chapters, in the first, you will learn the most commonly misunderstood and skipped concepts when beginners learn how to make apps for the first time. You will primarily understand why we use these features of Swift and how to use fix and prevent error messages on the left side of Playground or Xcode. From now on, You no longer have to guess and check.
-* [Optionals](1000/1100//1101_optionals.md)
-* [Optionals Chaining](1000/1100/1102_optionals_chaining.md)
-* [Guard Statements](1000/1100/1103_guard_statements.md)
-* [Type Casting](1000/1100/1104_type_casting.md)
-* [Error Handling](1000/1100/1105_error_handling.md)
-* [Generics](1000/1100/1106_generics.md)
-* [Subscripts](1000/1100/1107_subscripts.md)
-* [Class vs Struct](1000/1100/1108_class_vs_struct.md)
-* [Typealias](1000/1100/1109_typealias.md)
+In the first chapter, you will learn most misunderstood and skipped concepts. You will primarily understand why we use these features of the Swift programming language. You must know why before how. This a my favorite quote, "Those who have a 'why' to live, can bear with almost any 'how. You will no longer see those red marks on the left side. From now on, You no longer have to guess and check.
+
+[1101 Optionals](/1000/1100/1101_optionals.md)
+<br>[1102 Optionals Chaining](/1000/1100/1102_optionals_chaining.md)
+<br>[1103 Guard Statements](/1000/1100/1103_guard_statements.md)
+<br>[1104 Type Casting](/1000/1100/1104_type_casting.md)
+<br>[1105 Error Handling](/1000/1100/1105_error_handling.md)
+<br>[1106 Generics](/1000/1100/1106_generics.md)
+<br>[1107 Subscripts](/1000/1100/1107_subscripts.md)
+<br>[1107 Class vs Struct](/1000/1100/1108_class_vs_struct.md)
+<br>[1108 Typealias](/1000/1100/1109_typealias.md)
 
 ### Advanced Object Oriented Programming
-In the second chapter, it's all about Object Oriented Programming. Often beginners don't even know what `super` means under `viewDidLoad`. If you are one of them, don't worry. You have a greater understanding of Object Oriented Programming that prepares you to become proficient with UIKit objects in Part 2 of this course. Object Oriented Programming is at the heart of the iOS development ecosystem.
+In the second chapter, it's all exploring and getting with a classic OOP. Often beginners don't even know what `super` means under `viewDidLoad`. If you are one of them, don't worry. You have a greater understanding of Object Oriented Programming that prepares you to become proficient with UIKit objects in Part 2 of this course. Object Oriented Programming is at the heart of the iOS development ecosystem.
 
-* [Advanced OOP](1000/1200/1200_intro.md)
-* [Convenience Init](1000/1200/1201_convenience_init.md)
-* [Failable Init](1000/1200/1202_failable_init.md)
-* [Computed Property](1000/1200/1203_computed_property.md)
-* [Override Init/Method](1000/1200/1204_override_init_method.md)
-* [Two Phase Init](1000/1200/1205_two_phase_init.md)
-* [Property Observer](1000/1200/1206_property_observer.md)
-* [Type Property and Method](1000/1200/1207_type_property_method.md)
+<br>[1201 Convenience Init](/1000/1200/1201_convenience_init.md)
+<br>[1202 Failable Init](/1000/1200/1202_failable_init.md)
+<br>[1203 Computed Property](/1000/1200/1203_computed_property.md)
+<br>[1204 Override Init/Method](/1000/1200/1204_override_init_method.md)
+<br>[1205 Two Phase Init](/1000/1200/1205_two_phase_init.md)
+<br>[1206 Property Observer](/1000/1200/1206_property_observer.md)
+<br>[1207 Type Property and Method](/1000/1200/1207_type_property_method.md)
+
 
 ### Intro to Functional Programming
 This is one of the most dreaded topic for beginner Swift developers. Many don't understand what closures are and how they are similar or different from functions. You are going to learn what Completion Handlers are and you will design your own.
-* [Closures vs Functions](1000/1300/1301_closures_vs_functions.md)
-* [Closures (Part 2)](1000/1300/1302_closures_part2.md)
-* [Trailing Closures](1000/1300/1303_trailing_closures.md)
-* [Completion Handlers](1000/1300/1304_completion_handlers.md)
+
+<br>[1301 Closures vs Functions (Part 1)](/1000/1300/1301_closures_vs_functions.md)
+<br>[1302 Closures vs Functions (Part 2)](/1000/1300/1302_closures_part2.md)
+<br>[1303 Trailing Closures](/1000/1300/1303_trailing_closures.md)
+<br>[1304 Completion Handlers](/1000/1300/1304_completion_handlers.md)
 
 ### Intro to Protocol Oriented Programming
-Protocol Oriented Programming is the rising star in iOS development. In this chapter, you will learn how and why such a paradigm is used and this will prepare for you to apply in Part 2 which is primarily for UIKits. Along with Functional Programming, it allows you to write readable and organized code. Also, you are going to learn what delegate truly means in iOS.
+Protocol Oriented Programming is the rising star in iOS development. In this chapter, you will learn how and why such a paradigm is used and this will prepare for you to apply in Part 2. You will apply POP to create reusable cells and views. Along with Functional Programming, it allows you to write readable and organized code. Also, you are going to learn what delegate truly means in iOS.
 
-* [Protocol Oriented Programming](1000/1400/1400_intro.md)
-* [Introduction to Protocol](1000/1400/1401_intro_to_protocol.md)
-* [Protocol Extension](1000/1400/1402_protocol_extension.md)
-* [Protocol as Type](1000/1400/1403_protocol_as_type.md)
-* [Delegate](1000/1400/1404_delegate.md)
+
+<br>[1401 Introduction to Protocol](/1000/1400/1401_intro_to_protocol.md)
+<br>[1402 Protocol Extension](/1000/1400/1402_protocol_extension.md)
+<br>[1403 Protocol as Type](/1000/1400/1403_protocol_as_type.md)
+<br>[1404 Delegate](/1000/1400/1404_delegate.md)
+
 
 ## Get Started
-I know you are super excited as I'm. I've deleted dozens of videos and outlines to create this course, and this course has been delayed to meet my standard. I created this course as if I were in your shoes. That being said, enough of talk, let's dive in!
-
-### Resources
-You can take a look at why I fell in love with Swift
+I know you are super excited as I'm. I created this course as if I were in your shoes. I still remember those days. That being said, enough said, let's dive into it.

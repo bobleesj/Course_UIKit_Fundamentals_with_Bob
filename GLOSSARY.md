@@ -1,6 +1,6 @@
 ## Bob the Developer
-This is my alias. Bob is such a competitive name on Google. So, I had to differentiate myself. Since I not only love programming, but also enjoy building my own brand and business. I've decided to use this name. If you'd like to know me more. You can follow my Instagram @bobthedev for my personal journey and daily activity.
+Bob is such a competitive name on Google. So, I had to differentiate myself.  Not only I enjoy programming, but also building things up including my business and personal brand. As you may realize, Bob is my nickname. When I was in 8th grade, a few American friends couldn't pronounce my Korean name, so they decided to call me Bob. So, here I'm today. 
 
 
 ## SangJoon
-SangJoon is real Korean name. I'm a native Korean. But lived in different places. If you'd like to get to know my personal story, you can find more about me right [here](http://bobthedeveloper.io/about)
+SangJoon is my Korean name. I'm a native Korean. It goes like this 상준.

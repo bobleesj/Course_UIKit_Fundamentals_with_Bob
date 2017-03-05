@@ -1,9 +1,9 @@
 # Optionals
 
 ## Introduction
-Welcome to lesson 1 of Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda, I bought books and whatever resources I could acquire to learn iOS programming by myself.
+Welcome to Lesson 1 of Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda. I bought books and whatever resources I could acquire to learn iOS Development.
 
-Until for another month, I never really understood what those `?` and `!` stood for. Xcode kept telling me what to do on the left side, you know what I'm talking. I got frustrated. It seemed like no courses gave me clear reasons how to use optionals, and why Swift engineers have implemented such feature that is so unique compared to other programming languages. Well, today, you are going to learn why fundamentally we use optionals and how to use it with me, Bob the Developer.
+For a month, I never really understood what those `?` and `!` stood for. Xcode kept telling me what to do on the left side. You know what I'm talking about. I got frustrated. It seemed like no courses gave me clear reasons how to use optionals, and most importantly, why Swift engineers have implemented such feature that is so unique compared to other programming languages. Well, today, you are going to learn why fundamentally we use optionals and how to use it with me, Bob the Developer. Let's get in.
 
 ## Lecture Notes
 
@@ -79,7 +79,7 @@ print(image) // Normal Type
 print(profileImageFromFacebook!) // Normal Type
 
 ```
-> Again, forced Unwrapping is not recommended as shown below.
+In order to interact between variables, you msut convert.
 
 ```swift
 let newRobAge = robAge!
@@ -105,22 +105,23 @@ if let image = profileImageFromFacebook {
   print(image)
 }
 ```
+Now `image` is contain a normal type of `String`. You may use the `image` constant within the block.
 
 
 ### Source Code
 [1101_Optionals](https://www.dropbox.com/sh/vcc6ydca4i7j9uk/AADTQUM6jv4iHFeQbBXRU_Pua?dl=0)
 
 ### Resources
-Feel free to check if you are confused.
-
+If you are still confused in terms how how optional works, feel free to read the additional video similar to this on my YouTube channel.
 [The Complete Swift 3 Tutorial with Bob: Optionals (YouTube)](https://www.youtube.com/watch?v=nTvngVHWe-M)
 
 
 ## Conclusion
-Boom! Now you finally understand the why Swift engineering have implemented optionals and how to use them. To be more specific, you've learned two fundamental concepts in optionals. The rule number one is that every variable type even if it's optionals type has to be defined whether explicitly or implicitly. Second, there are ways to unwrap optionals to normal values. Force using the ! mark and safe using if let. In our next lesson, you are learning how to apply optionals when you create an object and play around with its properties and methods. Let's go.
+Boom! Now you finally understand the why Swift engineering have implemented optionals and how to use them. To be more specific, you've learned two fundamental concepts. The rule number one is that every variable type even if it's optionals type has to be defined whether explicitly or implicitly. Second, there are two ways to unwrap optionals to normal values.  `!` is used to force unwrap. `if let` is used to safely unwrap. In our next lesson, you will learn why `?` and `!` appear  you create an object and access its optional properties and methods.
 
 #### Stay Connected
-If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`
+I focus on building long-term relationship with you. So feel free to follow on my social media for personal updates and engagement. You may see what my daily life is like on Instagram living in Seoul, Korea.
+
 <p>
 <a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
 <a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev

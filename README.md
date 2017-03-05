@@ -13,22 +13,19 @@
 
 
 ## Purpose
-As a developer whose first programming language is Swift, I've taken online courses from major platforms. However, I have been frustrated by a lack of detailed explanation from instructors. They tend to focus on final products, thus missing out the fundamentals. I was confused by which design principles to follow, and why. Soon after I've been blogging for the last 5 months, I've discovered this isn't the only problem of mine. I've received hundreds of emails and questions regarding how to write code that does not violate principles such as DRY, modularity, and readability. As a result, I've decided to create this course dedicated for my younger self. I believe it all comes down to fundamentals which I lacked in the beginning. If you are interested in knowing more about its content, please visit [here](0000/0002_Course_Overview.md).
+As a developer whose first programming language is Swift, I've taken online courses from major platforms. However, I have been frustrated by a lack of detailed explanation from instructors. They tend to focus on final products, thus missing out the fundamentals. I was confused by which design principles to follow, and why. Soon after I've been blogging for the last 5 months, I've discovered this isn't the only problem of mine. I've received hundreds of emails and questions regarding how to write code that does not violate principles such as DRY, modularity, and readability. As a result, I've decided to create this course dedicated for my younger self. I believe it all comes down to the fundamentals which I lacked in the beginning.
 
 
 ## Reference
-This is a platform for my students to download source code, lecture notes, and scripts. As a life-long student, I've always wanted to have a complete overview of what I've learned. Most instructors avoid documenting since it takes effort besides making videos alone. I chose the road less travelled to help my students and differentiate myself from the competitive marketplace.
+This is a platform for my students to download the source code, lecture notes, and scripts. As a life-long student, I've always wanted to have a complete overview of what I've learned. Most instructors avoid documenting since it takes effort besides making videos alone. I chose the road less traveled to help my students and differentiate myself from the competitive marketplace.
 
 
 ## Personal Motivation
-Since I was young, I have been grateful for what learning has offered so far. It would have been impossible for me create this course or even write a blog post. It would have been impossible for me to speak in English and reach out to more people.
-
-I'd like to contribute back. My goal is to provide affordable top learning channels for all people regardless of gender, color, race, economic, and any background. I believe hard work met with constant learning allows anyone to rise up. I have started off with teaching iOS development. I'm at the very early stage just getting started. Meanwhile, I'd like to raise as much as funds so that I could invest and build a company that meets VR/AR so that everyone has access to learning.
+I feel grateful for what learning offers in my life. It would have been impossible for me create this course and communicate in English. I've decided to devote my career providing affordable education channels for all people globally. As a person who've lived in third world countries and attended college in NYC, I understand, education, not a degree, is the way for anyone rise up and increase a standard of living and quality of life. To pursue this grand goal, I have started off with teaching iOS development to raise funds and increase my personal brand. In the future, l hope to create a learning marketplace for people to attain knowledge through VR/AR. I'm here to build relationships with my students and fulfill my purpose. I, Bob the Developer, would like to contribute building people up.
 
 
 ## Contribution [![](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-If you've found this document on Github, you may read the entire lecture notes [here](https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/). If you are interested in registering for this course, feel free to send me a quick email briefly introducing yourself at *bobleesj@gmail.com*. I will send you a form you to register your spot for free until its release date which is unknown. As of today (March 2nd), 240 student have registered.
-
+If you've found this document on Github, you may read the entire lecture notes [here](https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/). If you are interested in registering for this course, shoot me an email briefly introducing yourself at *bobleesj@gmail.com*. I will send you a form you to register your spot for free until its release date which is unknown. As of today (March 2nd), 240 students have sent me one. If you'd like to stay up-to-date with the progress, feel free to follow me on [Instagram](https://instagram.com/bobthedev) and catch up. 😀
 
 ###### Last Update: {{ gitbook.time }}
