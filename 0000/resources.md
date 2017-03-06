@@ -1,17 +1,33 @@
 # Resources
-Here are a list of resources that differentiate my course from the rest. I really want you to learn because I care about long-term relationships with you.
+I've prepared a list of resources that would maximize your learning potential. I really want you to do well because I care. I'd like to build long-term relationships with you.
 
 ### Lecture Notes
- I've made an organized online documentation/ebook. This is my script for the beginning and also the conclusion. You may download the notebook so that you may study while you are in the plane. It contains a brief explanation that helps you bring back your memory. It is also used as your reference by you may search on the left top corner. It also shows how much research and preparation it requires for to produce a single lecture. Since I'm looking for long term relationships, and I feel great to document my journey and provide as much as value for my students. It is also mobile-friendly so that you may study when you are even in the bathroom.
+You are currently looking at [The UIkit Fundamentals Lecture Notes] where you may download the source code for each lesson and review. It contains code snippets and short descriptions. This document is also mobile-friendly and downloadable into PDFs and ePub files so that you can read it in the plane or bathroom. You may also use it as a reference since it supports searching on the top left corner.
+
+I hope this document would show you how much research and preparation it requires for me to produce each lesson. Again, I'm looking for long-term relationships, so I feel great to document my journey and provide as much as value for my students.
+
+[The UIkit Fundamentals Lecture Notes]: https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/
+
 
 ### Group Chat
-Discord is a group message chat application. Feel free to introduce yourself under the `welcome` section. I share articles, updates, and so on. You may send highlighted syntax and help each other. Also, I wil try my best to show up as well. You can join the group right [Here](https://discord.gg/smmmD5B). Unlike Slack or other platforms, it's free 24/7 both for you and me.
+Sometimes, Stack Overflow contains short and snarky answers. Well, you are encouraged to join a group chat available for you to join through [Discord]. When you first sign up, please introduce yourself under the `welcome` channel  🤗. You may also send highlighted syntax and help each other grow and learn together. If you have any questions directly to me, I will try my best to get back to you as early as I can. You can join the group right [Here](https://discord.gg/smmmD5B).
 
-### Supporting Articles
-I publish one article per week. You will find tons of great content that's not possibly covered in this course such as tips and my biased perspectives on learning and becoming an iOS Developer. You may visit my blog called, [iOS Geek Community](https://medium.com/ios-geek-community).
+
+[Discord]: https://discordapp.com/
+
+### Supporting Resources
+Since Nov, 2017, I've been publishing one article per week. I've have chosen topics that would allow my students to refer to them while taking this course. You will find tons of great content. Some aren't covered in this course such as tips and my biased perspectives on learning and becoming an iOS Developer. Just like the same of the group chat, it's called [iOS Geek Community]. Besides that, you may also find some of my work through [Bob's Learning Journey].
+
+[Bob's Learning Journey]: https://bobleesj.gitbooks.io/bob-s-learning-journey/content/
+
+[iOS Geek Community]: https://medium.com/ios-geek-community
+
 
 ### Social Media
-You can follow me on social media so that you are able to see how I live my life especially on Instagram. Also, I put regular and personal updates on Facebook Page, so feel free to follow me there and engage.
+On [Facebook Page], I share detailed updates with my readers and students. If you are interested in my daily activity as Bob the Developer and get to know me at a personal level, feel free to follow me on [Instagram]
+
+[Instagram]: https://instagram.com/bobthedev
+[Facebook Page]: https://facebook.com/bobthedeveloper
 
 ### Email List
- if you'd like to be on my email list I often give out premium content for free such as this course, upcoming courses for Practical Protocol, Functional, and MVVM. I engage heavily on the list. In fact, hundreds of people signed up this course and received free coupons. So you want deals like one of those, why not shoot me an email. I don't sell there. Everyone on the list has sent me emails before so it's not for everyone. I believe in long term relationships over short-term sales. If you are interested in, shoot me a quick email describing who you are, and I will get you on the list. And let's talk.
+I consider them like my friends. If you are interested in my progress and receive updates for upcoming courses/books, and also great deals for joining me to build lasting relationships, please send me an email to be on the list.  bobleesj@gmail.com. 

@@ -1,5 +1,8 @@
 # Course Expectation
-Based on the Stack Overflow survey in 2016, Swift is considered as the second most loved language out of thousands. However, don't let its readability and hype fool you. It's a complex language inspired by many programming languages out there. In fact, you will suffer, and I want it that way. Let me explain.
+Based on the Stack Overflow [survey] in 2016, Swift is considered as the second most loved language out of thousands. However, don't let its readability and hype fool you. It's a complex language inspired by many programming languages out there. In fact, you will suffer, and I want it that way. Let me explain.
+
+[survey]: http://stackoverflow.com/research/developer-survey-2016
+
 
 ## Embrace Struggle
 Consuming knowledge goes against the 2nd Law of Thermodynamics that things in nature want to remain scattered. What we do everyday defies the law. It's organic to struggle.
