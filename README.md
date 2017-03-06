@@ -19,13 +19,15 @@ As a developer whose first programming language is Swift, I've taken online cour
 ## Reference
 This is a platform for my students to download the source code, lecture notes, and scripts. As a life-long student, I've always wanted to have a complete overview of what I've learned. Most instructors avoid documenting since it takes effort besides making videos alone. I chose the road less traveled to help my students and differentiate myself from the competitive marketplace.
 
+> Until the course get officially released, please consider it as a rough draft.
+
 
 ## Personal Motivation
-I feel grateful for what learning offers in my life. It would have been impossible for me create this course and communicate in English. I've decided to devote my career providing affordable education channels for all people globally. As a person who've lived in third world countries and attended college in NYC, I understand, education, not a degree, is the way for anyone rise up and increase a standard of living and quality of life. To pursue this grand goal, I have started off with teaching iOS development to raise funds and increase my personal brand. In the future, l hope to create a learning marketplace for people to attain knowledge through VR/AR. I'm here to build relationships with my students and fulfill my purpose. I, Bob the Developer, would like to contribute building people up.
+I feel grateful for what learning offers in my life. It would have been impossible for me to create this course and communicate in English. I've decided to devote my career providing affordable education channels for all people globally. As a person who've lived in third world countries and attended college in NYC, I understand, education, not a degree, is the way for anyone rise up and increase a standard of living and quality of life. To pursue this grand goal, I have started off with teaching iOS development to raise funds and increase my personal brand. In the future, l hope to create a learning marketplace for people to attain knowledge through VR/AR. I'm here to build relationships with my students and fulfill my purpose. I, Bob the Developer, would like to contribute building people up.
 
 
 ## Contribution [![](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-If you've found this document on Github, you may read the entire lecture notes [here](https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/). If you are interested in registering for this course, shoot me an email briefly introducing yourself at *bobleesj@gmail.com*. I will send you a form you to register your spot for free until its release date which is unknown. As of today (March 2nd), 240 students have sent me one. If you'd like to stay up-to-date with the progress, feel free to follow me on [Instagram](https://instagram.com/bobthedev) and catch up. 😀
+If you've found this document on Github, you may read the entire lecture notes [here](https://bobleesj.gitbooks.io/udemy_uikit_fundamentals_notes/content/). If you are interested in registering for this course, shoot me an email briefly introducing yourself at *bobleesj@gmail.com*. I will send you a form you to register your spot for free until its release date which is unknown. If you'd like to stay up-to-date with the progress, feel free to follow me on [Instagram](https://instagram.com/bobthedev) 😀
 
 ###### Last Update: {{ gitbook.time }}
