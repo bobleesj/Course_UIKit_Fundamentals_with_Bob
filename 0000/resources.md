@@ -30,4 +30,4 @@ On [Facebook Page], I share detailed updates with my readers and students. If yo
 [Facebook Page]: https://facebook.com/bobthedeveloper
 
 ### Email List
-I consider them like my friends. If you are interested in my progress and receive updates for upcoming courses/books, and also great deals for joining me to build lasting relationships, please send me an email to be on the list.  bobleesj@gmail.com. 
+I consider them like my friends. If you are interested in my progress and receive updates for upcoming courses/books, and also great deals for joining me to build lasting relationships, please send me an email to be on the list.  bobleesj@gmail.com.
