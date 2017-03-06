@@ -55,7 +55,7 @@ When you access elements in a dictionary, it always returns an optional type.
 ```swift
 var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
 
-let height = info["Eye Color"] // height is optional string
+let height = info["Height"] // height is optional string
 ```
 
 ### Artificial Dictionary Subscript
