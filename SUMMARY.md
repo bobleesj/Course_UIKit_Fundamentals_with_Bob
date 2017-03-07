@@ -43,21 +43,28 @@
   * [Part I: Conclusion](1000/1000_conclusion.md)
 
 
-  * [Part II: UIKit Ecosystem (In-Progress)](2000/2000_intro.md)
-    * iOS Ecosystem
-      * View Controller Structure
-      * The Life Cycle of an App
-      * The Life Cycle of a View
-      * Access Control
-      * Pass Data Design Patterns
+  * [Part II: The UIKit Components](2000/introduction.md)
+    * [The iOS Ecosystem](2000/2100/2100_intro.md)
+      * [The Life Cycle of an App](2000/2100/2101_life_cycle_of_app.md)
+      * [View Controller Structure](2000/2100/2102_view_controller_structure.md)
+      * [The Life Cycle of a View](2000/2100/2103_life_cycle_of_view.md)
+      * [Access Control](2000/2100/2104_access_control.md)
+      * Send Data Design Patterns
         * Delegate
         * NSNotification
         * Callback
+      * Conclusion
     * Foundational UI Structure
       * Enum Oriented Storyboard
-      * Autolayout: Stackview
-      * No More Storyboard Forever
-      * UINavigation and Tab Structure  
+      * Protocol Oriented Storyboard
+      * UINavigation and Tab Structure
+      * UIApplication and Singleton
+      * Autolayout Foundation
+        * UIStackView
+        * Autoresizing
+        * Content Hugging
+      * No More Storyboard
+      * No More Storyboard (Part 2)
    * UIKIt Components (No Storyboard)
       * Coding Principles 101
       * UITextField and Delegate
@@ -67,7 +74,7 @@
       * Reusable TableViewCell
       * Protocol Oriented UICollectionView
       * Reusable TableViewCell
-      * UIAlertViewController
+        * UIAlertViewController
       * Grouping UIViews and Color      
     * Extra Skills
       * Parse JSON

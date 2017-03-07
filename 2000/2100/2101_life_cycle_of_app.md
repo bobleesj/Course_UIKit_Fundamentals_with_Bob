@@ -1,4 +1,3 @@
-
 # The Life Cycle of an iOS App
 
 ## Introduction
@@ -38,8 +37,9 @@ This method is called after your app has been launched and its main storyboard o
  6. `applicationWillEnterForeground:`—Method called when the app moves from background to foreground
  6. `applicationWillTerminate:`— Method called when the app gets killed
 
- > For app initialization, it is highly recommended that you use this method and the application:willFinishLaunchingWithOptions: method and do not use the applicationDidFinishLaunching: method, which is intended only for apps that run on older versions of iOS. [Apple](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1622921-application?language=objc)
+ > For app initialization, it is highly recommended that you use this method and the application:willFinishLaunchingWithOptions: method and do not use the applicationDidFinishLaunching: method, which is intended only for apps that run on older versions of iOS. - [Apple](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1622921-application?language=objc)
 
+Determining why and how an app launched is the responsibility of the launchOptions parameter. Like a userInfo dictionary,
 
 
 <img src="/images/2000/Launch_Cycle.png" alt="The entire life cycle of an app" style="width: 500px;"/>
@@ -79,9 +79,17 @@ In this lesson, you've learned what happens internally when you launch your app.
 In out next lessons, you are going to learn what viewDidLoad truly means in iOS, where it happens during the life cycle. Stay tuned. For more detailed notes, make sure visit the lecture note for this lesson.
 
 ### Resources
-[Lecture Notes]() <br>
-[Soure Code]()
+
+[App Programming Guide for iOS: The App Life Cycle](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
 
 
-### Reference
- [Apple Official Documentation]
+
+#### Stay Connected
+I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  
+
+<p>
+<a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
+<a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev
+"><img src="https://img.shields.io/badge/Instagram-Follow-BB2F92.svg"></a> <a href="https://linkedin.com/in/bobleesj"><img src= "https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg"></a>
+<a href="https://medium.com/@bobleesj"><img src="https://img.shields.io/badge/Medium-Read-00AB6C.svg"/></a>
+</p>

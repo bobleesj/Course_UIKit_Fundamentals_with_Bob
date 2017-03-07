@@ -55,7 +55,7 @@ When you access elements in a dictionary, it always returns an optional type.
 ```swift
 var info = ["Height": 183, "Body Fat": 12.5, "Weight": 76]
 
-let height = info["Height"] // height is optional string
+let height = info["Height"] // height is an optional string
 ```
 
 ### Artificial Dictionary Subscript
@@ -94,10 +94,11 @@ No Context means ☠️
 
 
 ## Conclusion
-Great, Now do you know what I mean by creating a shortcut? I'm sure now you do. I told you so. However, subscripts can be quite misleading because there is no name to it. As a result, it might confusion if your teammate starts to read your code, and he/she might get confused. So make sure, don't use it too often. Somtimes, it might be better for you to use a property or method for clarity. An Apple engineering once said, brevity is not the worthwhile goal. Communication is important because programming langauge is not only the way humans talk to computers, but also between a human to human.
+Great, Now do you know what I mean by creating a shortcut? I'm sure now you do. I told you so. However, subscripts can be quite misleading because there is no name to it. As a result, it might confusion if your teammate starts to read your code, and he/she might get confused. So make sure, don't use it too often. Somtimes, it might be better for you to use a property or method for clarity. An Apple engineering once said, brevity is not the worthwhile goal. Communication is important because programming language is not only the way humans talk to computers, but also between a human to human.
 
 #### Stay Connected
-If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`
+I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  
+
 <p>
 <a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>
 <a href="https://facebook.com/bobthedeveloper"><img src="https://img.shields.io/badge/Facebook-Like-3B5998.svg"></a> <a href="https://youtube.com/bobthedeveloper"><img src="https://img.shields.io/badge/YouTube-Subscribe-CE1312.svg"</a> <a href="https://twitter.com/bobleesj"><img src="https://img.shields.io/badge/Twitter-Follow-55ACEE.svg"></a> <a href="https://instagram.com/bobthedev

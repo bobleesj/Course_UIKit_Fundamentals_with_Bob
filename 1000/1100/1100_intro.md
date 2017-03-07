@@ -1,7 +1,11 @@
 # Intermediate Swift 3 Fundamentals
-I understand you've been frustrated by those red marks on the left side of your Xcode. They keep telling you what to do. I was stuck there for a while as well. I didn't know how to deal with them even if I searched online because I lacked the fundamentals.
+You might have been frustrated by those red marks on the left side of your Xcode. They keep telling you what to do. In fact, I was stuck for a period.
 
-I've discovered most of those errors come from concepts that I was battling with and that I couldn't find complete source of information. Let's get out of the situation. In this chapter, you and I are going to find every possible `?` and `!` that appear throughout building apps and you will find out why we use them and how to deal with them. After this chapter with me, you will longer have to worry as much. By the way, I already expect you to know what a `for-in` loop is, and what it means to create an object with classes and structs. Those are the basics. Let's dive into it. Let's level up. 
+I've discovered those errors come from concepts that I was battling with and that I couldn't find a complete source of information.
+
+Let's get out of the situation. In this chapter, you and I are going to find every possible `?` and `!` that appear throughout the Swift programming language. You will first learn why we use them and how to use them.
+
+After this chapter with me, you will longer have to dread the red marks. By the way, I already expect you to know what a `for-in` loop is, and what it means to create an object with classes and structs. Those are the basics, right? Let's dive into it. Let's level up.
 
 
 <br>[1101 Optionals](/1000/1100/1101_optionals.md)

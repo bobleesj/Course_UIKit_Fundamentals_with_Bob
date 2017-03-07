@@ -1,10 +1,21 @@
+# Work Stage
+| Work Stage | Objective |
+| --- | ---|
+| New | Getting started |
+| Draft | Presentable material but improvement needed |
+| Done | Ready for production |
+
+
+
 # Introduction
 0000 Introduction
-<br>0001 Promotional Video
-<br>0002 Course Expectation
-<br>0003 Resources
-<br>0004 Table of Content
+<br>0001 Promotional Video (Draft)
+<br>0002 Course Overview (New)
+<br>0003 Course Expectation (Draft)
+<br>0004 Resources (Draft)
+<br>0005 Table of Content
 
+<br>
 
 # Part 1: Intermediate Swift Fundamentals
 1000 Part 1 Introduction
@@ -59,10 +70,11 @@
 <br>2100 The Life Cycle of an App
 <br>2100 ViewController Structures
 <br>2100 The Life Cycle of a View
+<br>2100 Access Control
 <br>2100 Pass Data Design Patterns
-<br>2010 NSNotification (Part 1)
 <br>2100 Delegate (Part 2)
 <br>2100 Callback (Part 3)
+<br>2010 NSNotification (Part 1)
 <br>2100 Conclusion
 
 ### Chapter 2 The Foundational UI Structure
