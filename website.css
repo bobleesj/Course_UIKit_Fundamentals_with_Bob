@@ -11,6 +11,11 @@ figcaption {
     text-align: center;
     font-style: normal;
     line-height: 1.0em;
-    font-size: 8px;
+    font-size: 6px;
     color: #808080;
+}
+
+
+img {
+  algin: cetner
 }

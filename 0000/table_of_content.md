@@ -1,23 +1,16 @@
-# Work Stage
-| Work Stage | Objective |
-| --- | ---|
-| New | Getting started |
-| Draft | Presentable material but improvement needed |
-| Done | Ready for production |
-
-
-
 # Introduction
 0000 Introduction
-<br>0001 Promotional Video (Draft)
-<br>0002 Course Overview (New)
-<br>0003 Course Expectation (Draft)
-<br>0004 Resources (Draft)
+<br>0001 Promotional Video
+<br>0002 Course Overview
+<br>0003 Course Expectation
+<br>0004 Resources
 <br>0005 Table of Content
 
 <br>
 
 # Part 1: Intermediate Swift Fundamentals
+> Draft Done
+
 1000 Part 1 Introduction
 
 ### Chapter 1: Swift Intermediates
@@ -62,7 +55,9 @@
   <br>1406 Part 1 Conclusion
 
   <br>
-# Part 2: UIKit Components (In-Progress)
+# Part 2: UIKit Components
+> In-Progress
+
 2000 Part 2 Introduction
 
 ### Chapter 1: The iOS Ecosystem
@@ -72,14 +67,15 @@
 <br>2100 The Life Cycle of a View
 <br>2100 Access Control
 <br>2100 Pass Data Design Patterns
-<br>2100 Delegate (Part 2)
-<br>2100 Callback (Part 3)
-<br>2010 NSNotification (Part 1)
+<br>2100 Delegate and Datasource
+<br>2100 Callback
+<br>2010 NSNotification
 <br>2100 Conclusion
 
 ### Chapter 2 The Foundational UI Structure
 2200 Introduction
-<br>2200 UIStoryboard Protocol
+<br>2200 Enum Oriented Storyboard
+<br>2200 Protocol Oriented Protocol
 <br>2200 UINavigation and Tab Structure
 <br>2200 UIApplication & Singleton
 <br>2200 Auto Layout: Foundation
@@ -98,25 +94,39 @@
 <br>2300 UIScrollView
 <br>2300 Page View Controller: Snapchat
 <br>2300 UIAlertViewController
+<br>2300 PickerView and Switch
+<br>2300 Protocol Oriented Animation
+<br>2300 Conclusion
 
 ### Chapter 4: Protocol Oriented UITableView
 2400 Introduction
-<br>2400 Protocol Oriented UITableView (Part 1)
-<br>2400 Design Custom Data Source
-<br>2400 Protocol Oriented UITableView (Part 2)
-<br>2400 NSURL and Parse JSON
-<br>2400 Intro to Grand Dispatch Central
+<br>2400 Default and Reusable Custom Cell
+<br>2400 Swipe to Delete, Add, and Move
+<br>2400 Networking with NSURL and Parse JSON
+<br>2400 Multi Threading and Search
 <br>2400 Conclusion
+
 ### Chapter 5: Protocol Oriented UICollectionView
 2500 Introduction
-<br> Facebook API
-<br>2500 Protocol Oriented UICollectionView
-<br>2500 Protocol Oriented UICollectionView (Part 2)
+<br>2500 Default and Reusable Custom Cell
+<br>2500 The Life Cycle of a Cell
+<br>2500 Introduction to Cocopod
+<br>2500 Google Map API: Information Present
+<br>2500 Pull to Refresh
 <br>
 
+### Chapter 6: Popular Library in 2017
+2600 Introduction
+2601 Hero Animation
+2702 Alamofire
+2703 SwiftyJSON
 
 
-# Part 3: Application (Still on Planning Stage)
+
+
+
+# Part 3: Application
+> Planning Stage
 
 ### Chapter 1: Build Server and Database
 Intro to Realm
@@ -128,8 +138,7 @@ Intro to Realm
 Intro to the App
 <br> Brainstorming and Sketch
 <br> Required Design Patterns
-
-### Chapter 3: (Plan Stage)
+### Chapter 3:
 ### Extra
  Provisioning Profile
 <br> Intro to Github

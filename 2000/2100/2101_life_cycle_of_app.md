@@ -73,6 +73,9 @@ The UIApplication object is the first object to receive the event and make the d
  - Makes your app appear as if they never terminated
  - Users seamlessly get back to where they were at
 
+<img src="/2000/2100/resources/restore_user_interface.png" alt="Restore user interface cycle" width=500px/>
+
+
 ## Conclusion
 In this lesson, you've learned what happens internally when you launch your app. You've also learned how delegate is such an important design pattern.
 
@@ -81,6 +84,10 @@ In out next lessons, you are going to learn what viewDidLoad truly means in iOS,
 ### Resources
 
 [App Programming Guide for iOS: The App Life Cycle](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
+
+
+[App Programming Guide for iOS: Restore UI](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html)
+
 
 
 

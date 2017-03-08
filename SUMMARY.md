@@ -49,11 +49,11 @@
       * [View Controller Structure](2000/2100/2102_view_controller_structure.md)
       * [The Life Cycle of a View](2000/2100/2103_life_cycle_of_view.md)
       * [Access Control](2000/2100/2104_access_control.md)
-      * Send Data Design Patterns
-        * Delegate
-        * NSNotification
-        * Callback
-      * Conclusion
+      * [Send Data Design Patterns](2000/2100/2105_send_data_design_patterns.md)
+        * [Delegate](2000/2100/2106_delegate.md)
+        * [Callback](2000/2100/2107_callback.md)
+        * [NSNotification](2000/2100/2108_notification.md)
+      * [Conclusion](2000/2100/2109_conclusion.md)
     * Foundational UI Structure
       * Enum Oriented Storyboard
       * Protocol Oriented Storyboard
