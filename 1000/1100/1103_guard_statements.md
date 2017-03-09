@@ -1,14 +1,14 @@
 # Guard Statement
 ## Introduction
-Super welcome back. We are at lesson 3 of Part 1 of Swift fundamentals with Bob. First of all, let me share with you a story of mine first. When I learned Swift as my first programming language,  I understood  an `else-if` statement. It wasn't a big deal. For example, if something is true, you run this block, if not, else, you run that. However, a `guard` statement confused the heck out of me. I don't know why. Maybe some of you guys feel the same way as I did. Don't worry. I'm here for you today. You will understand that a `guard statement` is just another for you to write an `else-if` statement. But a guard statement provides a feeling zen which means clarity, emptiness, and lots of cloud and space. Well, let's find out why.
+Welcome back. We are at Lesson 3 of Part 1 of the Swift fundamentals with Bob. First of all, let me share a story of mine. When I learned Swift as my first programming language,  I understood  an `else-if` statement. It wasn't a big deal. For example, if something is `true`, you run a block. However, a `guard` statement confused the heck out of me. Maybe some of you guys feel the same way as I did. Don't worry. I'm here for you today. You will understand that a `guard statement` is just another for you to write an `else-if` statement. A `guard statement` provides a feeling of zenness. In other words, it adds clarity, emptiness, and lots of cloud and space. Let's get in.
 
 ## Lecture Notes
 
 ### Problem
-Is there any better way to write an else-if statement? How do you safely unwrap many optionals?
+Is there any better way to write an `else-if` statement? How do you safely unwrap many optionals?
 
 ### Typical else-if
-Without knowing guard statements, you used a long else-if statement to handle an error message block by calling `else`.
+Without having known guard statements, you used a long `else-if` statement to handle an error message block.
 
 ```swift
 func checkDrinkingAge() {
@@ -32,10 +32,10 @@ func checkDrinkingAge() {
 
 ### Issues with else-if
 1.  Nested brackets
-2.  Read every line to spot error
+2.  Have to read every line to spot error
 
 ### Guard Statement
-It provides early exit and fewer brackets.
+It provides an early exit and fewer brackets. A `guard` block only runs if the condition is `false`. If not, the function ignores it. If the condition is `false`, it will call `return` which causes the function to stop.
 
 ```swift
 func checkDrinkProgram() {
@@ -58,10 +58,9 @@ func checkDrinkProgram() {
 
 
 ### Unwrap Optionals with else-if
+A `guard` statement is not only useful for replacing an `else-if` statement. It could also unwrap optionals by minimizing the number of brackets. To compare, let's first begin how to unwrap multiple optional types using an `else-if`.
 
 ```swift
-// Unwrap using else-if
-
 var publicName: String? = "Bob"
 var publicPhoto: String? = "URL"
 var publicAge: Int? = 21
@@ -78,9 +77,8 @@ func unwrap() {
   }
 
 ```
-
 ### Unwrap Optionals with Guard
-A guard statement is not only useful for replacing a conditional statement, but also used as a way to safely/implicitly unwrap optionals.
+Let's learn how a `guard` statement is used as a way to safely/implicitly unwrap optionals.
 
 ```swift
 func safetlyUnwrapUsingGuard() {
@@ -106,7 +104,7 @@ func safetlyUnwrapUsingGuard() {
 [The Complete Swift 3 Tutorial with Bob: Guard Statement (YouTube)](https://www.youtube.com/watch?v=oeUYGNLqqqg)
 
 ## Conclusion
-Boom, What's going on? How was the lesson just now? I hope you understand the power of using a `guard` statement that it provides an early exit and you don't have to read all the way to the bottom. You are using a `guard` statement not because just to please yourself, but also for the sake of your teammate's hair so it doesn't turn grey when he/she is reading your code. Okay, great. In next our lesson, we are going to learn another `!` and `?` for type casting which allows you to convert types. Let's find out!
+By now, I hope you understand the power of using a `guard` statement. It provides an early exit and you don't have to read all the way to the bottom spot error messages. You use a `guard` statement not just to please yourself, but also for the sake of your teammate's falling hair and prevent it from turning into grey when he/she reads your code. Okay, great. In our next lesson, you are going to learn another `!` and `?` for `type casting` which allows you to convert types. 🤔 Let's find out.
 
 #### Stay Connected
 I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  

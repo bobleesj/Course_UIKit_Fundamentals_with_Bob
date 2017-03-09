@@ -1,7 +1,7 @@
 # Optionals Chaining
 
 ## Introduction
-Welcome to Lesson 2 of Part 1 Swift Fundamentals with me. Just to recap, in our previous lesson, you've learned why we optionals, and there were two ways to unwrap.
+Welcome to Lesson 2 of Part 1 the Swift Fundamentals with me. Just to recap, in our previous lesson, you've learned why we optionals, and there were two ways to unwrap.
 
 But, have you ever wondered why `?` and `!` automatically appear when you randomly try to get  properties and methods of an object? If you haven't, that's okay. You will find out. The goal is to prevent you from guessing and checking. Let's dig in what's really going under the hood. We shall begin.
 

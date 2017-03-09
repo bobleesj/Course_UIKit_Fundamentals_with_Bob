@@ -1,7 +1,7 @@
 # Optionals
 
 ## Introduction
-Welcome to Lesson 1 of Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda. I bought books and whatever resources I could acquire to learn iOS Development.
+Welcome to Lesson 1 of the Swift Fundamentals with Bob. When I first started programming in Swift just like many of you, I took courses from Udemy, Treehouse, Lynda. I bought books and whatever resources I could acquire to learn iOS Development.
 
 For a month, I never really understood what those `?` and `!` stood for. Xcode kept telling me what to do on the left side. You know what I'm talking about. I got frustrated. It seemed like no courses gave me clear reasons how to use optionals, and most importantly, why Swift engineers have implemented such feature that is so unique compared to other programming languages. Well, let's dive into it.
 
