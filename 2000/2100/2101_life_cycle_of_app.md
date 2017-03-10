@@ -15,7 +15,7 @@ In our previous chapter, you've learned about how delegate works. Just to recap,
 UIApplicationObject: The `UIApplication` object manages the event loop and other high-level app behaviors. It also reports key app transitions and some special events (such as incoming push notifications) to its delegate, which is a custom object you define. Use the UIApplication object as is—that is, without subclassing.
 
 
-<img src="/2000/2100/resources/2101_execution_states_for_apps.png" width=350px/>
+<img src="/2000/2100/resources/2101_execution_states_for_apps.png" width=350px alt="The life cylce of an app"/>
 
  1. **Not running:** The app has not been launched or was running but was terminated by the system.
  2. **Inactive:** The app is running in the foreground but is currently not receiving events due to phone calls or other external events.
