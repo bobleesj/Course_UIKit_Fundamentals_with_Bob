@@ -15,9 +15,7 @@ In our previous chapter, you've learned about how delegate works. Just to recap,
 UIApplicationObject: The `UIApplication` object manages the event loop and other high-level app behaviors. It also reports key app transitions and some special events (such as incoming push notifications) to its delegate, which is a custom object you define. Use the UIApplication object as is—that is, without subclassing.
 
 
-
-<img src="/images/2000/execution_States_for_Apps.png" alt="Drawing" title="Simplified Version of the Life Cycle" style="width: 350px;"/>
-
+<img src="/2000/2100/resources/2101_execution_states_for_apps.png" width=350px/>
 
  1. **Not running:** The app has not been launched or was running but was terminated by the system.
  2. **Inactive:** The app is running in the foreground but is currently not receiving events due to phone calls or other external events.
@@ -44,7 +42,7 @@ This method is called after your app has been launched and its main storyboard o
 Determining why and how an app launched is the responsibility of the launchOptions parameter. Like a userInfo dictionary,
 
 
-<img src="/images/2000/Launch_Cycle.png" alt="The entire life cycle of an app" style="width: 500px;"/>
+<img src="/2000/2100/resources/2101_launch_cycle.png" alt="The entire life cycle of an app" style="width: 500px;"/>
 
 #### What's main()?
 UIKit written in Objective-C and comes from C language in order to start, there is `main` function and iOS is based on Unix. It's like you have to insert your key to your car to drive.
