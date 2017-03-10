@@ -6,7 +6,7 @@
 ## Lecture Notes
 
 
-<iframe src="https://docs.google.com/presentation/d/1bpOxYJPXocq-cnYjvmevKqx_zq6SyTEOLpsi8M4I-5g/embed?start=true&loop=false&delayms=1000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1bpOxYJPXocq-cnYjvmevKqx_zq6SyTEOLpsi8M4I-5g/embed?start=true&loop=false&delayms=1000" frameborder="0" width="320" height="209" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ### Problem
 ### Resources
