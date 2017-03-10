@@ -3,6 +3,7 @@
 ## Introduction
 Welcome to our first lesson in Part 2 of the UIKit Fundamentals with Bob. Before we start using components with UIKit objects such images, buttons, and labels to beautifully design UI for apps, let's take a look what happens to your phone internally when you click on the app icon to get started and terminated. Since this is a course designed for intermediates, I already assume you are familiar Storyboard to design UI. 😀
 
+
 In our previous chapter, you've learned about how delegate works. Just to recap, the delegate pattern is used to send messages and data. You will now see how delegate works in the overall iOS ecosystem.  So, let's get started. So, make sure you are familiar with delegate before you decide to continue.
 
 #### Outline
@@ -73,7 +74,7 @@ The UIApplication object is the first object to receive the event and make the d
  - Makes your app appear as if they never terminated
  - Users seamlessly get back to where they were at
 
-<img src="/2000/2100/resources/restore_user_interface.png" alt="Restore user interface cycle" width=500px/>
+<img src="/2000/2100/resources/2101_restore_user_interface.png" alt="Restore user interface cycle" width=500px/>
 
 
 ## Conclusion
@@ -87,7 +88,6 @@ In out next lessons, you are going to learn what viewDidLoad truly means in iOS,
 
 
 [App Programming Guide for iOS: Restore UI](https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html)
-
 
 
 

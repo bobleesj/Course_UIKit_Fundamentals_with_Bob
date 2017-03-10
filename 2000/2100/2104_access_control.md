@@ -4,14 +4,12 @@
 
 Access control restricts access to parts of your code from code in other source files and modules.
 
-
-
 A module is a single unit of code distribution—a framework or application that is built and shipped as a single unit and that can be imported by another module with Swift’s import keyword.
 
 Each build target (such as an app bundle or framework) in Xcode is treated as a separate module in Swift.
 
-
 Open access and public access enable entities to be used within any source file from their defining module, and also in a source file from another module that imports the defining module. You typically use open or public access when specifying the public interface to a framework. The difference between open and public access is described below.
+
 
 Internal access enables entities to be used within any source file from their defining module, but not in any source file outside of that module. You typically use internal access when defining an app’s or a framework’s internal structure.
 
@@ -22,7 +20,8 @@ Private access restricts the use of an entity to the enclosing declaration. Use 
 
 Open access is the highest (least restrictive) access level and private access is the lowest (most restrictive) access level.
 
-Classes with public access, or any more restrictive access level, can be subclassed only within the module where they’re defined.
+Classes with public access, or any more restrictive access level, can be  subclassed only within the module where they’re defined.
+
 
 
 Class members with public access, or any more restrictive access level, can be overridden by subclasses only within the module where they’re defined.

@@ -3,17 +3,19 @@
 
 ## Introduction
 
-
 ## Lecture Notes
 
+### Problem
 
-1. Delegate
+### Delegate
 
+### Callback
 
-2. Callback
-3. NSNotification
-4. Key Value Observation ()
+### NSNotification
 
+### Others
+
+#### Key Value Observation
 Don't even read it. It written in Objective-C way in Swift.
 ```swift
 class Car: NSObject {
@@ -26,7 +28,7 @@ The `dynamic` keyword ensures that property access is dynamically dispatched via
 
  In order to make a Swift type observable it must inherit from `NSObject`, and any properties that you wish to observe need to be marked with the `dynamic` keyword:
 
- 
+
 
 
 ```swift
@@ -60,12 +62,17 @@ class CarObserver: NSObject {
 
 Swift does not support key value observation natively. So, just use property observer. That's better.
 
-### Problem
+#### Target-Action
+
+
+
+
 ### Resources
+### Reference
+
 ### Source Code
 
 ## Conclusion
-
 
 
 

@@ -1,14 +1,13 @@
 # Error Handling
 
 ## Introduction
-Welcome to Lesson 5 of Part 1: Swift Intermediates with Bob. In this lesson, you are going to learn how to write modular and more explicit code to indicate a possible error message instead of using a bloated, thick `else-if` statement. If you are confused, that's alright. I will walk you through, and let's find out!
-
+Welcome to Lesson 5 of Part 1: Swift Intermediates with Bob. In this lesson, you are going to learn how to write modular and more explicit code to indicate a possible error message instead of using a bloated, thick `else-if` statement. Let's dive into it.
 
 ## Lecture Notes
 ### Problem
 1. How do you warn your co-workers this function can result unexpected outcomes?
-2. What is do-try block?
-3. How do you distinguish try?, try!, an try
+2. What is `do-try` block?
+3. How do you distinguish `try?`, `try!`, and `try`
 
 ### Problem with Else-If alone
 1. Bloated Function
@@ -37,7 +36,7 @@ func checkHeight(height: Int) {
 ```
 
 ### Error Handling
-Error Handling is just additional way to write an else-if statement to deal with error messages
+Error Handling is just additional way to write an `else-if` statement to deal with error messages
 
 #### Design Error
 Create an enum that conforms to `Error` protocol. Determine a few cases.  
@@ -120,7 +119,7 @@ do {
 `try` is only used within a `do-catch` block. However, `try?` and `try!` can be used without it. In other words, you can only call a method or init, without handling error.
 
 #### try?
-It returns an optional value if it is used for init. If it throw an error, the result will be `nil`.
+It returns an optional value if it is used for init. If it throws an error, the result will be `nil`.
 
 ```swift
 let newCourse = try? Course(name: "Bob the Dev") // returns Course?
@@ -143,9 +142,9 @@ let myNewCourse = try! Course(name: "Bobby Lee")
 [Intro to Error Handling (Blog)](https://goo.gl/EaepCa)
 
 ## Conclusion
-In this lesson, you've learned the motivation for using Swift Errror Handling snytax such as `catch`, `do`, and `try` instead of writing a `else-if` statement to handle unexpected outcomes. You've also learned the differences between `try`, `try?`, and `try!`. You can only use `try` when you use it within a `do` block. However, if you don't care about catching errors that thrown, you may use `try?` and `try!`. But make sure never use `!` because it can crash at any time.
+In this lesson, you've learned the motivation for using the Swift Error Handling syntax such as `catch`, `do`, and `try` instead of writing a `else-if` statement to handle unexpected outcomes. You've also learned the differences between `try`, `try?`, and `try!`. You can only use `try` when you use it within a `do` block. However, if you don't care about catching errors that are thrown, you may use `try?` and `try!`. But make sure you never use `!` because it can crash at any time.
 
-That's it guys. You've covered the entire `!` and `?` such as type casting, error handling, optionals, and optional chaning. I'm so proud of how much you've come, and you will find out how these Swift concepts play a major role in Part 2 of the course and of course Part 3. In our next lesson, we are learn how make ourselves dry. In other words, we are going to prevent us from repeating our code. See you soon!
+That's it guys. I've covered the entire `!`s and `?`s. To recap, we've learned these two symbols are used in  `type casting`, `error handling`, `optionals`, and `optional chaining`. I'm so proud of how much you've come, and you will find out how these Swift concepts play a major role in Part 2 of the course and of course Part 3. In our next lesson, we are learn how make ourselves dry. In other words, we are going to prevent us from repeating our code. See you soon!
 
 
 #### Stay Connected
