@@ -1,11 +1,9 @@
 # Advanced Object Oriented programming
-Welcome back! Are you ready to learn? I'm ready and pumped. Although I expect you guys to have a basic understanding of Object Oriented Programming, I just wanted to make sure we are on the same page. So that when we build apps in Part 2 and Part 3 of this course, you already know what I'm talking about. For those who feel confident with OOP but you don't know when to use it, you've come to the right place as well.
+Welcome back. You must be ready to learn because I'm ready and pumped. Although I expect you to have a basic understanding of Object Oriented Programming, I just wanted to make sure we are on the same page. So that when we build apps in Part 2 and Part 3, you know what I'm talking about. For those who feel confident with OOP, but you want to maximize its potential, you've come to the right place.
 
-Welcome to the very first lesson of this chapter, advanced Object Oriented Programming. So far, you should definitely what it means to initialize an object using `Struct` and `Class`. In fact, we've been doing it for awhile. You should know also definitely know what it means to have properties and methods within an object.
+Remember, OOP is at the heart of the iOS ecosystem. You can't go against it. It's like death, shadow, and tax. You can't make apps without using OOP because that's what Apple engineers have designed this platform to be. For instance, `UIViewController` contains numerous properties and methods and super classes associated with it.
 
-Remember guys, OOP is at the heart of the iOS ecosystem. You can't go against it. I can't make apps without using OOP because that's what Apple engineers have designed this platform to be. For instance, UIViewController contains numerous properties and methods and super classes associated with it.
-
-I think it was enough of talking. Let's keep learning, you will be surprised how much you will improve just after going through this chapter with me.
+You will be surprised the power of Object Oriented Programming that allows you to write modular and dry code just after going through this chapter with me. Let's get started.
 
 
 <br>[1201 Convenience Init](/1000/1200/1201_convenience_init.md)

@@ -2,7 +2,7 @@
 
 
 ## Introduction
-Welcome back the last lesson of Part 1 Swift Fundamentals with Bob. In this lesson, you will learn how to rename type.What? Let's go.
+Welcome back the last lesson of Part 1 Swift Fundamentals with Bob. In this lesson, you will learn how to rename anything. What? Let's go.
 
 ## Lecture Notes
 ### Problem
@@ -25,6 +25,7 @@ insertName(name: "Bob")
 
 
 ## Conclusion
+It was a rather short lesson, so I don't I have to go recap. Well, see you. -
 
 #### Stay Connected
 I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  

@@ -1,7 +1,7 @@
 # Failable Init
 
 ## Introduction
-Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson you are going learn how to design an init method that, first, possibly returns no object and, second, even throw an error using error handling. I understand it sounds quite confusing to you right now. So, let's dive into it.
+Welcome to Lesson 2 of The UIKIt Fundamentals Part 1 Object Oriented Programming. In this lesson you are going learn how to design an init method that, first, possibly returns no object, but `nil`, second, even throws an error using error handling we talked about in Chapter 1.Let's dive into it.
 
 ## Lecture Notes
 ### Problem
@@ -68,7 +68,7 @@ do {
 ```
 
 #### try?
-If error is thrown, it will return `nil`. If not, it will return an optional object.
+If error is thrown, it will return `nil`. If not, it will return an optional type.
 
 ```swift
 var myCourse = try? UdemyCourse(name: "Bob Lee")
@@ -90,7 +90,7 @@ This is a review for you if you are not still familiar with Error Handling.
 [1202_Failable Init](https://www.dropbox.com/sh/hf36tvvnzqbx8ke/AABB67EWiJ8GMN-BU-EHjPwXa?dl=0)
 
 ## Conclusion
-You've done two things with me in this lesson. First, you've learned how design an init method can return `nil` or optional type by putting a `?` right to the `init`. As we talked about it before. Anything that has `?` in Swift will give you an optional value. Second, you've revisited error handling. The `throws` keyword is not only used within an `else-if` block, but also it can used for an `init` method. Take care, keep practicing and developing your skill my friend. See you in the next lesson.
+You've done two things with me in this lesson. First, you've learned how design an init method that may return `nil` or optional type by putting a `?` right to the `init` keyword. As we talked about it before. Anything that has `?` in Swift will give you an optional value. Second, you've revisited error handling. The `throws` keyword is not only used within an `else-if` block, but also it can used for an `init` method.
 
 #### Stay Connected
 If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`

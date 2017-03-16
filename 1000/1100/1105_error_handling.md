@@ -1,19 +1,19 @@
 # Error Handling
 
 ## Introduction
-Welcome to Lesson 5 of Part 1: Swift Intermediates with Bob. In this lesson, you are going to learn how to write modular and more explicit code to indicate a possible error message instead of using a bloated, thick `else-if` statement. Let's dive into it.
+Welcome to Lesson 5 of Part 1: Swift Intermediates with Bob. In this lesson, you are going to learn how to write modular and more explicit code to indicate an error message instead of using a bloated, nested,  `else-if` statement. Let's dive into it.
 
 ## Lecture Notes
 ### Problem
 1. How do you warn your co-workers this function can result unexpected outcomes?
 2. What is `do-try` block?
-3. How do you distinguish `try?`, `try!`, and `try`
+3. How do you distinguish `try?`, `try!`, and `try`?
 
 ### Problem with Else-If alone
 1. Bloated Function
 2. Modularity
 
-Create a program for a roller coaster ride height limit
+Create a program for a roller coaster height limit
 ```swift
 func checkHeight(height: Int) {
   if height > 200 {
@@ -65,7 +65,7 @@ func checkHeightError(height: Int) throws {
 ```
 
 #### Call and Handle Error
-To call a function that contains `throws`, you must call it by putting `try` in front of the function within a `do` block. A `catch` block is used to handle error thrown by the function.
+To call a function that contains `throws`, run the function block by inserting `try` in front of the function within a `do` block. A `catch` block is used to recognize and handle error thrown by the function.
 
 ```swift
 do {
@@ -78,7 +78,7 @@ do {
 }
  ```
 
-### Error Handling to Object Creation
+### Error Handling to Object Initialization
 Error handling not only applies to functions, but also objects.
 
 #### Design Error
@@ -89,7 +89,7 @@ enum NameError: Error {
 ```
 
 #### Design Throwable Class
-When the user enters an empty string when initializing, it will throw `NameError.noName`.
+When the user enters an empty string when initializing, the init method throws `NameError.noName`.
 ```swift
 class Course {
   var name: String
@@ -104,7 +104,9 @@ class Course {
   }
 }
 ```
-Create an object using `try` within `do`.
+
+> Create an object using `try` within `do`.
+
 #### Init and Handle Error
 ```swift
 do {
@@ -144,7 +146,7 @@ let myNewCourse = try! Course(name: "Bobby Lee")
 ## Conclusion
 In this lesson, you've learned the motivation for using the Swift Error Handling syntax such as `catch`, `do`, and `try` instead of writing a `else-if` statement to handle unexpected outcomes. You've also learned the differences between `try`, `try?`, and `try!`. You can only use `try` when you use it within a `do` block. However, if you don't care about catching errors that are thrown, you may use `try?` and `try!`. But make sure you never use `!` because it can crash at any time.
 
-That's it guys. I've covered the entire `!`s and `?`s. To recap, we've learned these two symbols are used in  `type casting`, `error handling`, `optionals`, and `optional chaining`. I'm so proud of how much you've come, and you will find out how these Swift concepts play a major role in Part 2 of the course and of course Part 3. In our next lesson, we are learn how make ourselves dry. In other words, we are going to prevent us from repeating our code. See you soon!
+That's it guys. we've covered the entire `!`s and `?`s that appear in Swift such as `type casting`, `error handling`, `optionals`, and `optional chaining`. I'm so proud of how much you've come, and you will find out how these Swift concepts play major roles in Part 2 of the course and, of course, Part 3. In the next lesson, we will how make to ourselves dry. In other words, we are going to prevent us from repeating ourselves. 
 
 
 #### Stay Connected

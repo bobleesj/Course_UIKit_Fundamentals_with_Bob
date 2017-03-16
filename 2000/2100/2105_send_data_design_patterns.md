@@ -64,9 +64,6 @@ Swift does not support key value observation natively. So, just use property obs
 
 #### Target-Action
 
-
-
-
 ### Resources
 ### Reference
 

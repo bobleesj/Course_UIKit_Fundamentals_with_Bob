@@ -3,7 +3,6 @@
 ## Introduction
 Welcome to our first lesson in Part 2 of the UIKit Fundamentals with Bob. Before we start using components with UIKit objects such images, buttons, and labels to beautifully design UI for apps, let's take a look what happens to your phone internally when you click on the app icon to get started and terminated. Since this is a course designed for intermediates, I already assume you are familiar Storyboard to design UI. 😀
 
-
 In our previous chapter, you've learned about how delegate works. Just to recap, the delegate pattern is used to send messages and data. You will now see how delegate works in the overall iOS ecosystem.  So, let's get started. So, make sure you are familiar with delegate before you decide to continue.
 
 #### Outline
@@ -13,7 +12,6 @@ In our previous chapter, you've learned about how delegate works. Just to recap,
 
 ### The Life Cycle of an App
 UIApplicationObject: The `UIApplication` object manages the event loop and other high-level app behaviors. It also reports key app transitions and some special events (such as incoming push notifications) to its delegate, which is a custom object you define. Use the UIApplication object as is—that is, without subclassing.
-
 
 <img src="/2000/2100/resources/2101_execution_states_for_apps.png" width=350px alt="The life cylce of an app"/>
 
@@ -91,7 +89,7 @@ In out next lessons, you are going to learn what viewDidLoad truly means in iOS,
 
 
 #### Stay Connected
-I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  
+I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram @[bobthedev](instagram.com/bobthedev)
 
 <p>
 <a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>

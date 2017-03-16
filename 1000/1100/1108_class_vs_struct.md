@@ -6,7 +6,7 @@ Great to see you at lesson 8 of Part 1 Swift Fundamentals with Bob. I'm super ex
 ## Lectures Notes
 ### Problem
   1. What's the difference besides inheritance?
-  2. When to use Struct over Class?
+  2. When to use Structs over Classes?
 
 ### Create Class
 ```swift
@@ -18,7 +18,7 @@ class HumanClass {
 }
 ```
 
-#### Create Class Object
+#### Create Class Instance
 ```swift
 var humanClassObject = HumanClass(name: "Bob")
 humanClassObject.name
@@ -65,7 +65,7 @@ newStructObject.name // "Bob"
  - No mutability due to no relationship between objects
 
 ### Resources
-You may read the introduction part why OOP isn't the best option. We are going to cover Protocol Oriented Programming in Chapter 4.
+You may take a look at why Object Oriented Programming isn't the best option. You don't have to read the entire article. We are going to cover Protocol Oriented Programming in Chapter 4.
 
 [Intro to Protocol Oriented Programming](https://medium.com/ios-geek-community/introduction-to-protocol-oriented-programming-in-swift-b358fe4974f#.nyah1q3fo)
 
@@ -75,7 +75,7 @@ You may read the introduction part why OOP isn't the best option. We are going t
 
 
 ## Conclusion
-You've learned the fundamental difference when an object is created using classes vs struct in terms of memory.  You've learned the difference between reference type and value type. Why am I talking about this?
+You've learned the fundamental difference in how memory is managed when an object is created either through classes or structs. You've learned the difference between reference type and value type. At this point, you might feel as if there is no point of learning the difference. You are right, when you are creating small apps, it doesn't really matter. But, once you start to have a complex structure, that's when you truly see how OOP can be difficult to manage as you've seen the diagram of the UIKIt Structure created by Apple engineers. In Part 3 of this course, I hope to talk more why I prefer using value type over reference type. 
 
 #### Stay Connected
 I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  

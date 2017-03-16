@@ -1,7 +1,7 @@
 # Generics
 
 ## Introduction
-Welcome back to Lesson 6 of Part 1 Swift Fundamentals with Bob. When you think of the word, "generic", what makes you think? Well, I'm sure you've thought you want to write code that can work with many other types. Haha, I know you are super confused, I will walk you through. But remember, the number goal is to write reusable code so that we do not repeat ourself.
+Welcome to Lesson 6 of Part 1 Swift Fundamentals with Bob. When you think of the word, "generic", what makes you think? Well, I'm sure you've thought you wanted to write code that can work with many other types. Haha, I know you are super confused, I will walk you through. But remember, the number goal is to write reusable code so that we do not repeat ourself.
 
 ## Lecture Notes
 
@@ -9,7 +9,7 @@ Welcome back to Lesson 6 of Part 1 Swift Fundamentals with Bob. When you think o
 I feel like I'm repeating myself...
 
 ### Your Past
-Let us reflect on how you access value before you encounter generics
+Let us reflect on how we rolled in the past. Let's attempt to access each element in an array.
 
 ```swift
 let highSchoolGPA = [2.8, 3.2, 3.5, 3.8, 3.5]
@@ -25,7 +25,8 @@ highSchoolGPA[2]
 ```
 
 #### Loop and Print
-You create a function that loops through an element.
+But, there is a better way.
+
 ```swift
 func printDoubleElement(array: [Double]) {
   for GPA in array {
@@ -48,7 +49,7 @@ func printNumberElement(array: [Int]) {
 > Needlessly many functions. It goes against the DRY principle. Don't Repeat Yourself.
 
 ### Introducing Generics
-You may create a function that may pass regardless of type  
+A generic function allows you to pass any value regardless of types.   
 
 ```swift
 func genericFunction<anything>(value: anything) {
@@ -60,7 +61,7 @@ func genericFunctions<WHATEVER>(value: WHATEVER) {
 }
 ```
 
-You may pass any type of value. Swift sets the type of `value` as the type of the input.
+You may pass any type of value. Swift sets the type of `value` identical to what the user enters.
 
 ```swift
 genericFunction(value: "Bob")  // value is String
@@ -86,6 +87,8 @@ printElement(array: favoritePeople)
 
 > Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define.
 
+Now only you can create a generic function, but also generic classes and structs. First, let's begin with a non-generic struct.
+
 #### Non-Generic Struct
 ```swift
 struct Family {
@@ -104,9 +107,9 @@ myFam.push(member: "Bob")
 myFam.members
 ```
 
-### Generic Struct
-You may create a generic struct.
+What if you need to create a struct whose type isn't `String`, but `Int`? You probably have to create an entire new struct whose the `members` property is in `[Int]`. Well, it goes against the dry principle. Let's gets started.
 
+### Generic Struct
 ```swift
 struct genericFam<T> {
   var members = [T]()
@@ -118,8 +121,9 @@ struct genericFam<T> {
 ```
 
 #### Create Object Explicitly
-```swift
+Now, let's create an object from a generic struct. But, you have to specify the type you'd like to interact with.
 
+```swift
 // Generic whose type is String
 var myGenericFamily = genericFam<String>()
 myGenericFamily.push(member: "Bobby")
@@ -153,14 +157,14 @@ let firstElement = geekFamilyMember.firstElement
 ```
 
 ### Type Constraint
-You may limit type you interact with
+You may limit types you want to interact with.
 
 #### Create Class
 ```swift
 class LOL {}
 class BabyLol: LOL {}
 ```
-#### Create Function with Constraint
+#### Create Generic Function with Constraint
 Create a function that only takes an input whose type is `LOL`
 ```swift
 func addClassOnly<T: LOL>(array: [T]) {}
@@ -182,7 +186,7 @@ addClassOnly(array: [LOL(), LOL(), LOL(), BabyLol()]) // Automatically Upcasted
 
 
 ## Conclusion
-That's it! Generics are such a powerful tool to the point the Swift library is, in fact, created with generic code, not all , but many. To recap, you've learned how to make a generic function by putting a diamond sign on the right. You've also learned how to create generic struct as well as how to put a type constraint. You've learned a lot. I'm very proud of you. You might not find generics as useful in this course, but when you start learning practical protocol oriented programming, functional programming, and rx reactive which is going to my next upcoming course, you will learn how generics dominate everywhere. Use your imagination.
+That's it. Generics provide such a powerful tool to the point it's not uncommon to notice the Swift library is written in generic code. To recap, you've learned how to make a generic function by putting a diamond sign on the right. You've also learned how to create generic structs. You've learned a lot. I'm very proud of you. You might not find generics as useful in this course, but when you start learning practical protocol oriented programming, functional programming, and reactive programming, which is going to my next upcoming course, you will learn that generics appear everywhere. That being said, hustle, yet be patient. We will get there, but let's focus on the fundamentals first. See you in the next lesson. 
 
 
 #### Stay Connected

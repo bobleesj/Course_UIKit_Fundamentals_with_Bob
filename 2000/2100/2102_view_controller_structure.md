@@ -125,7 +125,7 @@ func cycle(from oldVC: UIViewController, to newVC: UIViewController) {
 ## Conclusion
 
 #### Stay Connected
-I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  
+I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram @[bobthedev](instagram.com/bobthedev)
 
 <p>
 <a href="http://bobthedeveloper.io"><img src="https://img.shields.io/badge/Personal-Website-333333.svg"></a>

@@ -4,6 +4,11 @@
 ## Introduction
 
 ## Lecture Notes
+### Why Callbacks better?
+ 1. Decoupling
+ 2. Multiple delegation
+
+
 
 ### Problem
 ### Resources
@@ -13,6 +18,9 @@
 
 #### Stay Connected
 I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  
+
+
+
 
 
 

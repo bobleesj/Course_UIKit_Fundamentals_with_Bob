@@ -1,15 +1,15 @@
 # Property Observer
 
 ## Introduction
-You guys know how I'm going to start, right? Welcome to Lesson 6 of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. You are going to learn how to put a tracker to a property. For example, never mind. Let's find out!
+Welcome to Lesson 6 of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. You are going to learn how to put a tracker to a property. For example, never mind. Let's just do it.
 
 ## Lecture Notes
 ### Problem
 How can I add observer/tracker to a property?
 
 ### willSet and didSet
-  1. willSet is called just before the value is set
-  2. didSet is called immediately after the new value is set.
+  1. `willSet` is called just before the value is set
+  2. `didSet` is called immediately after the new value is set.
 
 ### Create Step Counter
 Create a variable called, `totalSteps`. When the variable encounters a new value, you may notify the user that the value has been changed. In the `willSet` block, `newTotalSteps` refers to the new value stored. In the `didSet` block, `oldValue` refers to the previous value before `totalSteps` encounters a new value.
@@ -57,7 +57,7 @@ userLoggedIn = true
 [1206_Property Observer](https://www.dropbox.com/sh/icjktltawrgwmxn/AADakYCf4MubhbRBmGmvTreOa?dl=0)
 
 ## Conclusion
-Great! Do you think you learned something with me? I'm sure you have. The whole purpose of using property observer is to write less code but provide greater readability. You don't have to create a bunch of Switch or else-if statement, functions to do what we did. As you've seen there are ways ways to check whether user has been logged or not, computed property for me at least, works the best because it provides a separate block of code. Keep developing your skills and keep learning. See you byebye.
+Great! The whole purpose of using property observer is to write less code but provide greater readability. You don't have to create a function with a switch or else-if statement. As you've seen there are ways ways to check whether user has been logged or not, computed property for me works great because it provides a separate block of code with distinct keywords such as `didSet` and `willSet`. 
 
 #### Stay Connected
 If you'd like to be on my mailing list and receive personal updates on upcoming books and courses, feel free to send me an email at `bobleesj@gmail.com`

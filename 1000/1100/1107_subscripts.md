@@ -1,12 +1,12 @@
 # Subscripts
 
 ## Introduction
-Welcome back to lesson 7 of Part 1 Swift Fundamentals with Bob. What if I told you right now that you can create a shortcut? I know it sounds super super abstract. But, I will walk you through. I know you guys trust me more than any. Let's dive into it.
+Welcome back to lesson 7 of Part 1 the Swift Fundamentals with Bob. What if I told you right now that you can create a shortcut? I know it sounds super super abstract. But, I will walk you through. I know you guys trust me more than any. Let's dive into it.
 
 
 ## Lecture Notes
 ### Problem
-I want a shortcut without calling a method.
+I want a shortcut instead of calling a method.
 
 ### Normal Method
 Create a class called, `HelloKitty` which contains a method that returns a string value.
@@ -94,7 +94,9 @@ No Context means ☠️
 
 
 ## Conclusion
-Great, Now do you know what I mean by creating a shortcut? I'm sure now you do. I told you so. However, subscripts can be quite misleading because there is no name to it. As a result, it might confusion if your teammate starts to read your code, and he/she might get confused. So make sure, don't use it too often. Somtimes, it might be better for you to use a property or method for clarity. An Apple engineering once said, brevity is not the worthwhile goal. Communication is important because programming language is not only the way humans talk to computers, but also between a human to human.
+Great, now you know what I meant by creating a shortcut. However, subscripts can be quite misleading because there is no name to it. As a result, it might create massive confusion if you work with someone else. So make sure, don't use it too often. Sometimes, it might be better for you to use a property or a method for clarity.
+
+An Apple engineering once said, brevity is not the worthwhile goal. Communication is important because a programming language is not only a way humans talk to computers, but also between us, humans. Clear communication trumps all. 
 
 #### Stay Connected
 I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.  

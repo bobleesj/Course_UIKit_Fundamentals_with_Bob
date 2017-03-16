@@ -1,15 +1,14 @@
 # Type Property
 
 ## Introduction
-Welcome to Lesson 7, the last lesson of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. Today, you are going to learn one of the most confused topics when it comes to Object Oriented Programming and type methods and properties. If you aren't with this, don't you worry my friend. You might a bit confused, but you will come out strong, confident, and pumped. You will be excited to apply what you will learn today in your code later. Enough of talking. Let's go!
+Welcome to Lesson 7, the last lesson of The UIKIt Fundamentals with Bob, Part 1 Object Oriented Programming. Today, you are going to learn one of the most confusing topics when it comes to Object Oriented Programming. It's type methods and properties. If you aren't familiar with those, don't you worry. Right now, you may feel confused, but you will come out strong, confident, and pumped. You will be excited to apply what you will learn today in your code later. Enough of talking. Let's go!
 
 ## Lecture Notes
 ### Problem
-I'm so confused by Static, Final, Class. What are those?
-
+I don't know when to use `static`, `final`, `class`. What are those?
 
 ### Static Property and Method
-Anything that has `static` in front will not be overriden. In fact, `static` is the only type property and method used within `struct` since it does not provide inheritance.
+Anything that has `static` in front will not be overridden. In fact, `static` is the only type property and method used within `struct` since it does not provide inheritance.
 
 ```swift
 struct SomeStructure {
@@ -36,7 +35,7 @@ SomeStructure.computedProperty = 24234
 ```
 
 ### Class
-Unlike `static`, `class` is only used within Classes. But, Classes also support `static`. It's just that it won't be overridden.
+Unlike `static`, `class` is only used within Classes. But, Classes also support `static`. `class` properties and types may be overridden.
 
 #### Design Class
 Create a class called `GrandParent`. It contains one static property and one static method. It also contains a normal method and another method with `final` attached.
@@ -69,19 +68,21 @@ class Parent: GrandParent {
    print("I'm a parent")
  }
 
-//  final func sayHello() {
+//  override func sayHello() {
 //    print("What Up?")
 //  }
+// Error
 
 }
 
 ```
 
 #### Access Type Property and Method
-Now, let us access `numberOfYearsInMarriage` and `introduction` whose both are `static` from the `GrandParent` class. If you use `static`, you may inherit, but you can't override.
+Now, let us grab `numberOfYearsInMarriage` and `introduction`
 
 ```swift
 Parent.numberOfYearsInMarriage // 30
+Parent.introduce()
 Parent().sayHi()  // Good
 Parent().sayHello() // Good
 ```
@@ -94,7 +95,7 @@ class Human {
  static var legs = 2
 
  // class var name = "Bob"
- // Stored property not valid for class var
+ // Error: Stored property not valid for class var
 
  class var myName: String {
    return "Human"
@@ -103,7 +104,7 @@ class Human {
 }
 ```
 ### Design Subclass
-> Again, subclasses can override class methods/properties, but cannot override static methods properties.
+> Again, subclasses can override class methods/properties, but cannot override static methods and properties.
 
 Create a class called, `Bob` that inherits `Human`. Attempt to override `myName` class type property.
 
@@ -154,7 +155,7 @@ AirDropID.iPhone8.rawValue // "7967-8123-7892-4563"
 
 
 ## Conclusion
-Remember a couple things. First, if you use `final` or `static`, that means you can inherit, but you can not override. Second, when you are using `class property`, you have to use computed property for some reason I couldn't find out. Third, if you've learned something, let me see. Good for you. Keep developing, and you will see how everything fits together like the human digestive system.
+Remember a couple things. First, if you use `final` or `static`, that means you may inherit, but you can not override. Second, when you are using `class property`, you have to use computed property for some reason I couldn't find out. Right now, you are learning how each organ works one by one. You are learning about the stomach, the larges intestines, and on on. Later in Part 2 and Part 3, you will learn how those organs form the entire digestive system, also known as the iOS platform.
 
 
 #### Stay Connected
