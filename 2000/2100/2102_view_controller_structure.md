@@ -59,7 +59,6 @@ Before you decide to create your custom view controllers, check whether the syst
 | `UIAlertViewController` | Popup, agreement to location service, contact |
 | `UIDatePicker` | Pick dates |
 
-
 ## Add and Remove ViewControllers
 
 ### Adding  Child View Controller to Content View Controller
@@ -91,10 +90,8 @@ func hideContentController(_ content: UIViewController) {
 }
 ```
 
-
 ### Reference
 [View Controller Programming Guide ](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html#//apple_ref/doc/uid/TP40007457-CH11-SW1)
-
 
 ## Conclusion
 You've learned great stuff with me today. To recap, you've learned that there is usually one `UIWindow` object. It must have a `UIViewController` object. The view controller object contains an `UIView` object. Good stuff. In the lesson, let's learn more about the life cycle of a view such as `viewDidLoad`, `viewWillLoad`, and so on. You know what I'm talking about.

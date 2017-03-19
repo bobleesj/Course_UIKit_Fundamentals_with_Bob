@@ -55,7 +55,7 @@
   <br>1406 Part 1 Conclusion
 
   <br>
-# Part 2: UIKit Components
+# Part 2: The UIKit Components
 > In-Progress
 
 2000 Part 2 Introduction
