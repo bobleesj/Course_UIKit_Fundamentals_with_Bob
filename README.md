@@ -32,4 +32,11 @@ If you've found this document on Github, you may read the entire lecture notes [
 
 If you are interested in joining my waiting-list and receive regular updates, shoot me an email briefly introducing yourself at `bobleesj@gmail.com`. I will send you a form you to register your spot with a coupon until it is officially released. If you'd like to stay up-to-date with the progress and get to know me at a personal level, feel free to follow me on [Instagram](https://instagram.com/bobthedev) 😀
 
+
+## Update
+| Date	| Done |	Next Step |
+| --- | --- | --- |
+| 05/03/2017 | Go started with documenting and prepping | Prep Ch1 and Ch2 |
+
+
 ###### Last Update: {{ gitbook.time }}
