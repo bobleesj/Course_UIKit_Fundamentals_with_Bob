@@ -1455,31 +1455,108 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="name">Name</h1>
+                                <h1 id="delegate">Delegate</h1>
 <h2 id="introduction">Introduction</h2>
+<p>Welcome to Lesson 6 of Part 2: The iOS Ecosystem. We already talked about delegate previously in Part 1. Yet, we haven&apos;t applied to view controllers. So let&apos;s get started. For now, we are going to use Storyboard because I&apos;m just showing a quick feature. Please bear with me for a bit.</p>
 <h2 id="lecture-notes">Lecture Notes</h2>
+<h3 id="define-protocol">Define Protocol</h3>
+<pre class="language-"><code class="lang-swift">protocol <span class="token builtin">NotifyDelegate</span><span class="token punctuation">:</span> <span class="token keyword">class</span> <span class="token punctuation">{</span>
+  <span class="token keyword">func</span> <span class="token function">sendData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="delegate-vc">Delegate VC</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+
+<span class="token keyword">class</span> <span class="token class-name">FirstVC</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span><span class="token punctuation">,</span> <span class="token builtin">NotifyDelegate</span> <span class="token punctuation">{</span>
+
+  <span class="token atrule">@IBOutlet</span> <span class="token keyword">weak</span> <span class="token keyword">var</span> firstLabel<span class="token punctuation">:</span> <span class="token builtin">UILabel</span><span class="token operator">!</span>
+
+  <span class="token keyword">let</span> secondVC <span class="token operator">=</span> <span class="token function">UIStoryboard</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Main&quot;</span><span class="token punctuation">,</span> bundle<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">instantiateViewController</span><span class="token punctuation">(</span>withIdentifier<span class="token punctuation">:</span> <span class="token string">&quot;SecondVC&quot;</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">SecondVC</span>
+
+  <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    secondVC<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span>  
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">buttonPressed</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIButton</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">present</span><span class="token punctuation">(</span>secondVC<span class="token punctuation">,</span> animated<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> completion<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">func</span> <span class="token function">sendData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    firstLabel<span class="token punctuation">.</span>text <span class="token operator">=</span> data
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="delegator-vc">Delegator VC</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">class</span> <span class="token class-name">SecondVC</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span> <span class="token punctuation">{</span>
+
+   <span class="token keyword">weak</span> <span class="token keyword">var</span> delegate<span class="token punctuation">:</span> <span class="token builtin">NotifyDelegate</span><span class="token operator">?</span>
+
+  <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token atrule">@IBAction</span> <span class="token keyword">func</span> <span class="token function">buttonPressed</span><span class="token punctuation">(</span><span class="token number">_</span> sender<span class="token punctuation">:</span> <span class="token builtin">UIButton</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">dismiss</span><span class="token punctuation">(</span>animated<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> completion<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+    delegate<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">sendData</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> <span class="token string">&quot;Bob the Developer&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="pros">Pros</h2>
-<ul>
-<li>Very strict syntax. All events to be heard are clearly defined in the delegate protocol.</li>
-<li>Compile time Warnings / Errors if a method is not implemented as it should be by a delegate.</li>
-<li>Protocol defined within the scope of the controller only.</li>
-<li>Very traceable, and easy to identify flow of control within an application.</li>
-<li>Ability to have multiple protocols defined by one controller, each with different delegates.</li>
-<li>No third party object required to maintain / monitor the communication process.</li>
-<li>Ability to receive a returned value from a called protocol method. This means that a delegate can help provide information back to a controller.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Benefits</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strict syntax and compile time warnings</td>
+<td>All events to be heard are clearly defined in the delegate protocol</td>
+</tr>
+<tr>
+<td>Traceable</td>
+<td>Easy to see the flow</td>
+</tr>
+<tr>
+<td>Multiple protocols</td>
+<td>A view controller may conform to many</td>
+</tr>
+<tr>
+<td>Pass backward</td>
+<td>A delegate may pass data back to the origin via <code>data source</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="cons">Cons</h2>
-<ul>
-<li>Many lines of code required to define: 1. the protocol definition, 2. the delegate property in the controller, and 3. the implementation of the delegate method definitions within the delegate itself.</li>
-<li>Need to be careful to correctly set delegates to nil on object deallocation, failure to do so can cause memory crashes by calling methods on deallocated objects.<ul>
-<li>Although possible, it can be difficult and the pattern does not really lend itself to have multiple delegates of the same protocol in a controller (telling multiple objects about the same event)</li>
-</ul>
-</li>
-</ul>
-<h3 id="problem">Problem</h3>
-<h3 id="resources">Resources</h3>
+<table>
+<thead>
+<tr>
+<th>Difficulties</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verbose syntax</td>
+<td>1. define protocol , 2. set delegate property 3. the implementation of the delegate method</td>
+</tr>
+<tr>
+<td>Might crash with the life cycle of View Controller</td>
+<td>If view controller is deallocated, you have to set delegates to <code>nil</code> to prevent it calling on empty objects</td>
+</tr>
+</tbody>
+</table>
 <h3 id="source-code">Source Code</h3>
+<h3 id="resources">Resources</h3>
+<p><a href="https://medium.com/ios-geek-community/completion-handlers-in-swift-with-bob-6a2a1a854dc4#.pehsxca37" target="_blank">Completion Handlers in Swift with Bob</a>
+<a href="https://medium.com/ios-geek-community/make-memory-management-great-again-f781fb29cea1#.fc5cbobmt" target="_blank">Make Memory Management Great Again</a></p>
 <h2 id="conclusion">Conclusion</h2>
+<p>This should be a review for you. In the next lesson, let&apos;s learn how to use closures/blocks to send data between view controllers. Also, I haven&apos;t talked about why we use <code>weak</code> for delegates. If you want to more about memory management, you may check out my article as well. Make sure you are comfortable with <a href="../../1000/1300/completion_handlers.md">completion handlers</a> and closure syntax before you move on to the next. I&apos;ve attached resources for you besides the lesson in Part 1. Lastly, we are going to talk about <code>dataSource</code> as well. So stay tuned.</p>
 <h4 id="stay-connected">Stay Connected</h4>
 <p>I focus on building a long-term relationship with you. Feel free to follow on my social media for personal updates and engagement. You may see what my daily activity is like on Instagram.</p>
 <p>
@@ -1531,7 +1608,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Delegate","level":"4.1.5.1","depth":3,"next":{"title":"Callback","level":"4.1.5.2","depth":3,"path":"2000/2100/2107_callback.md","ref":"2000/2100/2107_callback.md","articles":[]},"previous":{"title":"Send Data Design Patterns","level":"4.1.5","depth":2,"path":"2000/2100/2105_send_data_design_patterns.md","ref":"2000/2100/2105_send_data_design_patterns.md","articles":[{"title":"Delegate","level":"4.1.5.1","depth":3,"path":"2000/2100/2106_delegate.md","ref":"2000/2100/2106_delegate.md","articles":[]},{"title":"Callback","level":"4.1.5.2","depth":3,"path":"2000/2100/2107_callback.md","ref":"2000/2100/2107_callback.md","articles":[]},{"title":"NSNotification","level":"4.1.5.3","depth":3,"path":"2000/2100/2108_notification.md","ref":"2000/2100/2108_notification.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.1","level":"4.1.1","list_caption":"Figure: An overview of the cycle of an app","alt":"An overview of the cycle of an app","nro":1,"url":"/2000/2100/resources/2101_execution_states_for_apps.png","index":1,"caption_template":" _CAPTION_","label":"An overview of the cycle of an app","attributes":{},"skip":false,"key":"4.1.1.1"},{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.2","level":"4.1.1","list_caption":"Figure: The entire life cycle of an app","alt":"The entire life cycle of an app","nro":2,"url":"/2000/2100/resources/2101_launch_cycle.png","index":2,"caption_template":" _CAPTION_","label":"The entire life cycle of an app","attributes":{},"skip":false,"key":"4.1.1.2"},{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.3","level":"4.1.1","list_caption":"Figure: The complete life cylce of an app","alt":"The complete life cylce of an app","nro":3,"url":"/2000/2100/resources/2101_restore_user_interface.png","index":3,"caption_template":" _CAPTION_","label":"The complete life cylce of an app","attributes":{},"skip":false,"key":"4.1.1.3"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.1","level":"4.1.2","list_caption":"Figure: A relationship between a view controller and its views","alt":"A relationship between a view controller and its views","nro":4,"url":"/2000/2100/resources/2102_view_controller_structure.png","index":1,"caption_template":" _CAPTION_","label":"A relationship between a view controller and its views","attributes":{},"skip":false,"key":"4.1.2.1"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.2","level":"4.1.2","list_caption":"Figure: The relationship between UIWindow, View Controller, and View","alt":"The relationship between UIWindow, View Controller, and View","nro":5,"url":"/2000/2100/resources/2102_root_viewcontroller.png","index":2,"caption_template":" _CAPTION_","label":"The relationship between UIWindow, View Controller, and View","attributes":{},"skip":false,"key":"4.1.2.2"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.3","level":"4.1.2","list_caption":"Figure: A relationship between a view controller and its views","alt":"A relationship between a view controller and its views","nro":6,"url":"/2000/2100/resources/2102_container_viewcontroller.png","index":3,"caption_template":" _CAPTION_","label":"A relationship between a view controller and its views","attributes":{},"skip":false,"key":"4.1.2.3"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.4","level":"4.1.2","list_caption":"Figure: Navigation Controller with three view controllers","alt":"Navigation Controller with three view controllers","nro":7,"url":"/2000/2100/resources/2102_navigation_controller.png","index":4,"caption_template":" _CAPTION_","label":"Navigation Controller with three view controllers","attributes":{},"skip":false,"key":"4.1.2.4"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.5","level":"4.1.2","list_caption":"Figure: Split View Controller with two child view controllers","alt":"Split View Controller with two child view controllers","nro":8,"url":"/2000/2100/resources/2102_split_viewcontroller.png","index":5,"caption_template":" _CAPTION_","label":"Split View Controller with two child view controllers","attributes":{},"skip":false,"key":"4.1.2.5"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.1","level":"4.1.3","list_caption":"Figure: View load cycle","alt":"View load cycle","nro":9,"url":"/2000/2100/resources/2103_view_life_cycle.jpg","index":1,"caption_template":" _CAPTION_","label":"View load cycle","attributes":{},"skip":false,"key":"4.1.3.1"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.2","level":"4.1.3","list_caption":"Figure: viewWillAppear Process","alt":"viewWillAppear Process","nro":10,"url":"/2000/2100/resources/2103_viewappear_process.jpg","index":2,"caption_template":" _CAPTION_","label":"viewWillAppear Process","attributes":{},"skip":false,"key":"4.1.3.2"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.3","level":"4.1.3","list_caption":"Figure: viewDisappear Process","alt":"viewDisappear Process","nro":11,"url":"/2000/2100/resources/2103_viewdisappear_process.jpg","index":3,"caption_template":" _CAPTION_","label":"viewDisappear Process","attributes":{},"skip":false,"key":"4.1.3.3"}]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"2000/2100/2106_delegate.md","mtime":"2017-03-07T13:02:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-19T05:30:16.039Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Delegate","level":"4.1.5.1","depth":3,"next":{"title":"Callback","level":"4.1.5.2","depth":3,"path":"2000/2100/2107_callback.md","ref":"2000/2100/2107_callback.md","articles":[]},"previous":{"title":"Send Data Design Patterns","level":"4.1.5","depth":2,"path":"2000/2100/2105_send_data_design_patterns.md","ref":"2000/2100/2105_send_data_design_patterns.md","articles":[{"title":"Delegate","level":"4.1.5.1","depth":3,"path":"2000/2100/2106_delegate.md","ref":"2000/2100/2106_delegate.md","articles":[]},{"title":"Callback","level":"4.1.5.2","depth":3,"path":"2000/2100/2107_callback.md","ref":"2000/2100/2107_callback.md","articles":[]},{"title":"NSNotification","level":"4.1.5.3","depth":3,"path":"2000/2100/2108_notification.md","ref":"2000/2100/2108_notification.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.1","level":"4.1.1","list_caption":"Figure: An overview of the cycle of an app","alt":"An overview of the cycle of an app","nro":1,"url":"/2000/2100/resources/2101_execution_states_for_apps.png","index":1,"caption_template":" _CAPTION_","label":"An overview of the cycle of an app","attributes":{},"skip":false,"key":"4.1.1.1"},{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.2","level":"4.1.1","list_caption":"Figure: The entire life cycle of an app","alt":"The entire life cycle of an app","nro":2,"url":"/2000/2100/resources/2101_launch_cycle.png","index":2,"caption_template":" _CAPTION_","label":"The entire life cycle of an app","attributes":{},"skip":false,"key":"4.1.1.2"},{"backlink":"2000/2100/2101_life_cycle_of_app.html#fig4.1.1.3","level":"4.1.1","list_caption":"Figure: The complete life cylce of an app","alt":"The complete life cylce of an app","nro":3,"url":"/2000/2100/resources/2101_restore_user_interface.png","index":3,"caption_template":" _CAPTION_","label":"The complete life cylce of an app","attributes":{},"skip":false,"key":"4.1.1.3"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.1","level":"4.1.2","list_caption":"Figure: A relationship between a view controller and its views","alt":"A relationship between a view controller and its views","nro":4,"url":"/2000/2100/resources/2102_view_controller_structure.png","index":1,"caption_template":" _CAPTION_","label":"A relationship between a view controller and its views","attributes":{},"skip":false,"key":"4.1.2.1"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.2","level":"4.1.2","list_caption":"Figure: The relationship between UIWindow, View Controller, and View","alt":"The relationship between UIWindow, View Controller, and View","nro":5,"url":"/2000/2100/resources/2102_root_viewcontroller.png","index":2,"caption_template":" _CAPTION_","label":"The relationship between UIWindow, View Controller, and View","attributes":{},"skip":false,"key":"4.1.2.2"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.3","level":"4.1.2","list_caption":"Figure: A relationship between a view controller and its views","alt":"A relationship between a view controller and its views","nro":6,"url":"/2000/2100/resources/2102_container_viewcontroller.png","index":3,"caption_template":" _CAPTION_","label":"A relationship between a view controller and its views","attributes":{},"skip":false,"key":"4.1.2.3"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.4","level":"4.1.2","list_caption":"Figure: Navigation Controller with three view controllers","alt":"Navigation Controller with three view controllers","nro":7,"url":"/2000/2100/resources/2102_navigation_controller.png","index":4,"caption_template":" _CAPTION_","label":"Navigation Controller with three view controllers","attributes":{},"skip":false,"key":"4.1.2.4"},{"backlink":"2000/2100/2102_view_controller_structure.html#fig4.1.2.5","level":"4.1.2","list_caption":"Figure: Split View Controller with two child view controllers","alt":"Split View Controller with two child view controllers","nro":8,"url":"/2000/2100/resources/2102_split_viewcontroller.png","index":5,"caption_template":" _CAPTION_","label":"Split View Controller with two child view controllers","attributes":{},"skip":false,"key":"4.1.2.5"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.1","level":"4.1.3","list_caption":"Figure: View load cycle","alt":"View load cycle","nro":9,"url":"/2000/2100/resources/2103_view_life_cycle.jpg","index":1,"caption_template":" _CAPTION_","label":"View load cycle","attributes":{},"skip":false,"key":"4.1.3.1"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.2","level":"4.1.3","list_caption":"Figure: viewWillAppear Process","alt":"viewWillAppear Process","nro":10,"url":"/2000/2100/resources/2103_viewappear_process.jpg","index":2,"caption_template":" _CAPTION_","label":"viewWillAppear Process","attributes":{},"skip":false,"key":"4.1.3.2"},{"backlink":"2000/2100/2103_life_cycle_of_view.html#fig4.1.3.3","level":"4.1.3","list_caption":"Figure: viewDisappear Process","alt":"viewDisappear Process","nro":11,"url":"/2000/2100/resources/2103_viewdisappear_process.jpg","index":3,"caption_template":" _CAPTION_","label":"viewDisappear Process","attributes":{},"skip":false,"key":"4.1.3.3"}]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"2000/2100/2106_delegate.md","mtime":"2017-03-21T02:51:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-21T01:24:53.942Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
