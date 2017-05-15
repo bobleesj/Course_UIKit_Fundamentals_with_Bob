@@ -437,7 +437,53 @@
                                 <h1 id="access-control">Access Control</h1>
 <h2 id="introduction">Introduction</h2>
 <h2 id="problem">Problem</h2>
+<p>Prevent others from touching my code</p>
 <h3 id="resources">Resources</h3>
+<pre class="language-"><code class="lang-swift"><span class="token keyword">import</span> <span class="token builtin">UIKit</span>
+<span class="token keyword">class</span> <span class="token class-name">BobController</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<h2 id="learn-how-to-create-framework">Learn how to create framework</h2>
+<ul>
+<li>Create open source project</li>
+</ul>
+<h2 id="open">Open</h2>
+<ul>
+<li>access and able to override within different module</li>
+</ul>
+<h2 id="public">Public</h2>
+<ul>
+<li>access but not able to override within different module</li>
+</ul>
+<h2 id="internal">Internal</h2>
+<ul>
+<li>Access and override within the same module only</li>
+</ul>
+<h2 id="file-private">File Private</h2>
+<ul>
+<li>Access and override within the same file</li>
+</ul>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// random.swift</span>
+fileprivate <span class="token keyword">func</span> <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello from the other side&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// viewcontroller.swift</span>
+<span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ <span class="token function">introduce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// error</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="private">Private</h2>
+<ul>
+<li>Access and override within the scope</li>
+</ul>
+<pre class="language-"><code class="lang-swift"><span class="token comment" spellcheck="true">// human.swift</span>
+<span class="token keyword">class</span> <span class="token class-name">Human</span> <span class="token punctuation">{</span>
+ <span class="token keyword">private</span> <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">&quot;Bob&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token function">Human</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Good</span>
+<span class="token function">Human</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// Error</span>
+</code></pre>
 <h3 id="references">References</h3>
 <h2 id="conclusion">Conclusion</h2>
 
@@ -483,7 +529,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Access Control","level":"2.5","depth":1,"next":{"title":"Delegate and Data Source","level":"3.1","depth":1,"path":"course/pass-data-design-patterns/delegate-datasource.md","ref":"course/pass-data-design-patterns/delegate-datasource.md","articles":[]},"previous":{"title":"Navigation and TabBar Controller","level":"2.4","depth":1,"path":"course/ios-ecosystem/navigation-tab-bar-controller.md","ref":"course/ios-ecosystem/navigation-tab-bar-controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"course/ios-ecosystem/access-control.md","mtime":"2017-05-03T14:30:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-03T15:08:25.355Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Access Control","level":"2.5","depth":1,"next":{"title":"Delegate and Data Source","level":"3.1","depth":1,"path":"course/pass-data-design-patterns/delegate-datasource.md","ref":"course/pass-data-design-patterns/delegate-datasource.md","articles":[]},"previous":{"title":"Navigation and TabBar Controller","level":"2.4","depth":1,"path":"course/ios-ecosystem/navigation-tab-bar-controller.md","ref":"course/ios-ecosystem/navigation-tab-bar-controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.1","level":"2.1","list_caption":"Figure: Figure 1.1 The foreground and background cycle","nro":1,"url":"/course/ios-ecosystem/assets/figure1.1-ios-state-change.png","index":1,"caption_template":" _CAPTION_","label":"Figure 1.1 The foreground and background cycle","attributes":{},"title":"Figure 1.1 The foreground and background cycle","skip":false,"key":"2.1.1"},{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.2","level":"2.1","list_caption":"Figure: Figure 1.2 The complete app cycle","nro":2,"url":"/course/ios-ecosystem/assets/figure1.2-complete-launch-cycle.png","index":2,"caption_template":" _CAPTION_","label":"Figure 1.2 The complete app cycle","attributes":{},"title":"Figure 1.2 The complete app cycle","skip":false,"key":"2.1.2"},{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.3","level":"2.1","list_caption":"Figure: Figure 1.3 The app suspension cycle","nro":3,"url":"/course/ios-ecosystem/assets/figure1.3-app-suspension.png","index":3,"caption_template":" _CAPTION_","label":"Figure 1.3 The app suspension cycle","attributes":{},"title":"Figure 1.3 The app suspension cycle","skip":false,"key":"2.1.3"},{"backlink":"course/ios-ecosystem/view-life-cycle.html#fig2.2.1","level":"2.2","list_caption":"Figure: The view life cycle","nro":4,"url":"/course/ios-ecosystem/assets/view-life-cycle.png","index":1,"caption_template":" _CAPTION_","label":"The view life cycle","attributes":{},"title":"The view life cycle","skip":false,"key":"2.2.1"}]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"course/ios-ecosystem/access-control.md","mtime":"2017-05-13T11:43:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-15T04:55:32.972Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

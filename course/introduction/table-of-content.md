@@ -1,11 +1,11 @@
 # Table of Content
 
 ## Chapter 1: The iOS Ecosystem
-* The Life Cycle of an App
-* The Life Cycle of a View
+* The App Life Cycle
+* The View Life Cycle
 * View Controller Programming Guide
 * UINavigation and Tab Bar Structure
-* Access Control
+* Framework and Access Control
 
 ## Chapter 2: Pass Data Design Patterns
 * Delegate and DataSource

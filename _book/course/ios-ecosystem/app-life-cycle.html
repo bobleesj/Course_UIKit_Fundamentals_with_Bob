@@ -437,8 +437,139 @@
                                 <h1 id="the-app-life-cycle">The App Life Cycle</h1>
 <h2 id="introduction">Introduction</h2>
 <h2 id="problem">Problem</h2>
+<p>What happens when the user touches the app icon</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<p>You need to know what delegate is. If not, this isn&apos;t the right lesson for you. If not, you may visit go to Chapter 2 and learn about delegate and data source or refer to this article.</p>
+<h2 id="the-first-step">The First Step</h2>
+<p>When the user touches the app icon, the <code>main</code> function calls <code>UIApplicationMain</code> function that initializes the <code>UIApplication</code>object and its delegate called, <code>AppDelegate</code>.</p>
+<pre class="language-"><code class="lang-swift">#<span class="token keyword">import</span> <span class="token operator">&lt;</span><span class="token builtin">UIKit</span><span class="token operator">/</span><span class="token builtin">UIKit</span><span class="token punctuation">.</span>h<span class="token operator">&gt;</span>
+#<span class="token keyword">import</span> <span class="token string">&quot;AppDelegate.h&quot;</span>
+
+int <span class="token function">main</span><span class="token punctuation">(</span>int argc<span class="token punctuation">,</span> char <span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    @autoreleasepool <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">UIApplicationMain</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">,</span> <span class="token constant">nil</span><span class="token punctuation">,</span> <span class="token function">NSStringFromClass</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">AppDelegate</span> <span class="token keyword">class</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="the-role-of-objects-in-an-ios-app">The role of objects in an iOS app</h2>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UIApplication</code> object</td>
+<td>The <code>UIApplication</code> object manages the event loop and other higher-level/automatic app behaviors.</td>
+</tr>
+<tr>
+<td>App delegate object</td>
+<td>It receives information from the <code>UIApplication</code> and allow developers to customize code</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-event-cycle">The Event Cycle</h2>
+<figure id="fig2.1.1"><img src="assets/figure1.1-ios-state-change.png" width="400px" title="Figure 1.1 The foreground and background cycle"><figcaption> Figure 1.1 The foreground and background cycle</figcaption></figure>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not running</td>
+<td>The app is not running.</td>
+</tr>
+<tr>
+<td>Inactive</td>
+<td>The app is running in the foreground, but not receiving events. An iOS app can be placed into an inactive state, for example, when a call or SMS message is received.</td>
+</tr>
+<tr>
+<td>Active</td>
+<td>The app is running in the foreground, and receiving events. Transitional state.</td>
+</tr>
+<tr>
+<td>Background</td>
+<td>The app is running in the background, and executing code.</td>
+</tr>
+<tr>
+<td>Suspended</td>
+<td>The app is in the background, but no code is being executed. App is still in memory</td>
+</tr>
+</tbody>
+</table>
+<h3 id="app-delegate-methods">App Delegate Methods</h3>
+<p>The <code>UIApplication</code> object calls methods and notifies the <code>AppDelegate</code> when the app goes through the cycle.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>application:willFinishLaunchingWithOptions</code></td>
+<td>This method is your app&#x2019;s first chance to execute code at launch time.</td>
+</tr>
+<tr>
+<td><code>application:didFinishLaunchingWithOptions</code></td>
+<td>This method allows you to perform any final initialization before your app is displayed to the user.</td>
+</tr>
+<tr>
+<td><code>applicationDidBecomeActive</code></td>
+<td>The app has entered the foreground app. Use this method for any last minute preparation.</td>
+</tr>
+<tr>
+<td><code>applicationWillResignActive</code></td>
+<td>The app is transitioning away from being the foreground app.</td>
+</tr>
+<tr>
+<td><code>applicationDidEnterBackground</code></td>
+<td>The app runs in the background and may be suspended at any time.</td>
+</tr>
+<tr>
+<td><code>applicationWillEnterForeground</code></td>
+<td>The app moves out of the background and back into the foreground, but that it is not yet active.</td>
+</tr>
+<tr>
+<td><code>applicationWillTerminate</code></td>
+<td>The app is being terminated. This method is not called if your app is suspended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-full-life-cycle">The Full Life Cycle</h2>
+<figure id="fig2.1.2"><img src="assets/figure1.2-complete-launch-cycle.png" width="600px" title="Figure 1.2 The complete app cycle"><figcaption> Figure 1.2 The complete app cycle</figcaption></figure>
+<h2 id="application-launch-options">Application Launch Options</h2>
+<p>When your app is launched into the background, launching into the background, the system still loads your app&#x2019;s user interface files but it does not display the app&#x2019;s window.</p>
+<p>To determine whether your app is launching into the foreground or background, check the <code>applicationState</code> property of the shared UIApplication object in your</p>
+<p><code>application:willFinishLaunchingWithOptions:</code> or <code>application:didFinishLaunchingWithOptions:</code> delegate method.</p>
+<p>When the app is launched into the foreground, this property contains the value <code>UIApplicationStateInactive</code>. When the app is launched into the background, the property contains the value <code>UIApplicationStateBackground</code> instead.</p>
+<h2 id="app-programming-guide">App Programming Guide</h2>
+<h3 id="what-do-do-when-your-app-is-launched">What do Do When Your App Is Launched</h3>
+<p>The <code>application:willFinishLaunchingWithOptions:</code> and <code>application:didFinishLaunchingWithOptions:</code> methods should always be as lightweight as possible to reduce your app&#x2019;s launch time. App should launch less than 5 seconds. If not, the system kills itself.</p>
+<h3 id="what-to-do-when-your-app-is-interrupted-temporarily">What to Do When Your App Is Interrupted Temporarily</h3>
+<p>Save data and any relevant state information. Stop timers and other periodic tasks such as movie playing. Stop any running metadata queries. Enter into a pause state if your app is a game. However, you may still do light networking.</p>
+<h3 id="what-to-do-when-your-app-enters-the-background">What to Do When Your App Enters the Background</h3>
+<p>When your <code>applicationDidEnterBackground:</code> method returns, the system takes a picture of your app&#x2019;s user interface and uses the resulting image for transition animations.</p>
+<p>If any views in your interface contain sensitive information, you should hide or modify those views before the <code>applicationDidEnterBackground:</code> method returns.</p>
+<p>Free up memory as needed. Release any cached data that you do not need and do any simple cleanup that might reduce your app&#x2019;s memory footprint.</p>
+<p>Apps with large memory footprints are the first to be terminated by the system, so release image resources, data caches, and any other objects that you no longer need.</p>
+<p>Your app delegate&#x2019;s <code>applicationDidEnterBackground</code> method has approximately 5 seconds to finish any tasks and return. In practice, this method should return as quickly as possible.</p>
+<p>If the method does not return before time runs out, your app is killed and purged from memory.</p>
+<figure id="fig2.1.3"><img src="assets/figure1.3-app-suspension.png" width="600px" title="Figure 1.3 The app suspension cycle"><figcaption> Figure 1.3 The app suspension cycle</figcaption></figure>
+<h3 id="source-code">Source Code</h3>
 <h3 id="resources">Resources</h3>
+<p><a href="https://developer.apple.com/reference/uikit/1622933-uiapplicationmain" target="_blank">API Reference: UIApplicationMain</a></p>
 <h3 id="references">References</h3>
+<p><a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGyyuide/ExpectedAppBehaviors/ExpectedAppBehaviors.html#//apple_ref/doc/uid/TP40007072-CH3-SW2" target="_blank">App Programming Guide for iOS: Expected App Resources</a></p>
+<p><a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html" target="_blank">App Programming Guide for iOS: The App Life Cycle</a></p>
+<p><a href="http://www.codingexplorer.com/execution-states-swift-ios-app/" target="_blank">http://www.codingexplorer.com/execution-states-swift-ios-app/</a></p>
 <h2 id="conclusion">Conclusion</h2>
 
                                 
@@ -483,7 +614,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The App Life Cycle","level":"2.1","depth":1,"next":{"title":"The View Life Cycle","level":"2.2","depth":1,"path":"course/ios-ecosystem/view-life-cycle.md","ref":"course/ios-ecosystem/view-life-cycle.md","articles":[]},"previous":{"title":"Table of Content","level":"1.3","depth":1,"path":"course/introduction/table-of-content.md","ref":"course/introduction/table-of-content.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"course/ios-ecosystem/app-life-cycle.md","mtime":"2017-05-03T14:28:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-03T15:08:25.355Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The App Life Cycle","level":"2.1","depth":1,"next":{"title":"The View Life Cycle","level":"2.2","depth":1,"path":"course/ios-ecosystem/view-life-cycle.md","ref":"course/ios-ecosystem/view-life-cycle.md","articles":[]},"previous":{"title":"Table of Content","level":"1.3","depth":1,"path":"course/introduction/table-of-content.md","ref":"course/introduction/table-of-content.md","articles":[]},"dir":"ltr"},"config":{"plugins":["exercises","youtube","prism","-highlight","katex","new-flowchart","image-captions","livereload"],"root":"./","styles":{"website":"website.css"},"pluginsConfig":{"prism":{},"youtube":{},"new-flowchart":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"exercises":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"caption":" _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Bob Lee","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{"_pictures":[{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.1","level":"2.1","list_caption":"Figure: Figure 1.1 The foreground and background cycle","nro":1,"url":"/course/ios-ecosystem/assets/figure1.1-ios-state-change.png","index":1,"caption_template":" _CAPTION_","label":"Figure 1.1 The foreground and background cycle","attributes":{},"title":"Figure 1.1 The foreground and background cycle","skip":false,"key":"2.1.1"},{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.2","level":"2.1","list_caption":"Figure: Figure 1.2 The complete app cycle","nro":2,"url":"/course/ios-ecosystem/assets/figure1.2-complete-launch-cycle.png","index":2,"caption_template":" _CAPTION_","label":"Figure 1.2 The complete app cycle","attributes":{},"title":"Figure 1.2 The complete app cycle","skip":false,"key":"2.1.2"},{"backlink":"course/ios-ecosystem/app-life-cycle.html#fig2.1.3","level":"2.1","list_caption":"Figure: Figure 1.3 The app suspension cycle","nro":3,"url":"/course/ios-ecosystem/assets/figure1.3-app-suspension.png","index":3,"caption_template":" _CAPTION_","label":"Figure 1.3 The app suspension cycle","attributes":{},"title":"Figure 1.3 The app suspension cycle","skip":false,"key":"2.1.3"},{"backlink":"course/ios-ecosystem/view-life-cycle.html#fig2.2.1","level":"2.2","list_caption":"Figure: The view life cycle","nro":4,"url":"/course/ios-ecosystem/assets/view-life-cycle.png","index":1,"caption_template":" _CAPTION_","label":"The view life cycle","attributes":{},"title":"The view life cycle","skip":false,"key":"2.2.1"}]},"title":"UIKit Fundamentals with Bob Lecture Notes","gitbook":"*","description":"Intermediate Swift3 and iOS10 Cousre Notes"},"file":{"path":"course/ios-ecosystem/app-life-cycle.md","mtime":"2017-05-15T05:35:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-15T04:55:32.972Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
